@@ -1,0 +1,37 @@
+<figure class="avatar">
+	<a href="http://www.gravatar.com" target="_blank">
+		<img src="https://secure.gravatar.com/avatar/{{{md5}}}?s=120" />
+	</a>
+</figure>
+<div class="user">
+	<ul>
+		<li class="user-details">
+			<span class="user-name">{{invitee}}</span>
+			<span class="user-status">({{inviteeStatus}})</span>
+			<a class="user-email" href="mailto:{{userEmail}}">{{userEmail}}</a>
+		</li>
+		<li class="permission-details">
+			{{inviteePermsStart}}
+			<span class="access-level domain-plan al-invited" data-type="PLAN" data-permission="{{acePlanCurrentPermissions}}">
+				<i>{{acePlanCurrent}}</i>
+				<span class="permission-select">
+					<b data-permission="WRITE" class="permission-type">{{aceSelect_edit}}</b>
+					<b data-permission="READ" class="permission-type">{{aceSelect_view}}</b>
+					<!-- <b data-permission="NONE" class="permission-type">{{aceSelect_none}}</b> -->
+				</span>
+			</span>
+			{{inviteePermsMiddle}}
+			<span class="access-level domain-stratboard al-invited" data-type="STRATBOARD" data-permission="{{aceStratboardCurrentPermissions}}">
+				<i>{{aceStratBoardCurrent}}</i>
+				<span class="permission-select">
+					<b data-permission="WRITE" class="permission-type">{{aceSelect_edit}}</b>
+					<b data-permission="READ" class="permission-type">{{aceSelect_view}}</b>
+					<b data-permission="NONE" class="permission-type">{{aceSelect_none}}</b>
+				</span>
+			</span>
+			{{inviteePermsEnd}}
+		</li>
+	</ul>
+</div>
+
+<a href="#" class="icon-ui-remove deleteUser" title="{{tooltipDeleteStratfile}}"></a>

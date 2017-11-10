@@ -1,0 +1,56 @@
+<div id="emailSuccessError"></div>
+<div id="emailDialog">
+	<div id="emailInfo">
+		{{emailDialog_msg_generic}}
+	</div>
+	<div id="emailOptions">
+		<ul class="group fileTypeGrid">
+			<li>
+				<label id="emailPdfRadio" class="emailOptionLabel typePdf" for="emailpdf" data-fileType="pdf">
+					<input type="radio" id="emailpdf" name="emailSelection" value="pdf">
+					<i class="icon-ui-file-pdf"></i>
+					{{emailDialog_pdf_generic_label}}
+				</label>
+			</li>
+			<li>
+				<label id="emailWordRadio" class="emailOptionLabel typeDocx" for="emaildocx" data-fileType="docx">
+					<input type="radio" id="emaildocx" name="emailSelection" value="docx">
+					<i class="icon-ui-file-word"></i>
+					{{emailDialog_docx_generic_label}}
+				</label>
+			</li>
+			<li>
+				<label id="emailCsvRadio" class="emailOptionLabel typeCsv" for="emailcsv" data-fileType="csv">
+					<input type="radio" id="emailcsv" name="emailSelection" value="csv">
+					<i class="icon-ui-file-excel"></i>
+					{{emailDialog_csv_generic_label}}
+				</label>
+			</li>
+			<li>
+				<label id="emailStratFileRadio" class="emailOptionLabel typeStratfile" for="emailstratfile" data-fileType="stratfile">
+					<input type="radio" id="emailstratfile" name="emailSelection" value="stratfile">
+					<i class="icon-ui-file"></i>
+					{{emailDialog_stratfile_generic_label}}
+				</label>
+			</li>
+		</ul>
+	</div>
+	<div id="emailFileInfo"></div>
+	<div id="emailInstructions">
+		<h6>{{emailDialog_instructions_header}}</h6>
+		{{emailDialog_instructions_body}}
+		<a href="#" id="mailtoOthersTrigger"><i class="icon-ui-arrow-down-2"></i>{{emailDialog_externalMailLink}}</a>
+	</div>
+	<div id="emailOthers">
+		<!-- could add multi-address hint here -->
+		<fieldset>
+			<label for="emailRecipients">{{emailDialog_label_emailRecipient}}</label>
+			<input id="emailRecepients" class="emailInput" data-key="to" type="email" placeholder="{{emailDialog_plhrEmailRecepients}}"/>
+			<label for="emailSubject">{{emailDialog_label_emailSubject}}</label>
+			<input id="emailSubject" class="emailInput" data-key="subject" type="text" />
+			<label for="emailMessage">{{emailDialog_label_emailMessage}}</label>
+			<textarea id="emailMessage" data-key="message" class="emailInput"></textarea>
+		</fieldset>
+		<a href="#" id="cancelmailtoOthers"><i class="icon-misc-remove-sign"></i>{{emailDialog_cancelExternalMailLink}}</a>
+	</div>
+</div>

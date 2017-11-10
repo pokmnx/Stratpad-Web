@@ -1,0 +1,33 @@
+body {
+	padding:100px 0 100px 300px;	
+}
+
+#pageNavigation {		
+	width:300px;
+	margin: 0 0 0 -300px;
+}
+
+#pageHeader {		
+	height:100px;
+	line-height:100px;
+	margin:-100px 0 0 -300px;
+	.l-grid {		
+		div:last-child{
+			font-size:40px;			
+		}
+	}
+}
+
+#pageFooter {	
+	height:100px;
+	line-height:100px;
+	margin:0 0 -100px -300px;
+	.l-grid {
+		div:first-child{
+			font-size:16px;				
+		}
+		div:last-child{
+			font-size:40px;			
+		}
+	}
+}

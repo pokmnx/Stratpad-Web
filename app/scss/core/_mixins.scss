@@ -1,0 +1,71 @@
+// mixins.scss 
+
+// Open Sans
+
+@mixin sansFont($weight: normal, $style: normal, $size: 100%, $lineHeight: 1.5, $shortHand: true) {
+	@if $shortHand {
+		font: $weight $style #{$size}/#{$lineHeight} OpenSans, Helvetica, "Helvetica Neue", Arial, sans-serif;
+		} @else {
+		font-family: OpenSans, Helvetica, "Helvetica Neue", Arial, sans-serif;
+	}
+}
+
+// Font Size: px & rem
+
+@mixin font-size($size: 16) { 
+	font-size:$size * 1px;
+	font-size:$size / 16 * 1rem;
+}
+
+// Retina Background Sizing
+
+@mixin bgd-size($width: 50%, $height: 50%) {
+	-webkit-background-size: $width $height;
+	-moz-background-size: $width $height;
+	background-size: $width $height;
+}
+
+// styles nodes with placeholder class, and the placeholder text itself
+// @include input-placeholder(#ccc);
+@mixin input-placeholder($color) {
+	&.placeholder {
+		color: $color !important;
+	}
+	&:-moz-placeholder {
+		color: $color !important;
+	}
+	&::-moz-placeholder {
+		color: $color !important;
+	}
+	:-ms-input-placeholder {
+		color: $color !important;
+	}
+	&::-webkit-input-placeholder {
+		color: $color !important;
+	}	
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin no-select () {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-touch-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

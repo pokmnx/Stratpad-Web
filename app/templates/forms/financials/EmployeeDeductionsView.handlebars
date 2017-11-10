@@ -1,0 +1,71 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{ed_title}}</h2>
+	</hgroup>
+</header>
+<section>
+	<article id="employeeDeductions">
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/view-financials/options/employeeDeductions/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+
+	    <div class="permissions"></div>		
+
+
+		<div class="section">
+			<h3>What percentage of the expenses in each expense category are wages?</h3>
+			<fieldset>
+				<ul class="clean-list percentages">
+					<li id="percentCogsAreWages">
+						<div class="value">&nbsp;</div> 			
+						<label>Cost of Goods Sold</label>
+	                    <span class="icon-ui-question important-info" data-template-path="forms/financials/PercentageCogsWagesTip"></span>
+						<div class="slider" data-field="percentCogsAreWages"></div>
+					</li>
+					<li id="percentGandAAreWages">
+						<div class="value">&nbsp;</div> 			
+						<label>General &amp; Administration</label>
+						<div class="slider" data-field="percentGandAAreWages"></div>
+					</li>
+					<li id="percentRandDAreWages">
+						<div class="value">&nbsp;</div> 			
+						<label>Research &amp; Development</label>
+						<div class="slider" data-field="percentRandDAreWages"></div>
+					</li>
+					<li id="percentSandMAreWages">
+						<div class="value">&nbsp;</div> 			
+						<label>Sales &amp; Marketing</label>
+						<div class="slider" data-field="percentSandMAreWages"></div>
+					</li>
+				</ul>
+			</fieldset>
+		</div>
+
+		<div class="section">
+			<h3>On average, how much do you deduct from an employee's pay, as a percentage?</h3>
+			<fieldset>
+				<ul class="clean-list percentages">
+					<li id="employeeContributionPercentage">
+						<div class="value">&nbsp;</div> 	
+						<label>Employee Contribution</label>							
+						<div class="slider" data-field="employeeContributionPercentage"></div>
+					</li>
+				</ul>
+			</fieldset>
+		</div>		
+
+		<div class="section due">		
+			<h3>When are the deductions and remittances due?</h3>
+			<div>Choose either the end of the month in which the employees are paid (this month) OR the month after the employees are paid (next month).</div>
+			<fieldset>
+				<input type="radio" name="dueDate" value="THIS_MONTH" disabled>This month
+				<input type="radio" name="dueDate" value="NEXT_MONTH" disabled>Next month
+			</fieldset>
+		</div>
+
+	</article>
+</section>
+
+
+

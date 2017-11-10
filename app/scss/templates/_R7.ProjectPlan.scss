@@ -1,0 +1,37 @@
+#projectPlanReport {
+	&.reportTable {
+		tbody {
+			width:100%;
+		}
+		tr {
+			th {
+				text-transform:uppercase;
+				font-weight:700 !important;
+			}
+			th, td {
+				width:20%;
+				text-align:left;
+				&:first-child:not(.showMe) {
+					border-color: #222 !important;
+					width:60% !important;
+					font-weight:400;
+				}
+
+			}
+			&.groupHeading {
+				 font-weight:700;
+				 td:first-child:not(.showMe) {
+					 font-weight:700;
+				 }
+			}
+			&.metric {
+				font-style:italic;
+			}
+			&.activity {
+				td:first-child {
+					padding-left:15px;
+				}
+			}
+		}
+	}
+}

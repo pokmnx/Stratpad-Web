@@ -1,0 +1,415 @@
+<!doctype html>
+<html class="no-js home not-logged">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>StratPad</title>
+<meta charset='utf-8'/>
+<script>var stratpad_oldie = false;</script>
+<!--[if lte IE 9]><script>stratpad_oldie = true;</script><![endif]-->
+<script type="text/javascript">
+	// cache busting
+	var timestamp = '@timestamp@';
+	var isLocal = timestamp.indexOf('@') == 0;
+	var require = {
+        baseUrl: isLocal ? 'js' : 'js/@timestamp@',
+        deps : ['main'],
+        waitSeconds: 0 // peruvian timeout
+    };
+	var style = isLocal ? 'css/style.css' : 'css/style.@timestamp@.css';
+    document.write('<link rel="stylesheet" type="text/css" href="' + style + '"/>');
+    if(!stratpad_oldie) {
+		document.write('\x3Cscript type="text/javascript" src="' + require.baseUrl + '/lib/require/require.js">\x3C/script>');
+	} else {
+		document.write('\x3Cscript type="text/javascript" src="js/lib/modernizr/html5shiv.js">\x3C/script>');
+	}
+</script>
+
+<!-- clickjacking -->
+<style> html { display:none; } </style> 
+<script> if (self == top) { document.documentElement.style.display = 'block'; } else { top.location = self.location; } </script>	
+
+
+<!-- crazy egg -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0021/9862.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+<!--[if lte IE 9]>
+<link rel="stylesheet" type="text/css" href="css/ie.css">
+<![endif]-->
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+
+<body id="home">
+	<div id="fullLoader"></div>
+	<header id="pageHeader">
+		<div class="l-grid l-col-50 group">
+			<div>
+				<a href="http://www.stratpad.com/" id="pageLogo">StratPad</a>
+				<i class="icon-misc-cloud"></i>
+			</div>
+			<div>
+				<ul id="loginMenu">
+					<li id="navLogin" class="homeNav">
+						<a class="showSignIn icon-ui-user" title="Log in to the app." href="#login"></a>
+					</li>
+					<li id="navSignup" class="homeNav">
+						<a class="showSignUp icon-misc-user-plus" title="Sign up with us." href="#signup"></a>
+					</li>
+					<li id="navSupport" class="homeNav">
+						<a class="showSupport icon-social-mail-2" title="Contact support." href="#"></a>
+					</li>					
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section id="landingPage">
+		<div id="signUpContent" data-nav="#navLogin,#navSupport">
+			<div id="signUpBottom">
+				<div id="signUpWrap">
+					<div class="signUpHeader">
+						<h1 class="signUpWelcome trialContent">Launch StratPad Now.</h1>
+						<p class="trialContent">Create an account below and start your business planning today.</p>
+						
+						<h1 class="signUpWelcome purchaseContent">Welcome to StratPad <span id="signUpVersion"></span></h1>
+						<h1 class="signUpTagline purchaseContent">You're just 60 seconds away from starting your plan!</h1>
+						
+						<img class="connectContent" src="images/rocket_logo_blue_connect.png" width="300" />
+						<h2 class="signUpWelcome connectContent">Local business owners use StratPad to find pros like you.</h2>
+						<p class="signUpWelcome connectContent">Small business owners use StratPad to prepare businesss plans and find local professionals and lenders who want to work with them.</p>
+						<h3 class="signUpWelcome connectContent">Sign up now so they can find you!</h3>
+
+						<img class="serviceProviderContent" src="images/rocket_logo_blue_connect.png" width="300" />
+						<h2 class="signUpWelcome serviceProviderContent">Local business owners use StratPad to find pros like you.</h2>
+						<p class="signUpWelcome serviceProviderContent">Small business owners use StratPad to prepare businesss plans and find local professionals and lenders who want to work with them. They are seeing your listing, but can't connect with you, <emphasis>yet</emphasis>.</p>
+						<h3 class="signUpWelcome serviceProviderContent">Sign up now so they can connect with you!</h3>
+
+					</div>
+					<div class="message"></div>
+					<div class="l-grid">
+						<form>
+							<fieldset id="signUpForm">
+                                <div class="signUpSidebar">
+                                    <div class="trialContent">
+                                        <h3>5 reasons you'll love StratPad:</h3>
+                                        - Step-by-step approach<br />
+                                        - Automatically creates all your<br /><span class="vhidden">- </span>necessary financial reports<br />
+                                        - Creates a bank-ready plan<br />
+                                        - How-to videos and tutorials on every page<br />
+                                        - Real people to answer your questions
+                                    </div>
+                                    <div class="purchaseContent">
+                                        <img src="/images/landing/bg-form.jpg" alt="" />
+                                    </div>
+                                    <div class="connectContent serviceProviderContent">
+                                        <p>StratPad Inc. was started in Victoria, Canada in 2011 to help small business owners create stronger businesses.</p>
+										<p>Since then more than 100,000 businesses in over 100 countries have trusted us to help them craft their business plans.</p>
+										<p>Now, with StratPad Connect, we can help them even more by introducing them to qualified local professionals and lenders.</p>
+										<p>Join our growing community and get introduced to business owners when they need you the most.</p>
+                                    </div>
+
+                                </div>
+								<ol class="group">
+									<li class="half">
+										<label for="signUpFirstName">First Name</label>
+										<input id="signUpFirstName" name="signUpFirstName" type="text" placeholder="First name" required autofocus>
+									</li>
+									<li class="half">
+										<label for="signUpLastName">Last Name</label>
+										<input id="signUpLastName" name="signUpLastName" type="text" placeholder="Last name" required>
+									</li>
+									<li class="clear helpWrapper emailValidate">
+										<label for="signUpEmail">Email</label>
+										<input class="hasHelper" id="signUpEmail" name="signUpEmail" type="email" placeholder="example@domain.com" required>
+										<div id="emailMessage"></div>
+									</li>
+	                                <li class="passwordGenWrapper clear">
+	                                    <span id="togglePasswordGen"><i class="icon-new-key"></i>Suggest a strong password <b></b></span>
+	                                    <div class="passwordGen warning">
+	                                        Copy the password below, store it in a safe place and then confirm it in the last field below.
+	                                        <div id="generatedPassword">f%7*(Ga\}cD@`>nP!l38t{_-</div>
+	                                    </div>
+	                                </li>
+									<li class="helpWrapper passValidate">
+										<label for="signUpPassword">Password</label>
+										<input class="hasHelper" id="signUpPassword" name="signUpPassword" type="password" placeholder="A new password" autocomplete="off" required>
+									<span class="helper">
+										<span><span>Including upper and lower case letters, numbers and characters like these will make your password stronger: @#$!%^&amp;*().</span></span>
+									</span>
+									</li>
+									<li class="helpWrapper passValidate">
+										<label for="confirmPassword">Confirm Password</label>
+										<input class="hasHelper" id="confirmPassword" name="confirmPassword" type="password" placeholder="Type password again" autocomplete="off" required>
+									<span class="helper">
+										<span><span>Confirm your password from above. Remember to store your passwords in a safe place.</span></span>
+									</span>
+									</li>
+									<li class="consent">
+										By entering your email address, you are allowing StratPad Inc. to send you important product and security-related information. You can unsubscribe from our emails at any time.
+									</li>
+								</ol>
+							</fieldset>
+							<fieldset class="w-400 pt-20">
+								<input id="productId" name="productId" type="hidden">
+								<button id="submitSignUp" class="icon-misc-checkmark blue-btn" title="Click to start the sign up process.">Sign Up</button>
+							</fieldset>
+						</form>
+						<div id="passwordMessage"></div>
+						<div class="assurance">
+							<span class="orange-text">&#10031;</span> Forbes Magazine Top 10 Business App 2013
+							<span class="orange-text">&#10031;</span> Entrepreneur Magazine "A smart choice"
+							<span class="orange-text">&#10031;</span> CNN Expansion "Optimal for SMBs"
+							<span class="orange-text">&#10031;</span></div>
+						<div class="signUpMarketing">
+							<h2 class="trialContent connectContent serviceProviderContent">Subscription Levels</h2>
+							<ul id="signUpPlans" class="group trialContent connectContent serviceProviderContent">
+								<li>
+									<div class="table">
+										<div class="td">
+											<span class="pricing">Free $36 Value<span class="range">per year</span></span>
+											<span class="product">Startups &amp; Students</span>
+											<span class="plans">1 plan</span>
+											<span class="motivation">Get your plan done.</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="table">
+										<div class="td">
+											<span class="pricing">$99<span class="range">per year</span></span>
+											<span class="product">Business</span>
+											<span class="plans">5 plans</span>
+											<span class="motivation">Create several plans or scenarios.</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="table">
+										<div class="td">
+											<span class="pricing">$179<span class="range">per year</span></span>
+											<span class="product">Unlimited</span>
+											<span class="plans">Unlimited plans</span>
+											<span class="motivation">For professional planners.</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<div class="formDivider2 trialContent connectContent serviceProviderContent">
+
+								<h2>How do I pay?</h2>
+								<p>We accept all major credit cards and PayPal.</p>
+
+								<h2>Can I cancel?</h2>
+								<p>You can cancel your subscription at any time simply by setting your Profile to "Do not renew". We don't refund the unused portion of the year.</p>
+
+								<h2>What browser do I need?</h2>
+								<p>StratPad Cloud runs on PCs ( FireFox, Chrome, Internet Explorer 10+), Macs (Safari, Chrome, FireFox), iPad and iPad mini (an app).</p>
+
+								<h2>Can I collaborate with my team, clients, students and colleagues?</h2>
+								<p>Yes. You can work simultaneously with others on the same plan.</p>
+
+								<h2>What if I need help?</h2>
+								<p>Use the "Talk to us!" button that's on every StratPad screen to ask questions and get help or to make comments and suggestions. We love to hear from you and we'll get back to you immediately.</p>
+
+								<h2>Is the Unlimited edition REALLY free for teachers?</h2>
+								<p>Yes! We want to make it simple to teach strategy and business planning. If you teach business to students in a high school, college, university or continuing education program, get the Unlimited version free. Apply at our
+									<a href="https://www.stratpad.com/stratpad-business-class/">StratPad for Educators page.</a>
+								</p>
+
+								<h2>What's your refund policy? (Paid subscriptions only)</h2>
+								<p>We know what it's like to be an unhappy customer and we never want you to feel that way with us. So our refund policy is simple: if you're ever unhappy with StratPad, for any reason, just drop us an email at
+									<a href="mailto:support@stratpad.com">support@stratpad.com</a> and we'll look after you.
+								</p>
+								<p>Click <a href="http://www.stratpad.com/business-plan-refund-policy/" target="_blank">here</a> to see our detailed refund policy.</p>
+								<button id="submitSignUp2" class="icon-misc-checkmark blue-btn" title="Click to start the sign up process.">Sign up. Free forever.</button>
+							</div>
+							<div class="additional-features">
+								<span class="feature-header">All subscriptions include</span>
+								<ul>
+									<li>unlimited data storage</li>
+									<li>SSL data encryption (the same as online banks)</li>
+									<li>regular free updates</li>
+									<li>anytime, anywhere access</li>
+									<li>iPad app</li>
+									<li>secure data protection</li>
+									<li>no software installation</li>
+									<li>all reports</li>
+									<li>built in charts for results tracking</li>
+									<li>print, email, export of reports and charts</li>
+									<li>instructional videos</li>
+									<li>unlimited support</li>
+								</ul>
+							</div>
+
+							<div class="purchaseContent">
+								<h2>How do I pay?</h2>
+								<p>We accept all major credit cards and PayPal.</p>
+
+								<h2>Can I cancel?</h2>
+								<p>You can cancel your subscription at any time simply by setting your Profile to "Do not renew". Sorry, we don't refund the unused portion of the year.</p>
+
+								<h2>What browser do I need?</h2>
+								<p>StratPad Cloud runs on PCs ( FireFox, Chrome, Internet Explorer 10+), Macs (Safari, Chrome, FireFox), iPad and iPad mini (an app).</p>
+
+								<h2>Can I collaborate with my team, clients, students and colleagues?</h2>
+								<p>Yes. You can work simultaneously with others on the same plan.</p>
+
+								<h2>What if I need help?</h2>
+								<p>There's a "Talk to us!" button on every StratPad screen. Use it to ask questions or make comments and suggestions. We love to hear from you and we'll get back to you immediately.</p>
+
+								<h2>What's your refund policy?</h2>
+								<p>We know what it's like to be an unhappy customer and we never want you to feel that way with us. So our refund policy is simple: if you're ever unhappy with StratPad, for any reason, just drop us an email at support at stratpad dot come and we'll look after you.</p>
+
+								<h2>I still have questions!</h2>
+								<p>Okay, email us here: support at stratpad dot com</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="signInContent" data-nav="#navSignup,#navSupport">
+			<div class="message"></div>
+			<div class="l-grid">
+				<form>
+					<fieldset>
+						<legend><span class="w-400 heading">Sign in to StratPad Cloud</span></legend>
+						<ol class="formDivider">
+							<li class="helpWrapper">
+								<label for="signInEmail">Email</label>
+								<input class="hasHelper" id="signInEmail" name="signInEmail" type="email" placeholder="Your Signup Email" required autofocus>
+								<span class="helper">
+									<span><span>Email associated with your StratPad Cloud account. Use it to recover your password if you've forgotten it.</span></span>
+								</span>
+							</li>
+							<li class="helpWrapper">
+								<label for="signInPassword">Password</label>
+								<input class="hasHelper" id="signInPassword" name="signInPassword" type="password" placeholder="Your Signup Password" autocomplete="off" required>
+								<span class="helper">
+									<span><span>Enter the password you created for StratPad Cloud.</span></span>
+								</span>
+							</li>
+						</ol>
+					</fieldset>
+					<fieldset class="w-400">
+						<span class="button icon-misc-checkmark" id="submitSignIn" title="Click to login"><span>Sign In</span></span>
+						<a class="forgotLink button icon-misc-unlocked" href="#forgot" title="Click to reset your password"><span>Forgot Password?</span></a>
+						<strong class="qbo-or">OR</strong><ipp:login type="vertical" href="#"></ipp:login>
+					</fieldset>
+				</form>
+			</div>
+			<footer>
+				<div class="invitation"></div>
+			</footer>
+		</div>
+		<div id="forgotPasswordContent" data-nav="#navSupport">
+			<div class="message"></div>
+			<div class="l-grid">
+				<form>
+					<fieldset>
+						<legend><span class="w-400 heading">Password Reset</span></legend>
+						<ol class="formDivider">
+							<li class="helpWrapper">
+								<label for="forgotEmail">Email</label>
+								<input class="hasHelper" id="forgotEmail" name="signInEmail" type="email" placeholder="Email" required autofocus>
+								<span class="helper">
+									<span><span>Please submit the email associated with your existing StratPad account, and a new password will be emailed to you.</span></span>
+								</span>
+							</li>
+						</ol>
+					</fieldset>
+					<fieldset class="w-400 pt-20">
+						<span class="button icon-misc-checkmark green-icon" id="submitReset" title="Click to reset password"><span>Reset Password</span></span>
+						<a class="showSignIn button icon-misc-close ml-20" href="#login" title="Click to cancel"><span>Back to Sign In</span></a>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div id="constructionContent">
+			<div class="message info">
+				<p>We're just in the process of readying our servers for production. Check back again soon!</p> 
+				<p>We'll also send you an email as soon as it's ready!</p> 
+				<p>Thank you!</p>
+			</div>
+		</div>
+		<div id="checkEmailContent" data-nav="#navLogin,#navSupport">
+			<div class="message info">
+				<p>Thank you for signing up! Please check your email <span id="checkEmail"></span> to complete the process.</p> 
+			</div>
+		</div>
+		<div id="verifyContent">
+			<div class="message error">
+				Sorry, there was a problem verifying your email address. Please make sure you use the link provided by your registration email. You might need to copy/paste the link. You may also want to try <a href="#signup">signing up</a> again.
+			</div>
+		</div>
+		<div id="notFoundContent">
+			<div class="message error">
+				Sorry, we couldn't find that page. You may want to try <a href="#signup">signing up</a> or <a href="#login">signing in</a>.
+			</div>
+		</div>		
+		<noscript>You must enable JavaScript to use StratPad Cloud.</noscript>
+		<footer id="final-footer">
+			<div id="footer">
+				<span>© 2011-<script type="text/javascript">document.write(new Date().getFullYear());</script> StratPad Inc. All rights reserved.</span><span> | </span>
+				<a href="http://www.stratpad.com/privacy/">Privacy</a><span> | </span>
+				<a href="http://www.stratpad.com/termsofuse/">Terms of Use</a>
+			</div>
+		</footer>
+	</section>
+
+	<div id="old-ie">
+		<div id="ie-header">
+			<img src="images/ie/logo.png" alt="sorry" />
+			<h1>StratPad uses the latest web technologies</h1>
+			<h2>Unfortunately your browser is unsupported at this time.</h2>
+		</div>
+		<div id="ie-message">
+			<h1>Supported Browsers:</h1>
+			<ul class="group">
+				<li>
+					<a href="http://windows.microsoft.com/en-ca/internet-explorer/ie-10-worldwide-languages">
+						<img src="images/ie/ie.png" alt="ie" />
+					</a>
+					<h3>Internet Explorer 10+</h3>
+				</li>
+				<li>
+					<a href="http://www.mozilla.org/en-US/firefox/new/">
+						<img src="images/ie/firefox.png" alt="ie" />
+					</a>
+					<h3>Firefox</h3>
+				</li>
+				<li>
+					<a href="https://www.google.com/intl/en/chrome/browser/">
+						<img src="images/ie/chrome.png" alt="ie" />
+					</a>
+					<h3>Chrome</h3>
+				</li>
+				<li>
+					<a href="http://support.apple.com/downloads/#safari">
+						<img src="images/ie/safari.png" alt="ie" />
+					</a>
+					<h3>Safari</h3>
+				</li>
+			</ul>
+		</div>
+		<div id="ie-footer">
+			<div id="ie-inner-footer">
+				<span>© 2011-<script type="text/javascript">document.write(new Date().getFullYear());</script> StratPad Inc. All rights reserved.</span><span> | </span>
+				<a href="http://www.stratpad.com/privacy/">Privacy</a><span> | </span>
+				<a href="http://www.stratpad.com/termsofuse/">Terms of Use</a>
+			</div>
+		</div>
+	</div>
+	<div id="initialLoader">
+		<div class="outer">
+			<div class="inner">
+				<p>Getting to business...</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

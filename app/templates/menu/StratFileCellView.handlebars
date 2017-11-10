@@ -1,0 +1,27 @@
+<h6 class="stratFileName"></h6>
+<span class="stratFileCompanyName"></span>
+<time>{{date}}</time>
+<nav>
+	{{#unless isOwner}}
+		{{#unless isSampleFile}}
+			<span class="icon-social-share" title="{{sharedStratfile}}"></span>
+		{{/unless}}
+	{{/unless}}
+	{{#if isSampleFile}}
+		<a href="#" class="icon-misc-lock" title="{{lockedStratfile}}"></a>
+	{{/if}}
+	{{#unless isShared}}
+	<a href="#" class="icon-ui-files copyStratfile" title="{{tooltipCopyStratfile}}"></a>
+	{{/unless}}
+	<a href="#" class="icon-ui-remove deleteStratfile" title="{{tooltipDeleteStratfile}}" {{#if isSampleFile}}disabled{{/if}}></a>
+</nav>
+{{#if unAcceptedShare}}
+	<div class="unaccepted-stratfile">
+		<div class="table">
+			<div class="td">
+				<span>{{pendingSharer}}</span><br />
+				{{pendingMessage}}
+			</div>
+		</div>
+	</div>
+{{/if}}

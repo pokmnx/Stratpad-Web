@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js home not-logged">
+
+<head>
+<title>StratPad: Page Not Found</title>
+<meta charset='utf-8'/>
+<meta http-equiv="refresh" content="120;URL=https://cloud.stratpad.com">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<style type="text/css">
+#content {
+padding: 130px 0;
+width: 748px;
+margin: 0 auto;
+position: relative;
+}
+</style>
+</head>
+
+<body id="home">
+  <div id="fullLoader"></div>
+  <header id="pageHeader">
+    <div class="l-grid l-col-50 group">
+      <div>
+        <a href="/" id="pageLogo">StratPad</a>
+      </div>
+      <div>
+      </div>
+
+    </div>
+  </header>
+  <section id="landingPage">
+      
+      <div id="content">
+      <div class="message warning">
+
+      We're sorry, we can't find that page!
+      <br><br>
+      <a href="https://cloud.stratpad.com/index.html">cloud.stratpad.com</a>
+
+      </div>
+    </div>    
+
+  </section>
+  
+</body>
+
+</html>

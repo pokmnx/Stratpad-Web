@@ -1,0 +1,117 @@
+/* ios reports styles */
+
+body {
+	font-family: helvetica, arial, sans-serif;
+}
+
+.viewport {
+	width: 858px;
+	height: 536px;
+	padding: 20px 0 20px 20px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	@include box-sizing(border-box);
+}
+
+.container {
+	width: 878px;
+	height: 516px;
+	position: relative;
+	padding: 20px 0 20px 20px;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	@include box-sizing(border-box);
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.headerWrapper {
+	width: 150px;
+	float: left;
+	@include box-sizing(border-box);
+}
+
+.tableWrapper {
+	width: 688px;
+	float: left;
+	padding-bottom:12px;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	@include box-sizing(border-box);
+}
+
+.tableRowHeaders thead th,
+.fullReportTable thead th {
+	height: 12px;
+}
+
+.reportTable,
+.tableRowHeaders,
+.fullReportTable {
+	font-size: 9px;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.reportTable {
+	thead {
+		font-weight: 400;
+	}
+	tr {
+		th, td {
+			text-align:right; 
+			padding:4px 0 4px;
+			&:first-child:not(.showMe) {
+				font-weight:bold;
+				width:150px !important;
+			}
+		}
+		td {
+			vertical-align:top;
+		}
+	}
+}
+
+.tableRowHeaders {
+	tr {
+		td, th {
+			font-weight: bold;
+			border-color:transparent !important;
+		}
+		th {
+			padding: 4px;
+		}
+		td {
+			vertical-align: top; 
+			padding: 4px 0;
+		}
+	}
+}
+
+.fullReportTable {
+	table-layout: fixed;
+	margin-left: -159px;
+	width: 6300px;
+	tr {
+		th {
+			text-align: right; padding: 4px;
+			&:first-child {
+				color: transparent;
+				font-weight: bold;
+				width: 150px !important;
+			}
+		}
+		td {
+			text-align: right; vertical-align: top; padding: 4px;
+			&:first-child {
+				color: transparent;
+				font-weight: bold;
+				width: 150px !important;
+			}
+		}
+	}
+}
+

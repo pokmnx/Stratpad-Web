@@ -1,0 +1,82 @@
+// globals.scss
+
+/* Global Standards ---------------------- */
+
+*, *:after, *:before {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;     
+}
+html { 
+	font-size: 100%; 
+	-webkit-tap-highlight-color: transparent; 
+	-webkit-font-smoothing: antialiased; 
+}
+html, button, input, select, textarea { 
+	color: $default; 
+}
+
+html, body {	
+	height:100%; 
+	overflow:hidden;	
+}
+body { 	
+	color: $default;
+	@include sansFont; 
+	min-width: 768px; 
+}
+::-moz-selection { 
+	background: $grey; 
+	color: $white; 
+	text-shadow: none; 
+}
+::selection { 
+	background: $grey; 
+	color: $white; 
+	text-shadow: none; 
+}
+
+/* stop FF red boxen on number fields */
+:invalid {
+  box-shadow: none;
+}
+
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow:none;
+}
+
+
+/* Links ---------------------- */
+
+a {
+	color: $linkColor;
+	text-decoration: none;	
+	&:visited { 
+		color: $linkColor; 
+	}
+	&:hover { 
+		color: $linkHover; 
+	}
+}
+  
+hr {
+	border:0;	
+	height:1px;
+	background:#ccc;
+	border-bottom:1px solid rgba(255,255,255,0.8);
+	margin:20px 0;
+}
+
+#old-ie {
+	display:none;
+
+}
+
+.clear {
+	clear: both;
+}
+	

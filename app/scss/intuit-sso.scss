@@ -1,0 +1,233 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+
+html.home.not-logged.waiting, html.home.not-logged.waiting body {
+	height:100%;
+}
+
+html.home.not-logged.waiting body {
+	overflow-y:scroll !important;
+	#initialLoader{
+		display:block;
+		#status {
+			font-weight: 100;
+			margin-top: 50px;			
+		}
+	}
+	#ssoPage {
+		opacity:0;
+		height:1px;
+		overflow:hidden;
+	}
+	#final-footer{
+		width:100%;
+		position:absolute;
+		left:0;
+		bottom:0;
+	}
+}
+
+
+.home.not-logged html, .home.not-logged body {
+	height:1000px;
+}
+
+html.home.not-logged body {
+	background:#efefef url('../images/landing/bg2.jpg') center 100px no-repeat;
+	#initialLoader{
+		display:none;
+	}
+}
+
+.table {
+	display:table;
+	.td {
+		display:table-cell;
+	}
+}
+
+#ssoPage {
+	width:768px;
+	margin:0 auto;
+	padding:50px 0;
+	.button {
+		width:auto;
+		&.orange {
+			text-shadow:none;
+			&:hover:before {
+				color:#fff;
+			}
+		}
+	}
+}
+
+.sso-content-wrap {
+	.create-account-wrap {
+		position:relative;
+	}
+	.message-or {
+		position:absolute;
+		right:-20px;
+		top:2px;
+		font-size:20px;
+		font-weight:600;
+	}
+}
+
+.sso-module {
+	padding:20px 20px 30px 20px;
+	border:1px solid #ccc;
+	background:rgba(255,255,255,0.5);
+	@include border-radius(3px);
+	h3 {
+		margin-top:0;
+	}
+	form{
+		margin-top:20px;
+		padding-top:20px;
+		border-top:1px solid #ccc;
+		p {
+			text-align:left;
+			display:inline-block;
+			width:300px;
+			font-size:11px;
+			margin-top:0;
+		}
+	}
+	label {
+		font-size:13px;
+		width:300px;
+		text-align:left;
+		display:inline-block;
+		font-weight:600;
+		margin:10px 0;
+	}
+	input {
+		width:300px;
+		&[type="text"], &[type="email"], &[type="password"]{
+			@include transition(border-color 200ms ease-in);
+			&.required {
+				border-color:#ff0000;
+			}
+		}
+	}
+	.submits {
+		padding-top:30px;
+		input {
+			text-shadow:none;
+		}
+	}
+}
+
+// sso error messaging
+
+#ssoError {
+	position:absolute;
+	left:20px;
+	top:10px;
+	width:728px;
+	height:95px;
+	opacity:0;
+	@include transition(opacity 200ms ease-in);
+	.has-error & {
+		opacity:1;
+	}
+	.table {
+		height:100%;
+		width:100%;
+		.td {
+			height:100%;
+			width:100%;
+			vertical-align:middle;
+		}
+	}
+	&:before {
+		margin-top:-12px;
+	}
+}
+
+// link accounts module
+
+#linkOrCreate {
+	font-size:14px;
+	height:800px;
+	position:relative;
+	.button, .blue-btn{
+		width:300px;
+		position:relative;
+		padding-left:30px;
+		text-align:center;
+		&:before {
+			position:absolute;
+			left:15px;
+			top:12px;
+
+		}
+	}
+	.message-wrap{
+		opacity:1;
+		@include transition(opacity 200ms ease-in);
+		.has-error & {
+			opacity:0;
+		}
+	}
+	.l-grid {
+		margin-top:30px;
+		> div {
+			text-align:center;
+		}
+	}
+	.form-wrap {
+		position:relative;
+		.lock-mask{
+			position:absolute;
+			width:100%;
+			height:100%;
+			z-index:3;
+		}
+	}
+	#existsEmailDisplay {
+		color:#d47c00;
+	}
+	#emailExistsMessage {
+		font-weight:600;
+	}
+	#createAccountDetails,
+	#linkAccountDetails {
+		opacity:0.2;
+		@include transition(opacity 200ms ease-in);
+	}
+	#linkToPasswordWrap,
+	#emailExistsMessage {
+		display:none;
+	}
+
+}
+
+// swap sides css
+
+.create-account {
+	#linkOrCreate {
+		#createAccountDetails{
+			opacity:1;
+			.lock-mask{
+				display:none;
+			}
+		}
+	}
+}
+.link-account {
+	#linkOrCreate {
+		#linkAccountDetails{
+			opacity:1;
+			.lock-mask{
+				display:none;
+			}
+		}
+	}
+}
+
+
+footer#final-footer {
+	position:static;
+}

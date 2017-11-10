@@ -1,0 +1,25 @@
+<ul class="metricRow group">
+  <li>
+    <input name="metricSummary_{{id}}" type="text" id="metricSummary_{{id}}" placeholder="{{plhrMetricSummary}}" value="{{{summary}}}"/>
+  </li>
+  <li id="successIndicator_{{id}}">
+    <input type="radio" id="successIndicator_gt_{{id}}" name="successIndicator_{{id}}" value="MEET_OR_EXCEED"/>
+    <label for="successIndicator_gt_{{id}}">{{gt}}</label>
+    <br />
+    <input type="radio" id="successIndicator_lt_{{id}}" name="successIndicator_{{id}}" value="MEET_OR_SUBCEDE" />
+    <label for="successIndicator_lt_{{id}}">{{lt}}</label>
+  </li>
+  <li>
+    <input name="targetValue_{{id}}" type="text" id="targetValue_{{id}}" placeholder="{{plhrTargetValue}}" value="{{{targetValue}}}"/>
+  </li>
+  <li>
+    <div class="datepickerWrapper">
+      <i class="icon-ui-calendar-2"></i>
+      <input id="metricTargetDate_{{id}}" type="text" name="metricTargetDate_{{id}}" placeholder="{{plhrTargetDate}}" class="datepicker"/>
+    </div>
+  </li>
+</ul>
+<nav>
+  <a href="#" class="icon-ui-remove deleteMetric" title="{{dialogConfirmDeleteMetric}}"></a>
+</nav>
+

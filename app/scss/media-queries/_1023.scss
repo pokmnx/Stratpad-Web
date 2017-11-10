@@ -1,0 +1,120 @@
+body {
+	padding:65px 0 0 150px;
+}
+
+#landingPage {
+	background:#efefef url('../images/landing/bg.jpg') 30% 100% no-repeat;
+}
+
+#pageNavigation {		
+	width:150px;
+	margin: 0 0 0 -150px;
+	> ul > li {
+		> ul > li {
+			h6 {
+				.add-button {
+					left:125px;
+				}
+			}
+		}
+	}
+}
+
+#pageHeader {		
+	margin:-65px 0 0 -150px;
+	height:65px;
+	line-height:65px;
+	.l-grid {		
+		div:last-child{
+			font-size:24px;
+		}
+	}
+	#stratFileTitle {
+		padding:0 290px 0 170px;
+		@include font-size(20);
+	}
+}
+
+#pageFooter {		
+/*	margin:0 0 -60px -150px;*/
+	display:none;
+}
+
+
+#contentPager{		
+	border:3px solid rgba(255,255,255,0.8);		
+	@include border-radius(3px);
+	aside {	
+		@include font-size(30); 
+	}
+	span {		
+		@include font-size(60); 		
+	}	
+}
+
+// tables
+
+.reportTable {
+	@include font-size(8);
+	tr {
+		td, th {
+			&:first-child {
+				width:80px !important;
+			}
+		}
+		&.totals td,
+		&.totals th {
+			padding-bottom: 20px;
+		}
+	}
+}
+
+.themeDetail {
+	label, p, input, select, .displayInput,.select2-container .select2-choice span {
+		font-size:12px;
+	}
+	h2 {
+		font-size:13px;
+	}
+	h5 {
+		font-size:15px;
+	}
+	table {
+		.first,
+		th {
+			font-size:11px;
+		}
+	}
+}
+
+#gantt {
+	tbody {
+		tr {
+			td {
+				div {
+					i {
+						width:14px;
+						height:14px;
+						margin: -7px -8px 0 -7px;
+					}
+					b {
+						height:6px;
+						margin-top: -3px;
+					}
+				}
+			}
+		}
+	}
+}
+
+#pageContent{
+	.welcomePage {
+		.lineBreak {
+			margin-bottom:22px;
+		}
+		.largeText {
+			font-family: 'LatoRegular';
+			font-size:22px;
+		}
+	}
+}

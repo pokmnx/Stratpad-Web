@@ -1,0 +1,46 @@
+#contentHelp {
+	position:absolute;
+	height:100%;
+	background:#daedef;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #81d0d9;
+	top:-100%;
+	overflow:hidden;
+	color:#eee;
+	@include font-size(13);
+	text-shadow:none;
+	left:0;
+	padding-top:116px;
+	width:100%;
+	@include transition(top 0.4s ease-in);
+	z-index:5;
+	&.active {
+		top:0;
+	}
+}
+
+#helpMask {
+	position:fixed;
+	width:200%;
+	height:200%;
+	background:rgba(0,0,0,0.4);
+	top:-80%;
+	left:-80%;
+	display:none;
+	z-index:4;
+}
+
+#menuHelpMask {
+	position:fixed;
+	width:100%;
+	height:65px;
+	background:rgba(0,0,0,0.4);
+	top:0;
+	left:0%;
+	display:none;
+	z-index:10;
+}
+
+
+
+

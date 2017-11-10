@@ -1,0 +1,44 @@
+<aside class="seasonal-tooltip">
+    <header>
+        <h4>{{seasonalHeader}}</h4>
+        <span>
+        {{#if readonly}}
+            {{warn_readonly}}
+        {{/if}}
+        </span>
+    </header>
+    <article class="group">
+
+        <div class="instructions">If you expect financials to vary seasonally, indicate by how much below. For example, you might have a higher proportion of revenues during August and September, the typical back-to-school season, and a lower proportion in the winter months. Your proportions must total 100%.</div>
+
+        <div class="seasonalAdjustments">
+            <fieldset>
+                <!-- eg -->
+                <div class="monthInput">
+                    <div>Jan</div>
+                    <input id="janAdjustment" class="seasonalAdjustment seasonal" type="text" name="janAdjustment" maxlength="6" />
+                </div>
+                <div class="monthInput">
+                    <div>Feb</div>
+                    <input id="febAdjustment" class="seasonalAdjustment seasonal" type="text" name="febAdjustment" maxlength="6" />
+                </div>
+                <!-- ... -->
+            </fieldset>
+
+            <div class="total">
+                <div>Total</div>
+                <div id="seasonalAdjustmentTotal" class="" ></div>
+            </div>
+        </div>
+        
+        <div class="buttonBar">
+            <button id="clearSeasonals" class="blue-btn left" title="Clear all adjustments.">Clear</button>
+            <button id="defaultSeasonals" class="blue-btn left" title="Divide adjustments evenly across all fields.">Defaults</button>
+            <button id="quarterlySeasonals" class="blue-btn left" title="Divide adjustments evenly across quarters.">Quarterly</button>
+
+            <button id="doneSeasonalItem" class="button orange">{{btn_save}}</button>
+            <button id="cancelSeasonalItem" class="grey-btn">{{btn_cancel}}</button>
+        </div>
+
+    </article>
+</aside>

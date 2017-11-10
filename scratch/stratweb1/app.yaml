@@ -1,0 +1,25 @@
+application: stratweb1
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /images
+  static_dir: images
+
+- url: /user/delete
+  script: main.app
+  login: admin
+
+- url: .*
+  script: main.app
+  secure: always
+
+builtins:
+- remote_api: on
+
+libraries:
+- name: webapp2
+  version: "2.5.1"

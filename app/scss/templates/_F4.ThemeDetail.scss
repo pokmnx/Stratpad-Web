@@ -1,0 +1,236 @@
+#f4{
+	position:relative;
+}
+
+.themeDetail {
+
+	emphasis {
+		color: $secondaryBlue;
+	}
+	max-width:100% !important;
+	padding-right:50px !important;
+	.s1_formPanel {
+		padding:0;
+		border:0;
+		position:relative;
+	}
+	h2 {
+		font-size:16px;
+	}
+	h2,
+	h5 {
+		margin-top:0;	
+	}
+	h5 {
+		font-size:20px;	
+	}
+
+	ul {
+		list-style:none;
+		padding:0;
+		
+	}
+	table {
+		width:100%;
+		td:not(.first) {
+			width:14.28%		
+		}
+		.first,
+		th {			
+			font-size:14px;
+			font-weight:bold;
+		}
+		th{
+			padding-bottom:10px;		
+		}
+	}
+	input[type="number"], 
+	input[type="text"] {
+		width:100%;		
+	}
+	input[type="text"] {
+		padding-right:40px;		
+	}
+	label {
+		display:block;
+		margin-bottom:10px;
+	}
+	.select2, 
+	#s2id_responsible {
+		width:100%;		
+	}
+	.themeStage {
+		padding-bottom:20px;
+	}
+	.themeFinInfo {
+		margin-top:0;
+		margin-bottom:30px;
+	}
+	.themeFinTableHeader {
+		th {
+			vertical-align:bottom !important;
+			padding-bottom:20px;
+			text-align:right !important;
+			padding-right:4px;
+			h2 {
+				text-align:left !important;
+				margin:0;
+			}
+		}
+	}
+	/* Classes are copied from the <select> to the selectiz div */
+	.responsible .selectize-input {
+		font-size: 16px;
+		color: $default;
+		/* to match the rest of the fields, which should be antialiased (thinner), but somehow switch to auto (heavier) */
+		-webkit-font-smoothing: auto;
+	}
+
+}
+
+/* navigator dialog */
+.navigator {
+	min-height: 300px;
+	#projects {
+		min-height: 200px;
+		/* switch link colors */
+		a {
+			color: $default;
+			&:hover {
+				color: $linkColor;
+			}
+		}
+		li.current > a {
+			font-weight: 600;
+		}
+	}
+}
+
+.datepickerWrapper {
+	position:relative;
+	i {
+		font-size:24px;
+		position:absolute;
+		display:block;
+		width:24px;
+		height:24px;
+		line-height:24px;
+		right:0;
+		margin-right:10px;
+		top:50%;
+		margin-top:-12px;
+	}
+}
+
+.themeDetail input#name{
+	margin-bottom:30px;
+}
+
+.stageHeader{
+	padding:8px 20px 8px 0;
+	background:rgba(0,0,0,0.1);
+	border:1px solid rgba(0,0,0,0.1);
+	opacity:1;
+	@include transition-property("background, border, opacity");
+	@include transition-duration("0.2s, 0.2s, 0.2s");
+	@include transition-timing-function("ease-in, ease-in, ease-in");
+	h2{
+		margin:0;
+		text-shadow:1px 1px rgba(255,255,255,0.5);
+		@include transition-property("text-shadow, color");
+		@include transition-duration("0.2s, 0.2s");
+		@include transition-timing-function("ease-in, ease-in");
+
+		span{
+			display:inline-block;
+			vertical-align:middle;
+			margin:-4px 0 0 10px;
+		}
+	}
+}
+.stageContent {
+	@include transition(height 0.5s ease-in);
+	&.closed{
+		height:0;
+	}
+	.stageContentInner{
+		padding:10px 0;
+	}
+}
+
+.coreThemeSettings {
+	span {
+		font-weight:bold;
+		display:block;
+		margin-bottom:10px;
+	}
+}
+
+.themeDetail #seasonallyAndAnnually input[type=text] {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.seasonal-tooltip {
+	.instructions {
+		margin-bottom: 15px;
+		color: $default;
+		font-size: 13px;
+		font-weight: 300;		
+	}
+	.seasonalAdjustments {
+		height: 80px;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 20px;
+		fieldset {
+			margin: 0;
+			float: left;
+		}		
+		.monthInput, .total {
+			text-align: right;
+			float: left;
+			width: 55px;
+			margin-right: 2px;
+			input {
+				@include input-placeholder(#ccc);
+				text-align: inherit;
+				width: inherit;
+				&[disabled] {
+					background: #eee;
+					color: #ccc;
+					border-color: #ccc;
+				}
+			}
+			> div {
+				color: #898989;
+				font-size: 13px;
+				padding: 0 8px 10px 0;
+			}
+		}	
+		.total {
+			float: right;
+			width: 6%;
+			margin-right: 0;
+			#seasonalAdjustmentTotal {
+				padding:8px 0;
+			}
+			> div {
+				padding-right: 0;
+			}
+		}	
+	}
+	.button {
+		text-shadow: none;
+		&[disabled] {
+			background: #eee;
+			color: #ccc !important;
+			border-color: #ccc;
+		}
+	}
+	.buttonBar button.blue-btn.left {
+		float: left;
+		margin-left: 0;
+		margin-right: 10px;
+	}
+
+}

@@ -1,0 +1,46 @@
+<aside class="notes-tooltip">
+    <header>
+        <h4>{{notesHeader}}</h4>
+        <span>
+        {{#if readonly}}
+            {{warn_readonly}}
+        {{/if}}
+        </span>
+    </header>
+    <article class="group">
+        <ul class="notesGrid notesHeader cleanList group">
+            <li class="notesCategoryHeader">
+                <!-- runtime -->
+            </li>
+            <li class="notesQuantityHeader">
+                {{notesQuantityHeader}}
+            </li>
+            <li class="notesPriceHeader">
+                {{notesPriceHeader}}
+            </li>
+            <li class="notesTotalHeader">
+                {{notesRowTotalHeader}}
+            </li>
+            <li class="notesStaffHeader">
+                {{notesStaffHeader}}
+            </li>
+            <li class="notesCommentHeader">
+                {{notesCommentHeader}}
+            </li>
+        </ul>
+
+        <ul id="projectNoteItems" class="cleanList group"></ul>
+
+        <ul class="notesGrid notesTotals cleanList group">
+            <li class="notesTotalHeader">
+                {{notesTotalHeader}}
+            </li>
+            <li class="notesTotal">
+                <span id="notesTotal"></span>
+            </li>
+        </ul>
+
+        <button id="closeNoteItem" class="button orange">{{doneNote}}</button>
+        <button id="addNoteItem" class="blue-btn" {{#if readonly}}disabled="disabled"{{/if}}>{{addNote}}</button>
+    </article>
+</aside>

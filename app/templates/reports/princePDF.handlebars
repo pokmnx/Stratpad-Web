@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{documentTitle}}</title>
+    <link rel="stylesheet" href="{{mainCss}}" type="text/css" />
+    <link rel="stylesheet" href="{{princeCss}}" type="text/css" />
+  </head>
+  <body class="{{bodyClass}}">
+      <div id="reportName">{{reportName}}</div>
+      <div id="stratfile">{{stratFileName}}</div>
+      <div id="date">{{now}}</div>
+      <div id="company">{{company}}</div>
+	  {{{content}}}
+      <script>
+          Prince.addScriptFunc("subcontext", function(n) {
+              return document.getElementById('subcontext'+n).textContent;
+          });
+          Prince.addScriptFunc("footer", function(company, pagenum) {
+              var sprintf = function() {
+                  var s = arguments[0];
+                  for (var i=1, ct=arguments.length; i<ct; i++) {
+                      s = s.replace('%s', arguments[i]);
+                  }
+                  return s;
+              }            
+              if (company) {
+                return sprintf('{{reportFooterFormatWithCompany}}', company, pagenum)
+              }
+              else {
+                return sprintf('{{reportFooterFormat}}', pagenum)
+              }
+          });
+      </script>
+  </body>
+</html>

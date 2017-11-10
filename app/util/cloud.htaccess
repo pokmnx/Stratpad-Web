@@ -1,0 +1,59 @@
+# 480 weeks
+<FilesMatch ".(ico|swf)$">
+Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+ 
+# 2 DAYS
+<FilesMatch ".(xml|txt|jpg|png|gif)$">
+Header set Cache-Control "max-age=172800, public, must-revalidate"
+</FilesMatch>
+ 
+# 2 HOURS
+<FilesMatch ".(html|htm|css|js|pdf|svg)$">
+Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
+
+# no directory listings
+Options -Indexes
+
+# cache buster - our main css and js files are versioned, but only by appearance
+RewriteEngine on
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+RewriteRule ^(.*)\/[\d]{10}\/(.*) $1/$2 [L]
+
+
+# maintenance (can allow specific IP's to access)
+# RewriteEngine On
+# RewriteBase /
+# RewriteCond %{REMOTE_ADDR} !^11\.111\.111\.111
+# RewriteCond %{REQUEST_URI} !^/images/.*$
+# RewriteCond %{REQUEST_URI} !^/css/.*$
+# RewriteCond %{REQUEST_URI} !^/js/.*$
+# RewriteCond %{REQUEST_URI} !^/fonts/.*$
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+# RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+# RewriteRule ^(.*)$ https://cloud.stratpad.com/maintenance.html [R=307,L]
+
+
+
+# this can go in the virtual host file
+
+# gzip
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript 
+
+# force https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# no directory listings
+Options -Indexes
+
+# disable TRACE and TRACK methods
+RewriteEngine on
+RewriteCond %{REQUEST_METHOD} ^TRACE
+RewriteRule .* - [F]
+RewriteCond %{REQUEST_METHOD} ^TRACK
+RewriteRule .* - [F]
+

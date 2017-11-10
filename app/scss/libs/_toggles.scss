@@ -1,0 +1,64 @@
+.switch {
+	position: relative;
+	width: 100px;
+	@include no-select();
+}
+.switch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	@include transition(border 0.3s ease-in);
+}
+.switch-inner {
+	width: 200%;
+	margin-left: -100%;
+	@include transition(margin 0.3s ease-in);
+}
+.switch-inner:before,
+.switch-inner:after {
+	float: left;
+	width: 50%;
+	height: 40px;
+	padding: 0;
+	line-height: 38px;
+	font-size: 16px;
+	color: white;
+	font-weight: bold;
+}
+.switch-inner:before {
+	content: attr(data-on);
+	padding-left: 10px;
+	@include background-image(linear-gradient(bottom, #d47c00 0%, #ee8c00 100%));
+	color: #FFFFFF;
+	text-shadow:1px 1px rgba(0,0,0,0.3);
+}
+.switch-inner:after {
+	content: attr(data-off);
+	padding-right: 10px;
+	background-color: #eee;
+	color: #999999;
+	text-align: right;
+}
+.switch-toggle {
+	width: 18px; margin: 12px 8.5px;
+	@include background-image(linear-gradient(bottom, #888 0%, #999 100%));
+	border: 1px solid #777;
+	border-radius: 2px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 61px;
+	@include transition(all 0.3s ease-in);
+}
+.switch.on .switch-label {
+	border-color:#777;
+}
+.switch.on .switch-label .switch-inner {
+	margin-left: 0;
+}
+
+.switch.on .switch-label .switch-toggle {
+	right: 0px;
+}

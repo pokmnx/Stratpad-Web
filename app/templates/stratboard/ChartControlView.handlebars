@@ -1,0 +1,63 @@
+<aside id="chartControlDrawer">
+
+	<input name="chartTitle" type="text" id="chartTitle" placeholder="{{plhrChartTitle}}"/>
+
+    <select name="chartType" id="chartType" class="select2" tabindex="2">
+      <option value="1">{{LINE}}</option>
+      <option value="2">{{BAR}}</option>
+      <option value="3">{{AREA}}</option>
+    </select>
+
+	<input type="checkbox" id="toggleTarget"><label for="toggleTarget">{{lblTarget}}</label>
+
+	<input type="checkbox" id="toggleTrendLine"><label for="toggleTrendLine">{{lblTrendline}}</label>
+
+	<input type="text" name="chartColor" id="chartColor" placeholder="{{plhrChartColor}}" />
+
+	<button id="btnMeasurements">{{btnMeasurements}}</button>
+
+  <div class="permissions"></div>
+
+  <script type="text/template" id="dialogManageMeasurements">
+    <article id="measurements" class="objectiveActivities">
+      <div>{{dialogManageMeasurementsLblMetric}}{{sourceName}}</div>
+      <div class="stageContentInner">
+        <ul class="measurements measurementRow group">
+          <li>Date</li>
+          <li>Value</li>
+          <li>Comment</li>
+        </ul>
+        <ul class="sortable ui-sortable">
+          <!-- rows go here -->
+        </ul>
+        <a href="#" class="button addButton">
+        <span class="icon-ui-file-plus"></span>{{btnAddMeasurement}}</a>
+        <a href="#" class="button linkQboButton">
+        <span class="icon-ui-link-2"></span>{{btnLinkToQBO}}</a>
+      </div>
+    </article>
+  </script>
+
+
+  <script type="text/template" id="dialogEditAddMeasurement">
+    <ul id="measurementFields" class="group s1_formPanel dialogFields">
+      <li class="ocLabel">{{lblMeasurementValue}}</li>
+      <li>
+        <input name="measurementValue" id="measurementValue" placeholder="{{plhrMeasurementValue}}" tabindex="1" />
+      </li>
+      <li class="ocLabel">{{lblMeasurementDate}}</li>
+      <li>
+        <div class="datepickerWrapper">
+          <i class="icon-ui-calendar-2"></i>
+          <input id="measurementDate" type="text" name="measurementDate" placeholder="{{plhrMeasurementDate}}" class="datepicker" tabindex="2" />
+        </div>
+      </li>
+      <li class="ocLabel">{{lblMeasurementComment}}</li>
+      <li>
+        <input name="measurementComment" type="text" id="measurementComment" placeholder="{{plhrMeasurementComment}}" tabindex="3" />
+      </li>
+    </ul>
+  </script>
+
+
+</aside>

@@ -1,0 +1,381 @@
+.themeFinChangesWrap{
+	position:relative;
+	&.active,
+	&:hover {
+		z-index:3;
+		i {
+			opacity:1;
+			@media #{$mq-min} {
+				font-size:16px !important;
+			}
+			@media #{$mq-xsmall} {
+				font-size:18px !important;
+			}
+			@media #{$mq-small} {
+				font-size:22px !important;
+			}
+			@media #{$mq-medium} {
+				font-size:26px !important;
+			}
+			@media #{$mq-large} {
+				font-size:28px !important;
+			}
+			@media #{$mq-xlarge} {
+				font-size:30px !important;
+			}
+			@media #{$mq-max} {
+				font-size:32px !important;
+			}
+		}
+	}
+	&.has-notes {
+		i {
+			opacity:1;
+			font-size:12px;
+			@media #{$mq-min} {
+				font-size:10px !important;
+			}
+			@media #{$mq-xsmall} {
+				font-size:10px;
+			}
+			@media #{$mq-small} {
+				font-size:12px;
+			}
+			@media #{$mq-medium} {
+				font-size:12px;
+			}
+			@media #{$mq-large} {
+				font-size:14px;
+			}
+			@media #{$mq-xlarge} {
+				font-size:14px;
+			}
+			@media #{$mq-max} {
+				font-size:14px;
+			}
+		}
+		&:hover {
+			z-index:3;
+			i {
+				opacity:1;
+				font-size:26px;
+				@media #{$mq-min} {
+					font-size:16px !important;
+				}
+				@media #{$mq-xsmall} {
+					font-size:18px !important;
+				}
+				@media #{$mq-small} {
+					font-size:22px !important;
+				}
+				@media #{$mq-medium} {
+					font-size:26px !important;
+				}
+				@media #{$mq-large} {
+					font-size:28px !important;
+				}
+				@media #{$mq-xlarge} {
+					font-size:30px !important;
+				}
+				@media #{$mq-max} {
+					font-size:32px !important;
+				}
+			}
+		}
+		&.active{
+			i {
+				@media #{$mq-min} {
+					font-size:16px !important;
+				}
+				@media #{$mq-xsmall} {
+					font-size:18px;
+				}
+				@media #{$mq-small} {
+					font-size:22px;
+				}
+				@media #{$mq-medium} {
+					font-size:26px;
+				}
+				@media #{$mq-large} {
+					font-size:28px;
+				}
+				@media #{$mq-xlarge} {
+					font-size:30px;
+				}
+				@media #{$mq-max} {
+					font-size:32px;
+				}
+			}
+		}
+	}
+	i {
+		position:absolute;
+		left:5px;
+		top:5px;
+		font-size:26px;
+		color:$secondaryBlue;
+		cursor:pointer;
+		opacity:0;
+		@include transition(opacity 300ms ease-in);
+		&:hover {
+			color:$secondaryBlueBorder;
+		}
+		@media #{$mq-min} {
+			font-size:16px !important;
+		}
+		@media #{$mq-xsmall} {
+			font-size:18px;
+		}
+		@media #{$mq-small} {
+			font-size:22px;
+		}
+		@media #{$mq-medium} {
+			font-size:26px;
+		}
+		@media #{$mq-large} {
+			font-size:28px;
+		}
+		@media #{$mq-xlarge} {
+			font-size:30px;
+		}
+		@media #{$mq-max} {
+			font-size:32px;
+		}
+	}
+}
+
+
+.tooltipster-stratpad.tooltip-notes{
+	border:0;
+	@include border-radius(0);
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+	width:850px;
+	background:#fff;
+	z-index:4;
+	.tooltipster-content {
+		padding:0;
+		background:#f9f9f9;
+		color:$secondaryBlue;
+		overflow:visible;
+		header {
+			padding:20px;
+			background:$secondaryBlue;
+			h4 {
+				font-weight:600;
+				font-size:14px;
+				color:#fff;
+				margin:0;
+			}
+			> span {
+				float: right;
+    			color: $dark-gray-3;		
+			}
+		}
+		article {
+			position:relative;
+			padding:20px;
+			background:#f9f9f9;
+			button {
+				float:right;
+				margin-left:10px;
+			}
+			#addNoteItem,
+			#closeNoteItem{
+				height:30px;
+				line-height:28px;
+				margin-top:10px;
+				text-shadow:none;
+				&[disabled] {
+					background: #eee;
+					color: #ccc !important;
+					border-color: #ccc;
+				}
+			}
+			p{
+				color:$dark-gray-3;
+				margin-bottom:30px;
+				.icon {
+					position:relative;
+					top:4px;
+				}
+			}
+			nav {
+				font-weight:400;
+				position:absolute;
+				bottom:30px;
+				left:20px;
+				span{
+					font-weight:600;
+				}
+			}
+		}
+	}
+	.tooltipster-arrow {
+		span {
+			border-color:transparent !important;
+			width:40px;
+			height:40px;
+			&:after {
+				content: "";
+				background: #f9f9f9;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				transform: rotate(45deg);
+				box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+	.tooltipster-arrow-top {
+		span:after {
+			background: #f9f9f9;
+			top: 10px;
+			left: 2px;
+
+		}
+	}
+	.tooltipster-arrow-bottom {
+		span:after {
+			background: $secondaryBlue;
+
+		}
+	}
+}
+
+.notesGrid.cleanList {
+	.selectize-input {
+		min-height:34px;
+		padding:6px 10px;
+		input:focus,
+		&.focus {
+			@include box-shadow(none);
+		}
+	}
+	li {
+		float:left;
+		padding:0 5px 5px 0;
+	}
+	input[type="number"],
+	input[type="text"]{
+		width:100%;
+	}
+	.notesPriceHeader,
+	.notesTotalHeader,
+	.notesQuantityHeader{
+		text-align:right;
+	}
+	&.notesTotals{
+		.notesTotalHeader{
+			text-align:left;
+		}
+	}
+	li:first-child{
+		width:26%;
+		+ li {
+			width:8%;
+			+ li {
+				width:15%;
+				+ li {
+					width:13%;
+					span {
+						height:34px;
+						line-height:34px;
+						text-align:right;
+						color:#333;
+						display:block;
+						padding-right:5px;
+					}
+					+ li {
+						width:8%;
+						+ li {
+							width:30%;
+							padding-right:20px;
+							position:relative;
+							i {
+								position:absolute;
+								right:0;
+								top:5px;
+								color:$deleteRed;
+								cursor:pointer;
+								&:hover {
+									color:$deleteRedHover;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.notesTotals{
+		color:#333;
+		margin-top:10px;
+		li:first-child{
+			width:48%;
+			font-size:14px;
+			padding-top:16px;
+			padding-left:10px;
+			border-top:1px solid #ccc;
+			+ li {
+				border-top:1px solid #ccc;
+				padding-top:16px;
+				font-size:14px;
+				text-align:right;
+				padding-right:8px;
+				width:14%;
+				color:$secondaryBlue;
+			}
+		}
+	}
+	&.notesHeader {
+		color:$grey;
+		font-size:13px;
+		padding-bottom:10px;
+	}
+}
+
+.tooltip-notes {
+	/* turn off staff for revenue, expenses onetime */
+	&.fieldType-revenueMonthly,
+	&.fieldType-revenueOneTime,
+	&.fieldType-revenueAnnually,
+	&.fieldType-researchAndDevelopmentOneTime,
+	&.fieldType-salesAndMarketingOneTime,
+	&.fieldType-cogsOneTime,
+	&.fieldType-generalAndAdminOneTime{
+		.notesStaffHeader{
+			visibility: hidden;
+		}
+		[name="notesStaff"]{
+			display:none;
+		}
+	}
+
+	/* turn off quantity for one-time, monthly expenses */
+	&.fieldType-generalAndAdminMonthly,
+	&.fieldType-researchAndDevelopmentMonthly,
+	&.fieldType-salesAndMarketingMonthly,
+
+	&.fieldType-generalAndAdminOneTime,
+	&.fieldType-researchAndDevelopmentOneTime,
+	&.fieldType-salesAndMarketingOneTime
+	{
+		.notesQuantityHeader{
+			visibility: hidden;
+		}
+		[name="notesQuantity"]{
+			display:none;
+		}
+	}
+}
+
+.notes-tooltip #projectNoteItems .notesCategory .selectize-dropdown-content {
+	i {
+		float: right;
+		visibility: hidden;		
+	}
+	div.active i {
+		visibility: visible;
+	}
+}
+

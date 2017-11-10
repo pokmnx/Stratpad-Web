@@ -1,0 +1,77 @@
+<header>
+  <hgroup>
+    <h1>{{heading}}</h1>
+    <h2>{{assets_title}}</h2>
+  </hgroup>
+</header>
+<section>
+  <article id="assets" class="objectiveActivities">
+    <div class="stratFileHelp">
+      <iframe src="" data-url="help/view-financials/options/assets/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    </div>
+    <div class="permissions"></div>
+    <h2>Describe any significant assets that your business currently has or will receive.</h2>
+    <div>Adding an asset will affect your Cash, Assets and Depreciation accounts on your Balance Sheet.</div>
+    <div class="stageContentInner">
+      <ul class="assets assetRow group">
+        <li>Name of Asset</li>
+        <li>Date Acquired</li>
+        <li>Value</li>
+        <li>Lifespan</li>
+        <li>Salvage Value</li>
+        <li>Type</li>
+        <li>Depreciation</li>
+      </ul>
+      <ul class="sortable ui-sortable">
+        <!-- rows go here -->
+      </ul>
+      <a href="#" class="button addButton">
+      <span class="icon-ui-file-plus"></span>{{btnAddAsset}}</a>
+    </div>
+  </article>
+  <script type="text/template" id="dialogEditAddAsset">
+    <span class="instructions">{{assetInstructions}}</span>
+    <ul id="assetFields" class="group s1_formPanel dialogFields">
+      <li class="ocLabel">{{lblAssetName}}</li>
+      <li>
+        <input name="assetName" type="text" id="assetName" placeholder="{{plhrAssetName}}" tabindex="1" />
+      </li>
+      <li class="ocLabel">{{lblAssetDate}}</li>
+      <li>
+        <div class="datepickerWrapper">
+          <i class="icon-ui-calendar-2"></i>
+          <input id="assetDate" type="text" name="assetDate" placeholder="{{plhrAssetDate}}" class="datepicker" tabindex="2" />
+        </div>
+      </li>
+      <li class="ocLabel">{{lblAssetType}}</li>
+      <li>
+        <select name="assetType" id="assetType" class="select2" tabindex="3">
+          <option value="LAND">{{LAND}}</option>
+          <option value="BUILDING">{{BUILDING}}</option>
+          <option value="MACHINERY">{{MACHINERY}}</option>
+          <option value="FURNITURE">{{FURNITURE}}</option>
+          <option value="TOOLS">{{TOOLS}}</option>
+          <option value="IT_EQUIPMENT">{{IT_EQUIPMENT}}</option>
+          <option value="VEHICLES">{{VEHICLES}}</option>
+          <option value="OTHER">{{OTHER}}</option>
+        </select>
+      </li>
+      <li class="ocLabel">{{lblAssetValue}}</li>
+      <li>
+        <input name="assetValue" type="number" id="assetValue" placeholder="{{plhrAssetValue}}" tabindex="4" />
+      </li>
+      <li class="ocLabel">{{lblAssetSalvageValue}}</li>
+      <li>
+        <input name="assetSalvageValue" type="number" id="assetSalvageValue" placeholder="{{plhrAssetSalvageValue}}" tabindex="5" />
+      </li>
+      <li class="ocLabel">{{lblAssetDepreciationTerm}}</li>
+      <li>
+        <input name="assetDepreciationTerm" type="number" id="assetDepreciationTerm" placeholder="{{plhrAssetDepreciationTerm}}" max="999" tabindex="6" />
+      </li>
+      <li class="ocLabel">{{lblAssetDepreciationType}}</li>
+      <li>
+        <input name="assetDepreciationType" type="text" id="assetDepreciationType" placeholder="{{plhrAssetDepreciationType}}" disabled readonly/>
+      </li>
+    </ul>
+  </script>
+</section>

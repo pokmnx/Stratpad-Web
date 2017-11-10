@@ -1,0 +1,80 @@
+<header>
+  <hgroup>
+    <h1>{{heading}}</h1>
+    <h2>&#160;</h2>
+  </hgroup>
+</header>
+<section id="f7">
+  <article class="objectiveActivities">
+	  <div class="stratFileHelp">
+		  <iframe src="" data-url="help/write-your-plan/activity/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	  </div>
+    <div class="permissions"></div>
+    <div class="stageContentInner">
+      <ul class="activityLabels activityRow group">
+        <li>Action</li>
+        <li>Responsible</li>
+        <li>Upfront Cost</li>
+        <li>Ongoing Cost</li>
+      </ul>
+      <ul id="activitiesSortable" class="sortable ui-sortable"></ul>
+      <a href="#" class="button addButton">
+      <span class="icon-ui-file-plus"></span>{{btnAddActivity}}</a>
+    </div>
+  </article>
+  <script type="text/template" id="activityDetailsDialog">
+    <ul id="activityFields" class="group s1_formPanel dialogFields">
+      <li class="ocLabel">{{lblAction}}</li>
+      <li>
+        <input name="activityAction" type="text" id="activityAction" placeholder="{{plhrActivityAction}}" />
+      </li>
+
+      <li class="ocLabel">{{lblActivityResponsible}}</li>
+      <li>
+        <input name="activityResponsible" type="hidden" id="activityResponsible" class="select2" />
+      </li>
+
+      <li class="ocLabel">{{lblStartDate}}</li>
+      <li>
+		<div class="datepickerWrapper">
+			<i class="icon-ui-calendar-2"></i>
+			<input id="activityStartDate" type="text" name="activityStartDate" placeholder="{{plhrStartDate}}" class="datepicker" />
+		</div>
+      </li>
+
+      <li class="ocLabel">{{lblEndDate}}</li>
+      <li>
+		<div class="datepickerWrapper">
+			<i class="icon-ui-calendar-2"></i>
+			<input id="activityEndDate" type="text" name="activityEndDate" placeholder="{{plhrEndDate}}" class="datepicker"/>
+		</div>
+      </li>
+
+      <li class="ocLabel">
+        {{lblUpfrontCost}}
+        <div>{{expensesGA}}</div>
+      </li>
+      <li>
+        <input name="activityUpfrontCost" type="number" id="activityUpfrontCost" placeholder="{{plhrActivityUpfrontCost}}" />
+      </li>
+
+      <li class="ocLabel">
+        {{lblOngoingCost}}
+        <div>{{expensesGA}}</div>
+      </li>
+      <li>
+        <input name="activityOngoingCost" type="number" id="activityOngoingCost" placeholder="{{plhrActivityOngoingCost}}" />
+      </li>
+
+
+      <li class="ocLabel">{{lblOngoingFrequency}}</li>
+      <li>
+        <select name="activityOngoingFrequency" id="activityOngoingFrequency" class="select2">
+          <option value="MONTHLY">{{MONTHLY}}</option>
+          <option value="QUARTERLY">{{QUARTERLY}}</option>
+          <option value="ANNUALLY">{{ANNUALLY}}</option>
+        </select>
+      </li>
+    </ul>
+  </script>
+</section>

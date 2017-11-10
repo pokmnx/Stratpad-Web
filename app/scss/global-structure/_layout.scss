@@ -1,0 +1,88 @@
+body {
+	padding:60px 0 60px 300px;
+}
+
+#wrapper {
+	height:100%;	
+}
+
+// grid.scss
+
+.l-content-wrap {
+	max-width: 2560px;
+	min-width: 768px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+// Basic Grid
+
+.l-grid{
+	margin-left:-20px;
+}
+.l-grid.no-margin{
+	margin-left:0px;
+}
+.l-grid:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.l-grid.l-col-20 > *,
+.l-grid.l-col-25 > *, 
+.l-grid.l-col-33 > *,
+.l-grid.l-col-50 > *,
+.l-grid.l-col-50and25 > *,
+.l-grid.l-col-25and75 > *,
+.l-grid.l-col-75and25 > *,
+.l-grid.l-col-66and33 > *,
+.l-grid.l-col-33and66 > * {
+	float:left;  
+	padding-left:20px
+}
+.l-grid.l-col-25.no-margin > * {
+	padding:0;
+}
+.l-grid.l-col-20 > * {
+	width:20%
+}
+.l-grid.l-col-25 > * {
+	width:25%
+}
+.l-grid.l-col-33 > * {
+	width:33.33%
+}
+.l-grid.l-col-50 > * {
+	width:50%
+}
+
+.l-grid.l-col-50and25 > * { 
+	width:25%
+}
+.l-grid.l-col-50and25 > *:first-child { 
+	width:50%
+}
+.l-grid.l-col-25and75 > * { 
+	width:75%
+}
+.l-grid.l-col-25and75 > *:first-child { 
+	width:25%
+}
+.l-grid.l-col-75and25 > * { 
+	width:25%
+}
+.l-grid.l-col-75and25 > *:first-child { 
+	width:75%
+}
+.l-grid.l-col-66and33 > * { 
+	width:33.33%
+}
+.l-grid.l-col-66and33 > *:first-child { 
+	width:66.66%
+}
+.l-grid.l-col-33and66 > * { 
+	width:66.66%
+}
+.l-grid.l-col-33and66 > *:first-child { 
+	width:33.33%
+}

@@ -1,0 +1,52 @@
+# 480 weeks
+<FilesMatch ".(ico|swf)$">
+Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+ 
+# 2 DAYS
+<FilesMatch ".(xml|txt|jpg|png|gif)$">
+Header set Cache-Control "max-age=172800, public, must-revalidate"
+</FilesMatch>
+ 
+# 0 HOURS
+<FilesMatch ".(html|htm|css|js|pdf|svg)$">
+Header set Cache-Control "max-age=0, must-revalidate"
+</FilesMatch>
+
+# restrict access to staging
+AuthType Basic
+AuthName "StratPad Protected Dev"
+AuthBasicProvider file
+AuthUserFile /home/stratpad/public_html/staging.stratpad.com/.htpasswd 
+Require user stratpad 
+
+# allow the css out, specifically for prince
+<FilesMatch ".(css|png)$">
+Satisfy Any
+Allow from all
+</FilesMatch>
+
+# cache buster for css and js files
+RewriteEngine on
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+RewriteRule ^(.*)\/[\d]{10}\/(.*) $1/$2 [L]
+
+# force https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# no directory listings
+Options -Indexes
+
+# maintenance (can allow specific IP's to access)
+# RewriteEngine On
+# RewriteBase /
+# RewriteCond %{REMOTE_ADDR} !^11\.111\.111\.111
+# RewriteCond %{REQUEST_URI} !^/images/.*$
+# RewriteCond %{REQUEST_URI} !^/css/.*$
+# RewriteCond %{REQUEST_URI} !^/js/.*$
+# RewriteCond %{REQUEST_URI} !^/fonts/.*$
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+# RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+# RewriteRule ^(.*)$ http://staging.stratpad.com/maintenance.html [R=307,L]

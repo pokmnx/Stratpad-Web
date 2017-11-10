@@ -1,0 +1,50 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{ob_title}}</h2>
+	</hgroup>
+</header>
+<section>
+	<article id="openingBalances">
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/view-financials/options/opening-balances/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+		</div>
+
+	    <div class="permissions"></div>
+		
+		<h3>Enter the opening balances for these accounts.</h3>
+		<div>These are the values on the day immediately prior to the start of this plan.</div>
+
+		<form>
+		  <fieldset>
+		    <ul>
+		      <li>
+		        <label for="cash">{{lblCash}}</label>
+		        <input id="cash" data-field="cash" type="number" name="cash" placeholder="{{plhrCash}}" autofocus />
+		      </li>
+		      <li>
+		        <label for="ar">{{lblAccountsReceivable}}</label>
+		        <input id="ar" data-field="accountsReceivable" type="number" name="ar" placeholder="{{plhrAccountsReceivable}}" />
+		      </li>
+		      <li>
+		        <label for="ap">{{lblAccountsPayable}}</label>
+		        <input id="ap" data-field="accountsPayable" type="number" name="ap" placeholder="{{plhrAccountsPayable}}" />
+		      </li>
+  		      <li>
+		        <label for="retainedEarnings">{{lblRetainedEarnings}}</label>
+		        <div id="retainedEarnings" class="displayInput"></div>
+		      </li>
+		      <li>
+		        <label for="inventory">{{lblInventory}}</label>
+		        <input id="inventory" data-field="inventory" type="number" name="inventory" placeholder="{{plhrInventory}}" />
+		      </li>		      
+		      <li>
+		        <label for="salesTaxPayable">{{lblSalesTaxPayable}}</label>
+		        <input id="salesTaxPayable" data-field="salesTaxPayable" type="number" name="salesTaxPayable" placeholder="{{plhrSalesTaxPayable}}" />
+		      </li>		      
+		    </ul>
+		  </fieldset>
+		</form>
+
+	</article>
+</section>

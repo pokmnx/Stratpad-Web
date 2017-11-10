@@ -1,0 +1,66 @@
+-- Curitiba, Parana, Brazil
+
+> select * from Countries where Country = 'Brazil';
++-----------+---------+---------+------+------+------+----------+-----------+----------------+---------------------+-------------------+-----------------+--------------+------------+--------+---------+
+| CountryId | Country | FIPS104 | ISO2 | ISO3 | ISON | Internet | Capital   | MapReference   | NationalitySingular | NationalityPlural | Currency        | CurrencyCode | Population | Title  | Comment |
++-----------+---------+---------+------+------+------+----------+-----------+----------------+---------------------+-------------------+-----------------+--------------+------------+--------+---------+
+|        33 | Brazil  | BR      | BR   | BRA  | 76   | BR       | Brasilia  | South America  | Brazilian           | Brazilians        | Brazilian Real  | BRL          |  174468575 | Brazil |         |
++-----------+---------+---------+------+------+------+----------+-----------+----------------+---------------------+-------------------+-----------------+--------------+------------+--------+---------+
+
+> select * from Regions where Code = "PR" and CountryID = 33;
++----------+-----------+---------+------+----------+
+| RegionID | CountryID | Region  | Code | ADM1Code |
++----------+-----------+---------+------+----------+
+|       15 |        33 | Paraná  | PR   | BR18     |
++----------+-----------+---------+------+----------+
+
+
+> select * from Cities where City = 'Curitiba';
++--------+-----------+----------+----------+----------+-----------+----------+-------+------+
+| CityId | CountryID | RegionID | City     | Latitude | Longitude | TimeZone | DmaId | Code |
++--------+-----------+----------+----------+----------+-----------+----------+-------+------+
+|   6051 |        33 |       15 | Curitiba |  -25.417 |    -49.25 | -03:00   |     0 | CURI |
++--------+-----------+----------+----------+----------+-----------+----------+-------+------+
+
+// use http://www.geobytes.com/free-ajax-cities-jsonp-api/ to get approx lat and long
+// South latitudes are negative
+// West longitudes are negative
+// eg 34.534°S 138.748°E is -34.5 latitude and 138.7
+
+select * from Countries where Country = "Australia";
+select * from Regions where CountryID = 14;
+
+// if we had to add a city:
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (33, 15, 'CityName', -23, -45, -05:00);
+
+// if we had to add a region
+insert into Regions (CountryID, Region) VALUES (17, ‘Abaco Island’);
+
+// we're hosting on cloud.stratpad.com
+
+
+// log of changes
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (224, 3681, 'Bethlehem', -28.23, 28.3, '+02:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (14, 5, 'Roseworthy', -34.5, 138.7, '+09:30');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (254, 135, 'Pingree Grove', 42.066175, -88.415412, '-06:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (168, 2795, 'Souk El Arbaa', 34.68, -5.98, '+00:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (119, 2254, 'San Martino di Castrozza', 46.266667, 11.8, '+01:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (254, 142, 'Forestville', 38.855, -76.875278, '-05:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (253, 5392, 'Totnes', 50.432, -3.684, '00:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (226, 3932, 'San Cristóbal de La Laguna', 28.483333, -16.3, '00:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (226, 3913, 'Aller', 43.1, -5.583333, '01:00');
+
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (14, 2, 'Scottsdale', -41.166667, 147.516667, '11:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (91, 1916, 'Korbach', 51.283333, 8.866667, '01:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (197, 3284, 'Kwidzyn', 53.735833, 18.930833, '01:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (14, 5, 'Kangaroo Island', -35.833333, 137.25, '10:00');
+
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (191, 3327, 'Kundiawa', -6.016667, 144.966667, '+10:00');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (48, 1372, 'Osorno', -40.5725, -73.135278, '-04:00');
+insert into Regions (CountryID, Region) VALUES (17, 'Abaco Island');
+insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (17, 5400, 'Treasure Cay', 26.676375, -77.293539, '-05:00');
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>StratWeb</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <script src="js/lib/require.js" data-main="js/main"></script>
+                
+        <!-- each stratfile -->
+        <script type="text/template" id="stratFileItem">
+            <p>
+            <img class="remove" src="images/removeAlbum.png" />
+            <span class="stratFileItem"><%= stratFile.title %></span>
+            <a class="details">Details</a>
+            </p>
+        </script>
+
+        <!--add new stratfile -->
+        <script type="text/template" id="createStratFileTemplate">
+            <div class="createStratFile">
+                <form method="POST" id="createStratFileForm">
+                    <input type="text" name="stratFileTitle" class="stratFileTitle" size="40" maxlength="80" />
+                    <!-- <input type="button" name="stratFileSubmit" id="stratFileSubmit" value="Add stratFile" /> -->
+                </form>
+            </div>
+        </script>
+
+    </head>
+    
+    <body>
+        
+        <div id="wrapper">
+
+            <div id="stratFilesPage">
+                <h2>StratFiles</h2>
+                <div id="stratFiles"></div>
+                <div id="createStratFile"></div>
+            </div>
+
+            <div id="stratFileDetailsPage">
+                <h2>Details</h2>
+                <div id="stratFile"></div>
+                <div id="themes"></div>
+            </div>
+           
+
+        </div>
+    </body>
+    
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>StratWeb QUnit</title>
+  <link rel="stylesheet" href="qunit-1.12.0.css">
+  <link rel="stylesheet" href="qunit-composite.css">
+  <script src="../js/lib/jquery/jquery-2.1.1.js"></script>
+  <script src="qunit-1.12.0.js"></script>
+  <script src="qunit-composite.js"></script>
+  <script src="qunit-reporter-junit.js"></script>
+  <script type="text/javascript">
+QUnit.testSuites("StratWeb", [
+    { name: "Auth Tests", path: "modules/auth-test.html" },
+	  { name: "Acl Tests", path: "modules/acl-test.html" }, 
+    { name: "Entity Tests", path: "modules/entities-test.html" },
+    { name: "Notes Tests", path: "modules/notes-test.html" },
+    { name: "Format Tests", path: "modules/formats-test.html" },
+    { name: "Financials Tests", path: "modules/financials-test.html" },
+    { name: "Backbone Tests", path: "modules/backbone-test.html" },
+    { name: "Static Tests", path: "modules/static-test.html" },
+    { name: "Password Tests", path: "modules/password-test.html" },
+    { name: "Autocompletes Tests", path: "modules/autocompletes-test.html" },
+    { name: "Import/Export Tests", path: "modules/import_export-test.html" },
+    { name: "Forms Tests", path: "modules/forms-test.html" },
+    { name: "Reports Tests", path: "modules/reports-test.html" },
+    { name: "StratBoard Tests", path: "modules/stratboard-test.html" },
+    { name: "Community Tests", path: "modules/community-test.html" },
+    { name: "Community Match Tests", path: "modules/community-match-test.html" },
+    { name: "Admin Tests", path: "modules/admin-test.html" }
+]);
+QUnit.jUnitReport = function(report) {
+
+    if (navigator.userAgent.indexOf('PhantomJS') > 0 ) {
+      console.info('Failed: ' + report.results.failed);
+      console.info('Passed: ' + report.results.passed);
+      console.info('Runtime: ' + report.results.runtime);
+      console.info('Total: ' + report.results.total);
+      console.info('Saving test report.');
+      $.ajax({
+        // would like to use the CGIHTTPServer on port 8000, but it seems to get choked up with the sync request
+        // separate servers seem more reliable
+        url: "http://localhost:80/cgi-bin/stratwebtest/log.py",
+        type: "POST",
+        async: false, // ideally would be false, but seems to cause problems with phantomjs
+        data: { xml :report.xml, failed: report.results.failed },
+        dataType: 'text',
+      })
+      .done(function(response, textStatus, jqXHR) {
+        console.info("Finished test reports with response: " + response);
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("%s: %s", textStatus, errorThrown);
+      });      
+    };
+
+};
+  </script>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+</div>
+</body>
+</html>

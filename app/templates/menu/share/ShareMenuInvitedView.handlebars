@@ -1,0 +1,34 @@
+<h4>{{#if aceOwnerEmail.length}}{{sharedWithYouTitle}}{{else}}{{readOnlyTitle}}{{/if}}</h4>
+<article class="user-wrap">
+	{{#if aceOwnerEmail.length}}
+	<h5>{{stratFileOwnerTitle}}</h5>
+	<div class="user-entry root-user group">
+		<figure class="avatar">
+			<img src="https://secure.gravatar.com/avatar/{{{md5}}}?s=120" />
+		</figure>
+		<div class="user">
+			<ul class="clean-list">
+				<li class="user-details">
+					<span class="user-name">{{aceOwnerName}}</span>
+					<span class="user-status">(<a href="mailto:{{aceOwnerEmail}}">{{aceOwnerEmail}}</a>)</span>
+				</li>
+				<li class="permission-details">{{aceOwnerMessage}}</li>
+			</ul>
+		</div>
+	</div>
+	{{/if}}
+	<div class="user-entry root-user group">
+		<div class="user invited">
+			<ul class="clean-list">
+				<li class="user-details">
+				{{#if aceOwnerEmail.length}}
+					<li class="permission-details">{{sharedWithPermissions}}</li>
+					<li class="permission-request">{{sharedWithRequestChange}}</li>
+				{{else}}
+					<li class="permission-details">{{readOnlyStratfile}}</li>
+				{{/if}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>

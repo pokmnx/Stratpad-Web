@@ -1,0 +1,90 @@
+#gantt, #goals, #progress {
+	thead {
+		border:1px solid #333;
+		tr {
+			th {
+				background:#333;
+				padding:4px;
+				color:#eee;
+				text-shadow:none;
+				text-align:left;
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				border:1px solid #333;
+				padding:0;
+				div {
+					position:relative;
+					width:100%;
+					height:100%;
+					overflow:visible;
+					i {
+						display:block;
+						width:20px;
+						height:20px;
+						position:absolute;
+						background:url(../images/tables/gantt-point.png) 0 0 no-repeat;
+						background-size:100% 100%;
+						top:50%;
+						margin: -10px -11px 0 -10px;
+					}
+					b {
+						display:block;
+						height:8px;
+						margin-top: -4px;
+						top:50%;
+						position:absolute;
+						border:1px solid rgba(0,0,0,0.4);
+						background: #009933;
+					}
+				}
+				&:first-child {
+					padding:4px;
+					border:1px solid #333 !important;
+				}
+			}
+			&:nth-child(even){
+				background:rgba(255,255,255,0.7);
+			}
+			&:nth-child(odd){
+				background:rgba(0,0,0,0.1);
+			}
+			&.objective {
+				td {
+					&:first-child {
+						padding-left: 9px;
+						font-style: italic;
+					}
+				}
+			}
+			&.activity {
+				td {
+					&:first-child {
+						padding-left: 14px;
+					}
+					b {
+						height:6px;
+						margin-top: -5px;
+						background: #7C7C7C;					
+					}
+				}
+			}
+			&.metric {
+				td {
+					&:first-child {
+						padding-left: 14px;
+					}
+				}
+			}
+		}
+	}
+}
+
+#goals, #progress {
+	tbody tr td {
+		padding: 3px;
+	}
+}

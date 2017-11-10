@@ -1,0 +1,400 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>StratPad</title>
+	<meta charset='utf-8'/>
+	<script>var stratpad_oldie = false;</script>
+	<!--[if lte IE 9]><script>stratpad_oldie = true;</script><![endif]-->
+	<script type="text/javascript">
+		// cache busting
+		var timestamp = '@timestamp@';
+		var isLocal = timestamp.indexOf('@') == 0;
+		var require = {
+	        baseUrl: isLocal ? 'js' : 'js/@timestamp@',
+	        deps : ['main']
+	    };
+		var style = isLocal ? 'css/style.css' : 'css/style.@timestamp@.css';
+	    document.write('<link rel="stylesheet" type="text/css" href="' + style + '"/>');
+	    if(!stratpad_oldie) {
+			document.write('\x3Cscript type="text/javascript" src="' + require.baseUrl + '/lib/require/require.js">\x3C/script>');
+		} else {
+			document.write('\x3Cscript type="text/javascript" src="js/lib/modernizr/html5shiv.js">\x3C/script>');
+		}
+	</script>
+
+	<!-- clickjacking -->
+	<style> html { display:none; } </style> 
+	<script> if (self == top) { document.documentElement.style.display = 'block'; } else { top.location = self.location; } </script>	
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/ie.css">
+	<![endif]-->
+</head>
+
+<body>
+
+<header id="pageHeader">
+	<div id="fullLoader"></div>
+	<div id="stratFileTitle"></div>
+	<div class="l-grid l-col-50 group">
+		<div>
+			<a href="/" id="pageLogo">StratPad</a>
+			<i class="icon-misc-cloud"></i>
+		</div>
+		<div>
+			<ul id="navMenubar"></ul>
+			<a href="#" id="stratPadSignout" class="blue-btn"></a>
+		</div>
+	</div>
+</header>
+<div id="blueDotMenu">
+	<ipp:blueDot></ipp:blueDot>
+</div>
+<nav id="pageNavigation" class="nano">
+	<ul class="content">
+		<li id="stage0" class="menuGroup">
+			<h6 data-level="navStateStage0"><i class="icon-ui-arrow-down-2 closed"></i>Start Here</h6>
+			<ul class="navSection">
+				<li class="navItem">
+					<span data-key="0,0,0">Welcome</span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<ul id="stratpad" class="content">
+		<li class="menuGroup portal">
+			<h6 data-level="navStateStageStratPad"><i class="icon-ui-arrow-down-2 closed"></i>StratPad CLOUD</h6>
+			<ul>
+				<li id="stage1" class="menuGroup">
+					<h6 data-level="navStateStage1"><i class="icon-ui-arrow-down-2 closed"></i>Write Your Plan</h6>
+					<ul class="navSection">
+						<li class="navItem">
+							<span data-key="1,0,0">About Your Company</span>
+						</li>
+		 				<li id="discussion">
+							<h6 data-level="navStateStage1_1" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Discussion</h6>
+							<ul class="navSubSection">
+								<li class="navItem">
+									<span data-key="1,1,0">Customers &amp; Clients</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,1">Key Problems</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,2">Address Problems</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,3">Competitors</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,4">Business Model</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,5">Sales and Marketing</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,6">Expansion Options</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,7">Ultimate Aspiration</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,8">Strategy Statement</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,1,9">Management</span>
+								</li>								
+							</ul>
+						</li>
+						<li id="themes">
+							<h6 data-level="navStateStage1_2" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Projects<i class="add-button icon-misc-plus" title="Add a new project"></i></h6>
+							<ul class="navSubSection">
+							</ul>
+						</li>
+						<li id="objectives">
+							<h6 data-level="navStateStage1_3" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Objectives</h6>
+							<ul class="navSubSection">
+							</ul>
+						</li>
+						<li id="activities">
+							<h6 data-level="navStateStage1_4" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Activity</h6>
+							<ul class="navSubSection">
+							</ul>
+						</li>
+						<li id="financials">
+							<h6 data-level="navStateStage1_5" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Loans, Assets, Investments</h6>
+							<ul class="navSubSection enableFinancials">
+								<li class="navItem">
+									<span data-key="1,5,0">Accounts Receivable</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,1">Accounts Payable</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,2">Inventory</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,3">Loans</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,4">Assets</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,5">Equity Investments</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,6">Employee Deductions</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,7">Sales Tax</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,8">Income Tax</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,9">Opening Balances</span>
+								</li>
+							</ul>
+							<ul class="navSubSection disabledFinancials">
+								<li class="navItem">
+									<span data-key="1,5,0">Accounts Receivable</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,1">Accounts Payable</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,2">Inventory</span>
+								</li>								
+								<li class="navItem">
+									<span data-key="1,5,3">Loans</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,4">Assets</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,5">Equity Investments</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,6">Sales Tax</span>
+								</li>
+								<li class="navItem">
+									<span data-key="1,5,7">Opening Balances</span>
+								</li>
+							</ul>							
+						</li>
+					</ul>
+				</li>
+				<li id="stage2" class="menuGroup">
+					<h6 data-level="navStateStage2"><i class="icon-ui-arrow-down-2 closed"></i>View &amp; Print Your Plan</h6>
+					<ul class="navSection">
+						<li class="navItem">
+							<span data-key="2,0,0">Summary Business Plan</span>
+						</li>
+						<li class="navItem">
+							<span data-key="2,1,0">Business Plan</span>
+						</li>
+						<li class="navItem">
+							<span data-key="2,2,0">Playbook</span>
+						</li>						
+					</ul>
+				</li>
+				<li id="stage3" class="menuGroup">
+					<h6 data-level="navStateStage3"><i class="icon-ui-arrow-down-2 closed"></i>Operational Reports</h6>
+					<ul class="navSection">
+						<li class="navItem">
+							<span data-key="3,0,0">Strategy Map</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,1,0">Project Detail</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,2,0">Gantt Chart</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,3,0">Project Plan</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,4,0">Agendas</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,5,0">Projections: Monthly Overall</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,6,0">Projections: Monthly Project</span>
+						</li>
+						<li class="navItem">
+							<span data-key="3,7,0">Projections: Project Summary</span>
+						</li>
+					</ul>
+				</li>
+				<li id="stage4" class="menuGroup">
+					<h6 data-level="navStateStage4" class=""><i class="icon-ui-arrow-down-2 closed"></i>Financial Reports</h6>
+					<ul class="navSection">
+						<li class="navItem">
+							<span data-key="4,0,0">Income Statement (1 page)</span>
+						</li>
+						<li class="navItem">
+							<span data-key="4,1,0">Statement of Cash Flows (1 page)</span>
+						</li>
+						<li class="navItem">
+							<span data-key="4,2,0">Balance Sheet (1 page)</span>
+						</li>
+						<li class="navItem">
+							<span data-key="4,3,0">Income Statement (Monthly)</span>
+						</li>
+						<li class="navItem">
+							<span data-key="4,4,0">Statement of Cash Flows (Monthly)</span>
+						</li>
+						<li class="navItem">
+							<span data-key="4,5,0">Balance Sheet (Monthly)</span>
+						</li>
+						<li class="navItem">
+							<span data-key="4,6,0">Worksheet (Monthly)</span>
+						</li>
+					</ul>
+				</li>
+				<li id="stage5" class="stratboard menuGroup">
+					<h6 data-level="navStateStage5" class=""><i class="icon-ui-arrow-down-2 closed"></i>Track Your Progress</h6>
+					<ul class="navSection">
+						<li class="navItem summary">
+							<span data-key="5,0,0">Summary</span>
+						</li>				
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<ul id="connect" class="content">
+		<li id="stage6" class="menuGroup portal">
+			<h6 data-level="navStateStage6"><i class="icon-ui-arrow-down-2 closed"></i>StratPad CONNECT</h6>
+			<ul class="navSection">
+				<li class="navItem">
+					<span data-key="6,0,0">How Connect Works</span>
+				</li>				
+				<li class="navItem">
+					<span data-key="6,1,0">Lenders and Investors</span>
+				</li>
+				<li id="professionalServices">
+					<h6 data-level="navStateStage6_2" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Professional Services</h6>
+					<ul class="navSubSection">
+						<li class="navItem">
+							<span data-key="6,2,0">Accountants</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,2,1">Bookkeepers</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,2,2">Consultants</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,2,3">Lawyers</span>
+						</li>
+					</ul>
+				</li>
+				<li id="supportServices">
+					<h6 data-level="navStateStage6_3" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Support Services</h6>
+					<ul class="navSubSection">
+						<li class="navItem">
+							<span data-key="6,3,0">Coaches and Mentors</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,3,1">Marketing Firms</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,3,2">Web Designers</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,3,3">Graphic Designers</span>
+						</li>
+					</ul>
+				</li>
+				<li id="products">
+					<h6 data-level="navStateStage6_4" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>Products</h6>
+					<ul class="navSubSection">
+						<li class="navItem">
+							<span data-key="6,4,0">Software</span>
+						</li>
+					</ul>
+				</li>
+				<li id="myAccount">
+					<h6 data-level="navStateStage6_5" class="subLevel"><i class="icon-ui-arrow-down-2 closed"></i>My Connect Account</h6>
+					<ul class="navSubSection">
+						<li class="navItem">
+							<span data-key="6,5,0">Company Info</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,5,1">Company Location</span>
+						</li>
+						<li class="navItem">
+							<span data-key="6,5,2">Report</span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>		
+	</ul>			
+
+	<ul id="college" class="content">
+		<li id="stage7" class="menuGroup portal">
+			<h6 data-level="navStateStage7"><i class="icon-ui-arrow-down-2 closed"></i>StratPad COLLEGE</h6>
+			<ul class="navSection">
+				<li class="navItem">
+					<span data-key="7,0,0">Strategy for Entrepreneurs</span>
+				</li>
+				<li class="navItem">
+					<span data-key="7,1,0">Small Business Toolkit</span>
+				</li>
+				<li class="navItem">
+					<span data-key="7,2,0">Understanding Financial Statements</span>
+				</li>
+				<li class="navItem">
+					<span data-key="7,3,0">Small Business Coach</span>
+				</li>
+				<li class="navItem">
+					<span data-key="7,4,0">Financial Basics for the Savvy Startup</span>
+				</li>
+				<li class="navItem">
+					<span data-key="7,5,0">How Do I...?</span>
+				</li>
+				<li class="navItem">
+					<span data-key="7,6,0">Create Your Business Plan With StratPad</span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+</nav>
+
+<section id="contentWrapper" class="group">
+
+	<div id="contentPager">
+		<aside><i></i></aside>
+		<span><i></i></span>
+	</div>
+
+	<article id="pageContent" class="nano"><div class="content"></div></article>
+
+	<nav id="pageControl">
+		<a id="first" class="next-prev icon-ui-arrow-first" title="First Page"></a>
+		<a id="prev" class="next-prev icon-ui-arrow-left-3" title="Previous Page"></a>
+		<a id="last" class="next-prev icon-ui-arrow-right-2" title="Last Page"></a>
+		<a id="next" class="next-prev icon-ui-arrow-right-3" title="Next Page"></a>
+		<article>
+			<div id="pageSlider">
+				<div></div>
+			</div>
+		</article>
+	</nav>
+
+	<div id="feedback-form"></div>
+
+</section>
+
+</body>
+
+</html>

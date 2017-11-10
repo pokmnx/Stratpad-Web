@@ -1,0 +1,303 @@
+<header>
+  <hgroup>
+    <h1>{{heading}}</h1>
+    <h2>{{title}}</h2>
+  </hgroup>
+</header>
+<section id="f4">
+  <article class="themeDetail">
+    <div class="stratFileHelp">
+      <iframe src="" data-url="help/write-your-plan/projects/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    </div>
+    <form class="s1_formPanel">
+      <ul data-locked="true">
+        <!-- Section 1 -->
+        <li>
+          <h2>{{name}}</h2>
+          <input id="name" type="text" name="name" tabindex="2" placeholder="{{plhrName}}" />
+        </li>
+        <!-- Section 2 BOOLS have been removed. -->
+        <!-- Section 3 -->
+        <li class="themeStage">
+          <h2>{{s3Header}}</h2>
+          <div class="stageContent">
+            <div class="stageContentInner">
+              <ul class="l-grid l-col-50and25 dateThemeSettings">
+                <li>
+                  <label for="responsible">{{lblResponsible}}</label>
+                  <select id="responsible" name="responsible" class="responsible" placeholder="{{plhrResponsible}}" tabIndex="4"></select>           
+                </li>
+                <li>
+                  <label for="startDate">{{lblStartDate}}</label>
+                  <div class="datepickerWrapper">
+                    <i class="icon-ui-calendar-2"></i>
+                    <input id="startDate" type="text" name="startDate" placeholder="{{plhrStartDate}}" class="datepicker" tabindex="5" />
+                  </div>
+                </li>
+                <li>
+                  <label for="endDate">{{lblEndDate}}</label>
+                  <div class="datepickerWrapper">
+                    <i class="icon-ui-calendar-2"></i>
+                    <input id="endDate" type="text" name="endDate" placeholder="{{plhrEndDate}}" class="datepicker" tabindex="6" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <!-- Section 4 -->
+        <li id="oneTimeAndMonthly" class="themeStage">
+          <h2>{{s4Header}}</h2>
+          <div class="stageContent">
+            <div class="stageContentInner">
+              <p class="themeFinInfo">{{themeFinancialChangesInfo}}</p>
+              <table>
+                <tbody>
+                  <tr class="themeFinTableHeader">
+                    <th colspan="3" class="first">
+                      <h2 class="themeFinHeader">{{oneTimeMonthlyHeader}}</h2>
+                    </th>
+                    <th>{{thOneTime}}</th>
+                    <th>{{thMonthly}}</th>
+                    <th>{{thMonthlyAdjustment}}</th>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="first">{{{rhRevenue}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="revenueOneTime" class="themeFinChanges" type="number" name="revenueOneTime" tabindex="20" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="revenueMonthly" class="themeFinChanges" type="number" name="revenueMonthly" tabindex="21" />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="revenueMonthlyAdjustment" class="themeFinAdjustment" type="number" name="revenueMonthlyAdjustment" tabindex="22" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="first">{{{rhCogs}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="cogsOneTime" class="themeFinChanges" type="number" name="cogsOneTime" tabindex="23" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="cogsMonthly" class="themeFinChanges" type="number" name="cogsMonthly" tabindex="24" />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="cogsMonthlyAdjustment" class="themeFinAdjustment" type="number" name="cogsMonthlyAdjustment" tabindex="25" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="first">{{{rhGaa}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="generalAndAdminOneTime" class="themeFinChanges" type="number" name="generalAndAdminOneTime" tabindex="26" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="generalAndAdminMonthly" class="themeFinChanges" type="number" name="generalAndAdminMonthly" tabindex="27" />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="generalAndAdminMonthlyAdjustment" class="themeFinAdjustment" type="number" name="generalAndAdminMonthlyAdjustment" tabindex="28" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="first">{{{rhRad}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="researchAndDevelopmentOneTime" class="themeFinChanges" type="number" name="researchAndDevelopmentOneTime" tabindex="29" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="researchAndDevelopmentMonthly" class="themeFinChanges" type="number" name="researchAndDevelopmentMonthly" tabindex="30" />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="researchAndDevelopmentMonthlyAdjustment" class="themeFinAdjustment" type="number" name="researchAndDevelopmentMonthlyAdjustment" tabindex="31" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="first">{{{rhSam}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="salesAndMarketingOneTime" type="number" class="themeFinChanges" name="salesAndMarketingOneTime" tabindex="32" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="salesAndMarketingMonthly" type="number" class="themeFinChanges" name="salesAndMarketingMonthly" tabindex="33" />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="salesAndMarketingMonthlyAdjustment" class="themeFinAdjustment" type="number" name="salesAndMarketingMonthlyAdjustment" tabindex="34" />
+                    </td>
+                  </tr>
+                  <!-- calculated -->
+                  <tr class="last">
+                    <td colspan="2" class="first">{{rhBenefit}}</td>
+                    <td>
+                      <div class="benefitTotal displayInput"></div>
+                    </td>
+                    <td>
+                      <div id="benefitOneTime" class="displayInput"></div>
+                    </td>
+                    <td>
+                      <div id="benefitMonthly" class="displayInput"></div>
+                    </td>
+                    <td>
+                      <div class="displayInput inactive"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <!-- Section 5 -->
+        <li id="seasonallyAndAnnually" class="themeStage">
+          <div class="stageContent">
+            <div class="stageContentInner">
+              <table>
+                <tbody>
+                  <tr class="themeFinTableHeader">
+                    <th colspan="4" class="first">
+                      <h2 class="themeFinHeader">{{seasonallyAndAnnuallyHeader}}</h2>
+                    </th>
+                    <th>{{thAnnually}}</th>
+                    <th>{{thSeasonally}}</th>
+                    <th>{{thAnnuallyAdjustment}}</th>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="first">{{{rhRevenue}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="revenueAnnually" class="themeFinChanges" type="number" name="revenueAnnually" tabindex="38" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-weather-snow projectSeasonalIcon"></i>
+                        <input id="revenueSeasonalAdjustment" class="seasonal" type="text" name="revenueSeasonalAdjustment" data-key="revenue" tabindex="39" readonly />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="revenueAnnuallyAdjustment" class="themeFinAdjustment" type="number" name="revenueAnnuallyAdjustment" tabindex="40" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="first">{{{rhCogs}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="cogsAnnually" class="themeFinChanges" type="number" name="cogsAnnually" tabindex="41" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-weather-snow projectSeasonalIcon"></i>
+                        <input id="cogsSeasonalAdjustment" class="seasonal" type="text" name="cogsSeasonalAdjustment" data-key="cogs" tabindex="42" readonly />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="cogsAnnuallyAdjustment" class="themeFinAdjustment" type="number" name="cogsAnnuallyAdjustment" tabindex="43" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="first">{{{rhGaa}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="generalAndAdminAnnually" class="themeFinChanges" type="number" name="generalAndAdminAnnually" tabindex="44" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-weather-snow projectSeasonalIcon"></i>
+                        <input id="generalAndAdminSeasonalAdjustment" class="seasonal" type="text" name="generalAndAdminSeasonalAdjustment" data-key="generalAndAdmin" tabindex="45" readonly />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="generalAndAdminAnnuallyAdjustment" class="themeFinAdjustment" type="number" name="generalAndAdminAnnuallyAdjustment" tabindex="46" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="first">{{{rhRad}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="researchAndDevelopmentAnnually" class="themeFinChanges" type="number" name="researchAndDevelopmentAnnually" tabindex="47" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-weather-snow projectSeasonalIcon"></i>
+                        <input id="researchAndDevelopmentSeasonalAdjustment" class="seasonal" type="text" name="researchAndDevelopmentSeasonalAdjustment" data-key="researchAndDevelopment" readonly tabindex="48" />
+                      </div>
+                    </td>
+                    <td>
+                      <input id="researchAndDevelopmentAnnuallyAdjustment" class="themeFinAdjustment" type="number" name="researchAndDevelopmentAnnuallyAdjustment" tabindex="49" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="first">{{{rhSam}}}</td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-th-list projectNotesIcon" title="{{notesTooltipTitle}}"></i>
+                        <input id="salesAndMarketingAnnually" type="number" class="themeFinChanges" name="salesAndMarketingAnnually" tabindex="50" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="themeFinChangesWrap">
+                        <i class="icon-new-weather-snow projectSeasonalIcon"></i>
+                        <input id="salesAndMarketingSeasonalAdjustment" class="seasonal" type="text" name="salesAndMarketingSeasonalAdjustment" data-key="salesAndMarketing" tabindex="51" readonly />
+                      </div>                    	
+                    </td>
+                    <td>
+                      <input id="salesAndMarketingAnnuallyAdjustment" class="themeFinAdjustment" type="number" name="salesAndMarketingAnnuallyAdjustment" tabindex="52" onFocus="this.tabIndex=1;" onBlur="this.tabIndex=52;" />
+                    </td>
+                  </tr>
+                  <tr class="last">
+                    <td colspan="3" class="first">{{{rhBenefit}}}</td>
+                    <td>
+                      <div class="benefitTotal displayInput"></div>
+                    </td>                    
+                    <td>
+                      <div id="benefitAnnually" class="displayInput"></div>
+                    </td>
+                    <td>
+                      <div class="displayInput inactive"></div>
+                    </td>
+                    <td>
+                      <div class="displayInput inactive"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="permissions"></div>
+    </form>
+  </article>
+</section>

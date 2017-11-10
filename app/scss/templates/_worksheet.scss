@@ -1,0 +1,22 @@
+#worksheetDetail{
+	.reportWrapper .headerWrapper .tableRowHeaders td, 
+	.fullReportTable td{
+		&.rowLevel1 {
+			text-transform:uppercase;
+		}
+		&.rowLevel3 {
+			font-weight:400;
+		}
+		&.rowLevel4 {
+			font-weight:400;
+			font-style:italic;
+		}
+	}
+	.reportWrapper .headerWrapper .tableRowHeaders td,
+	.reportWrapper .headerWrapper .tableRowHeaders th,
+	.fullReportTable th,
+	.fullReportTable td {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+}

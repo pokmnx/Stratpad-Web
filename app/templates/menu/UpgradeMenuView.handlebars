@@ -1,0 +1,148 @@
+<div id="new-pricing-table">
+	<div class="header-text">
+		<p class="main"></p>
+	</div>
+	<ul class="price-table group">
+		<li class="features">
+			<ul class="pt-column first">
+				<li class="col-first"></li>
+				<li class="bg-darker">
+					<div class="table">
+						<div class="td">{{{rowNumberofPlans}}}</div>
+					</div>
+				</li>
+				<li class="feat-last bot-grey">
+					<div class="table">
+						<div class="td">{{{rowCanShare}}}</div>
+					</div>
+				</li>
+			</ul>
+		</li>
+		<li class="free disabled">
+			<ul class="pt-column border-left">
+				<li class="col-first">
+					<div class="table">
+						<div class="td">
+							<span class="product-type">{{{typeFree}}}</span>
+							<span class="product-cost">{{{priceFree}}}</span>
+							<span class="product-range">{{{forever}}}</span>
+						</div>
+					</div>
+				</li>
+				<li class="bg-darker">
+					<div class="table">
+						<div class="td">
+							<span class="product-plans">1</span>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="table">
+						<div class="td">
+							<span class="product-check icon-misc-checkmark"></span>
+						</div>
+					</div>
+				</li>				
+				<li class="col-last">
+					<a id="buySkuStudent" href="#" data-product="com.stratpad.cloud.student" class="product-purchase">{{{btnChoose}}}</a>
+				</li>
+			</ul>
+		</li>
+		<li class="business popular">
+			<ul class="pt-column">
+				<li class="col-first">
+					<span class="product-feature">{{{popular}}}</span>
+					<div class="table">
+						<div class="td">
+							<span class="product-type middle">{{{typeBusiness}}}</span>
+<!-- 							
+							<span class="product-cost">{{{priceBusiness}}}</span>
+							<span class="product-range">{{{perYear}}}</span> -->
+							<button class="chooseBilling annual" data-sku="com.stratpad.cloud.business">
+							    <img id="save40" src="images/Save36.png"/>
+							    <div>
+							    <span class="price">$8.25</span> <span class="currency">USD/mo</span>
+							    <span class="billed">billed annually</span>
+							    </div>
+							    <div class="radio product-check icon-misc-checkbox">&nbsp;</div>
+							</button>
+							<div>or</div>
+							<button class="chooseBilling monthly" data-sku="com.stratpad.cloud.business.monthly">
+							    <div>
+							    <span class="price">$12.95</span> <span class="currency">USD/mo</span>
+							    <span class="billed">billed monthly</span>
+							    </div>
+							    <div class="radio product-check icon-misc-checkbox-unchecked">&nbsp;</div>
+							</button>							
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="table">
+						<div class="td">
+							<span class="product-plans">5</span>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="table">
+						<div class="td">
+							<span class="product-check icon-misc-checkmark"></span>
+						</div>
+					</div>
+				</li>
+				<li class="pop-last">
+					<a id="buySkuBusiness" href="#" data-sku="com.stratpad.cloud.business" class="product-purchase">{{{btnChoose}}}</a>
+				</li>
+			</ul>
+			<div class="popular-bg"></div>
+		</li>
+		<li>
+			<ul class="pt-column last">
+				<li class="col-first top-round">
+					<div class="table">
+						<div class="td">
+							<span class="product-type middle">{{{typeUnlimited}}}</span>
+<!-- 							<span class="product-cost">{{{priceUnlimited}}}</span>
+							<span class="product-range">{{{perYear}}}</span>
+ -->					
+
+							<button class="chooseBilling annual" data-sku="com.stratpad.cloud.unlimited">
+							    <div>
+							    <span class="price">$14.92</span> <span class="currency">USD/mo</span>
+							    <span class="billed">billed annually</span>
+							    </div>
+							    <div class="radio product-check icon-misc-checkbox">&nbsp;</div>
+							</button>
+							<div>or</div>
+							<button class="chooseBilling monthly" data-sku="com.stratpad.cloud.unlimited.monthly">
+							    <div>
+							    <span class="price">$19.95</span> <span class="currency">USD/mo</span>
+							    <span class="billed">billed monthly</span>
+							    </div>
+							    <div class="radio product-check icon-misc-checkbox-unchecked">&nbsp;</div>
+							</button>							
+						</div>
+					</div>
+				</li>
+				<li class="bg-darker">
+					<div class="table">
+						<div class="td">
+							<span class="product-plans">{{{typeUnlimited}}}</span>
+						</div>
+					</div>
+				</li>
+				<li class="bot-grey bot-round">
+					<div class="table">
+						<div class="td">
+							<span class="product-check icon-misc-checkmark"></span>
+						</div>
+					</div>
+				</li>
+				<li class="col-last">
+					<a id="buySkuUnlimited" href="#" data-sku="com.stratpad.cloud.unlimited" class="product-purchase">{{{btnChoose}}}</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

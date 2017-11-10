@@ -1,0 +1,235 @@
+#ar, #ap, #inventory {
+	.days {
+		text-align: center;
+		margin: 20px;
+		@include font-size(22);
+		font-weight: 600;
+	}
+
+	fieldset {
+		margin: 100px 20%;
+	}	
+}
+
+#inventory fieldset {
+	margin: 20px 20% 60px;
+}
+
+#salesTax {
+	.section.remittanceMonth {
+		display: none;
+	}
+}
+
+#employeeDeductions, #salesTax, #incomeTax {
+	h3 {
+		margin: 10px 0;
+	}
+	span[contenteditable] {
+	  background-color: azure;
+	  padding: 3px 7px;
+	  border-radius: 2px;		
+	}
+	.section {
+	  margin-bottom: 25px;
+	  &.due, &.remittanceFrequency {
+	  	> div, fieldset {
+	  		margin: 8px 0 0 20px;
+	  	}
+	  	input {
+	  		margin-right: 10px;
+	  		&:not(:first-child) {
+	  			margin-left: 20px;
+	  		}
+	  	}
+	  }
+	}
+	fieldset {
+	  width: 50%;
+	  min-width: 300px;
+	  padding: 0 20px;	
+	}
+	ul.percentages, ul.years {
+		li {
+			margin-bottom: 20px;
+		}
+		.value {
+			position: absolute;
+  			right: 0;
+  			font-weight: 600;
+		}
+		label {
+			font-weight: 600;
+		}
+		.slider {
+			margin-top: 10px;
+		}
+	}
+}
+
+#openingBalances {
+
+	form {
+		padding:0;
+		border:0;
+		position:relative;
+		margin-top: 20px;
+		
+		ul {
+			list-style:none;
+			margin:0;
+			padding:0;
+			li {
+				height: 40px;
+				margin-bottom:10px;
+				label {
+					display:block;
+					float:left;
+					width:200px;
+					text-transform:uppercase;
+					line-height:40px;
+					font-size:13px;
+					font-weight:600;
+				}
+				input[type="text"] {
+					width:200px;			
+				}
+				.displayInput {
+					width: 195px;
+					float: left;
+					padding: 7px 12px;
+				}
+				
+			}
+		}	
+	}
+
+}
+
+.loans, .equities, .assets {
+	font-weight:600;
+	border-bottom:1px solid #ccc;
+	li {
+		padding-bottom:10px;
+	}
+}
+
+#loans, #equities, #assets {
+	.disabled {
+		color:#ddd !important;
+		cursor: default;
+	}
+	.stageContentInner {
+		padding-right:35px;
+	}
+}
+
+.location-chapter_financial_edits .vex .vex-content .instructions {
+	font-size: 90%;
+}
+
+.loanItem .loanRow, .assetItem .assetRow, .equityItem .equityRow {
+	&:hover {
+		background-color:#e2e2e2;
+	}		
+}
+
+.loanRow, .assetRow {
+	li {
+		float:left;
+		padding:10px 0;
+		&:first-child {
+			width: 25%;
+			padding-left: 10px;
+			+ li {
+				width: 15%;
+				text-align: right;
+				+ li {
+					width: 10%;
+					text-align: right;
+					+ li {
+						width: 10%;
+						text-align: right;
+						+ li {
+							width: 10%;
+							text-align: right;
+							+ li {
+								width: 15%;
+								text-align: right;
+								+ li {
+									width: 15%;
+									text-align: right;
+									padding-right: 45px;
+									position:relative;
+									nav {
+										width:20px;
+										height:20px;
+										position:absolute;
+										right:10px;
+										top:50%;
+										margin-top:-10px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.equityRow {
+	li {
+		float:left;
+		padding:10px 0;
+		&:first-child {
+			padding-left: 10px;
+			width: 70%;
+			+ li {
+				width: 15%;
+				text-align: right;
+				+ li {
+					width: 15%;
+					position:relative;
+					text-align: right;
+					padding-right: 45px;
+					nav {
+						width:20px;
+						height:20px;
+						position:absolute;
+						right:10px;
+						top:50%;
+						margin-top:-10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* on screen detailed reports */
+.location-section_financials #disclaimer {
+	margin-top: 15px;
+	font-size: 70%;
+	font-weight: 500;
+}
+
+/* pdf and on screen summary reports */
+.location-section_financials tfoot td#disclaimer {
+	padding-top: 15px;
+	font-size: 100%;
+	font-weight: 500;
+}
+
+.location-section_report table.reportTable caption {
+	padding: 15px 4px;
+	caption-side: bottom;
+	text-align: left;
+}
+
+.location-section_form {
+	.important-info {
+	  color: #db8101;
+	}
+}

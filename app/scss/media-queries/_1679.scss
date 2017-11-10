@@ -1,0 +1,98 @@
+body {
+	padding:65px 0 0 300px;
+}
+
+#landingPage {
+	background:#efefef url('../images/landing/bg.jpg') 15% 100% no-repeat;
+}
+
+#pageNavigation {		
+	width:300px;
+	margin: 0 0 0 -300px;
+}
+
+#pageHeader {		
+	height:65px;
+	line-height:65px;
+	margin:-65px 0 0 -300px;
+	.l-grid {		
+		div:last-child{
+			font-size:24px;
+		}
+	}
+	#stratFileTitle {
+		padding:0 290px 0 320px;
+		@include font-size(20);
+		&:before {
+			left:300px;
+		}
+	}
+}
+
+#pageFooter {	
+	height:90px;
+	line-height:90px;
+	margin:0 0 -90px -300px;
+	.l-grid {
+		div:first-child{
+			font-size:16px;
+		}
+		div:last-child{
+			font-size:35px;			
+		}
+	}
+}
+
+#contentPager{	
+	aside {	
+		@include font-size(60); 
+	}
+	span {		
+		@include font-size(90); 		
+	}	
+}
+
+// tables
+
+.reportTable {
+	@include font-size(11);
+	tr {
+		td, th {
+			&:first-child {
+				width:160px !important;
+			}
+		}
+		&.totals td,
+		&.totals th {
+			padding-bottom: 20px;
+		}
+	}
+}
+
+#gantt {
+	tbody {
+		tr {
+			td {
+				div {
+					i {
+						width:16px;
+						height:16px;
+						margin: -8px -9px 0 -8px;
+					}
+				}
+			}
+		}
+	}
+}
+
+#pageContent{
+	.welcomePage {
+		.lineBreak {
+			margin-bottom:32px;
+		}
+		.largeText {
+			font-family: 'LatoRegular';
+			font-size:32px;
+		}
+	}
+}

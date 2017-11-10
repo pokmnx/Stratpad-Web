@@ -1,0 +1,71 @@
+#fullLoader,
+#pageHeader,
+#landingPage,
+#signUpContent,
+#signInContent,
+#forgotPasswordContent,
+#verifyContent,
+#final-footer,
+#ssoPage,
+#initialLoader{
+	display:none !important;
+}
+body,
+.home.not-logged body {
+	padding:0;
+	overflow-y:scroll;
+}
+#old-ie {
+	display:block;
+	#ie-header {
+		background:#d37d02;
+		padding:40px 0;
+		text-align:center;
+		h1,h2,h3,h4,h5,h6 {
+			color:#eee;
+		}
+	}
+	#ie-message {
+		padding:20px 0 20px;
+		border-top:10px solid #333;
+		text-align:center;
+		ul {
+			list-style-type: none;
+			margin:0 auto;
+			padding:0;
+			width:960px;
+			li {
+				list-style-type: none;
+				padding:0;
+				float:left;
+				width:200px;
+				margin:0 20px;
+				text-align:center;
+			}
+		}
+	}
+	#ie-footer {
+		background:#222;
+		padding:40px 0;
+		#ie-inner-footer {
+			width:960px;
+			margin:0 auto;
+			color:#eee;
+			font-size:12px;
+			font-family:georgia, serif;
+			font-style:italic;
+			text-align:center;
+		}
+	}
+	.group:before,
+	.group:after {
+		content: "";
+		display: table;
+	}
+	.group:after {
+		clear: both;
+	}
+	.group {
+		zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+	}
+}

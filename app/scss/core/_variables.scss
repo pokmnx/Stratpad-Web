@@ -1,0 +1,50 @@
+// variables.scss - variables and mixins to pre-ignite any new web development project
+
+// Main Colors
+$bgd: #f9f9f9;
+$default: #696969; // text color (dimgrey)
+
+$dark-gray:#6f6f6f;
+$dark-gray-2:#8E8E8E;
+$dark-gray-3:#b8b8b8;
+
+$light-gray:#e9e9e9;
+$light-gray-2:#f6f6f6;
+
+$white: #fff;
+$black: #000;
+$grey: #898989;
+$greyDark: #888;
+$gold: #eb9f0c; // our primary orangy colour
+
+$secondaryBlue:#008d9e;
+$secondaryBlueBorder:#007b8a;
+
+$successGreen: #1f9530;
+
+$deleteRed: #a80101;
+$deleteRedHover: #c20000;
+
+// Social Colors
+$twitter: #0099c5;
+$facebook: #3e6fa6;
+$linkedin: #006695;
+$rss: #f68001;
+$google: #db6853;
+$pinterest: #d4182c;
+
+// Link Colors
+$linkColor: #db8101; // orange
+$linkHover: #666666; // grey
+$linkPaywallBorder: #fca7ac;
+
+// Media Query Points
+
+$mq-min: "screen and (max-width: 767px)" !default;
+$mq-xsmall: "screen and (min-width: 768px) and (max-width: 1023px)" !default;
+$mq-small: "screen and (min-width: 1024px) and (max-width: 1279px)" !default;
+$mq-medium: "screen and (min-width: 1280px) and (max-width: 1439px)" !default;
+$mq-medium-up: "screen and (min-width: 1280px)" !default;
+$mq-large: "screen and (min-width: 1440px) and (max-width: 1679px)" !default;
+$mq-xlarge: "screen and (min-width: 1680px) and (max-width: 1919px)" !default;
+$mq-max: "screen and (min-width: 1920px)" !default;

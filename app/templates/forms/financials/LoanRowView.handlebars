@@ -1,0 +1,28 @@
+<ul class="loanRow group">
+	<li class="loanName">
+
+	</li>
+	<li>
+		{{date}}
+	</li>
+	<li>
+		{{amount}}
+	</li>
+	<li>
+		{{term}}
+	</li>
+	<li>
+		{{rate}}
+	</li>
+	<li>
+		{{type}}
+	</li>
+	<li>
+		{{{frequency}}}
+		<nav>
+			{{#if hasWriteAccess}}
+			<a href="#" class="icon-ui-remove deleteLoan" title="{{dialogConfirmDeleteLoan}}"></a>
+			{{/if}}
+		</nav>
+	</li>
+</ul>

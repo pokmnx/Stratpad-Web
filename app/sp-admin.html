@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>StratPad Admin</title>
+  <meta charset='utf-8'/>
+  <script>var stratpad_oldie = false;</script>
+  <!--[if lte IE 9]><script>stratpad_oldie = true;</script><![endif]-->
+  <script type="text/javascript">
+    // cache busting
+    var timestamp = '@timestamp@';
+    var isLocal = timestamp.indexOf('@') == 0;
+    var require = {
+          baseUrl: isLocal ? 'js' : 'js/@timestamp@',
+          deps : ['main']
+      };
+    var style = isLocal ? 'css/admin.css' : 'css/admin.@timestamp@.css';
+    document.write('<link rel="stylesheet" type="text/css" href="' + style + '"/>');
+    if(!stratpad_oldie) {
+      document.write('\x3Cscript type="text/javascript" src="' + require.baseUrl + '/lib/require/require.js">\x3C/script>');
+    } else {
+      document.write('\x3Cscript type="text/javascript" src="js/lib/modernizr/html5shiv.js">\x3C/script>');
+    }
+  </script>
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" type="text/css" href="css/ie.css">
+  <![endif]-->
+
+</head>
+
+<body>
+    <header>
+        Just some admin scripts. None will work unless you are logged in and have admin role. <a href="stratweb.html">StratWeb</a>
+    </header>
+    <div id="wrapper">
+    <nav>
+        <ul>
+            <li><a href="#connectReferrals" id="connectReferrals" title="Users who have tried to get new users to signup with StratPad Connect.">Connect Referrals</a></li>
+            <li><a href="#connectIntroductions" id="connectIntroductions" title="Users who have asked for an introduction to a lender or professional.">Connect Introductions</a></li>
+            <li><a href="#serviceProviders" id="serviceProviders" title="Searchable list of lenders and professionals (ie. service providers).">Service Providers</a></li>
+            <li><a href="#users" id="users" title="Searchable list of users">Users</a></li>            
+            <li><a href="#locations" id="locations" title="Searchable list of locations">Locations</a></li>            
+        </ul>
+    </nav>
+        <section>
+            Choose an admin action on the left.
+        </section>
+    </div>
+
+    <script id="connectReferralsTemplate" type="text/x-handlebars-template">
+        <table id="results" class="table table-condensed table-hover table-striped">
+            <caption>Users who have referred a friend or colleague to Connect.</caption>
+            <thead>
+                <tr>
+                    <th data-column-id="id" data-visible="false">Id</th>
+                    <th data-column-id="key" data-identifier="true" data-visible="false">Referral Key</th>
+                    <th data-column-id="referrerName" data-formatter="link">Referer</th>
+                    <th data-column-id="referrer">Referer Email</th>
+                    <th data-column-id="creationDate" data-type="datetime">Created</th>
+                    <th data-column-id="modificationDate" data-type="datetime">Modified</th>
+                    <th data-column-id="email">Referred</th>
+                    <th data-column-id="dateOfSignup" data-type="datetime">Referred Sign Up</th>
+                    <th data-column-id="paid" data-type="bool">Referer Paid</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </script>
+
+    <script id="userSummaryTooltipTemplate" type="text/x-handlebars-template">
+        <div>
+                <div><label>Name:</label> <span>{{firstname}} {{lastname}}</span></div>
+                <div><label>Id:</label> <span>{{id}}</span></div>
+                <div><label>Email:</label> <span>{{email}}</span></div>
+                <div><label>Subscription:</label> <span>{{ipnProductCode}}</span></div>
+                <div><label>License:</label> <span>{{licenseCode}} ({{lcnStatus}})</span></div>
+                <div><label>Connect Paid:</label> <span>{{hasPaidConnect}}</span></div>
+                <div><label>Last Login:</label> <span>{{lastLogin}}</span></div>
+        </div>
+    </script>
+
+    <script id="userDetailTooltipTemplate" type="text/x-handlebars-template">
+        <div>
+                <div><label>Name:</label> <span>{{firstname}} {{lastname}}</span></div>
+                <div><label>Id:</label> <span>{{id}}</span></div>
+                <div><label>Email:</label> <span>{{email}}</span></div>
+                <div><label>Subscription:</label> <span>{{ipnProductCode}}</span></div>
+                <div><label>License:</label> <span>{{licenseCode}} ({{lcnStatus}})</span></div>
+                <div><label>Connect Paid:</label> <span>{{hasPaidConnect}}</span></div>
+                <div><label>Last Login:</label> <span>{{lastLogin}}</span></div>
+                <div><label>Created:</label> <span>{{created}}</span></div>
+                <div><label>Modified:</label> <span>{{modified}}</span></div>
+                <div><label>Subscription Start:</label> <span>{{subscribed}}</span></div>
+                <div><label>Verified:</label> <span>{{verified}}</span></div>
+                <div><label>Currency:</label> <span>{{preferredCurrency}}</span></div>
+                <div><label>Service Provider:</label> <span><a id="showServiceProvider" href="">View</a></span></div>    
+        </div>
+    </script>
+
+    <script id="connectIntroductionsTemplate" type="text/x-handlebars-template">
+        <table id="results" class="table table-condensed table-hover table-striped">
+            <caption>Users who have requested an introduction to a Service Provider (lender or professional).</caption>
+            <thead>
+                <tr>
+                    <th data-column-id="id" data-identifier="true" data-visible="false">Community Tracking Id</th>
+                    <th data-column-id="serviceProvider" data-formatter="serviceProvider" title="The company or individual providing a service to the end-user.">Service Provider</th>
+                    <th data-column-id="creationDate" data-type="datetime" data-sortable="false">Created</th>
+                    <th data-column-id="yearMonth" data-type="numeric">Month</th>
+                    <th data-column-id="user" data-formatter="user" data-sortable="false" title="The end-user that requested the introduction.">User</th>
+                    <th data-column-id="stratFile" data-formatter="stratFile" data-sortable="false" title="The Stratfile that was open when the introduction request was made.">StratFile</th>
+                    <th data-column-id="paid" data-type="bool" data-formatter="bool" title="Has StratPad Inc. been paid by te service Provider, for this introduction.">Paid</th>
+                    <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </script>
+
+    <script id="serviceProvidersTemplate" type="text/x-handlebars-template">
+        <table id="results" class="table table-condensed table-hover table-striped">
+            <caption>Lenders (banks) and users who have signed up with Connect (professionals).</caption>
+            <thead>
+                <tr>
+                    <th data-column-id="id" data-visible="false">Id</th>
+                    <th data-column-id="name" data-formatter="serviceProvider">ServiceProvider</th>
+                    <th data-column-id="owner" data-formatter="owner" data-sortable="false">Owner</th>
+                    <th data-column-id="city">City</th>                    
+                    <th data-column-id="status">Status</th>
+                    <th data-column-id="monthlyAdBudget" data-sortable="false">Budget</th>
+                    <th data-column-id="priceForInvitation" data-sortable="false">Price/Intro</th>                                        
+                    <th data-column-id="creationDate" data-type="datetime" data-sortable="false">Created</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </script>
+
+    <script id="serviceProviderTooltipTemplate" type="text/x-handlebars-template">
+        <div class="serviceProviderTooltip">
+            <div><label>Name:</label> <span>{{name}}</span></div>
+            <div><label>Id:</label> <span>{{id}}</span></div>
+            <div><label>Address:</label> <span>{{address1}}</span></div>
+            <div><label>Location:</label> <span>{{location}}</span></div>
+            <div><label>Zip/Postal:</label> <span>{{zipPostal}}</span></div>
+            <div><label>Categories:</label> <span>{{categories}}</span></div>
+            <div><label>Status:</label> <span>{{status}}</span></div>
+            <div><label>Terms Accepted:</label> <span>{{termsAccepted}}</span></div>
+            <div><label>Monthly Ad Budget:</label> <span>{{monthlyAdBudget}}</span></div>
+            <div><label>Price per Invite (PPI):</label> <span>{{priceForInvitation}}</span></div>
+            <div><label>Search Description:</label> <span>{{servicesDescription}}</span></div>
+            <div><label>Detail Description:</label> <span>{{welcomeMessage}}</span></div>
+            <div><label>Created:</label> <span>{{created}}</span></div>
+            <div><label>Modified:</label> <span>{{modified}}</span></div>
+            <div><label>Docs folder:</label> <span>/{{docsFolderName}}</span></div>
+            <div class="accreditations">
+                <label>Accreditations:</label> 
+                <span>
+                    {{#each accreditationLogoUrls}}
+                        <img src="{{this}}">
+                    {{/each}}                       
+                </span>
+            </div>
+            <div class="certifications">
+                <label>Certifications:</label> 
+                <span>{{certifications}} <a href="#" class="edit">edit</a></span>
+            </div>
+        </div>
+    </script>
+
+    <script id="serviceProviderCertificationTooltipTemplate" type="text/x-handlebars-template">
+        <div class="serviceProviderCertificationTooltip">
+            <form>
+            <div><label>Certifications</label> <span><input type="checkbox" id="toggleAll" title="Check/uncheck all radio/checkboxen."></span></div>
+            <div><label>StratPad Coach Level 1</label> <span><input type="radio" name="stratPadCoachLevel" value="StratPadCoachLevel1"></span></div>
+            <div><label>StratPad Coach Level 2</label> <span><input type="radio" name="stratPadCoachLevel" value="StratPadCoachLevel2"></span></div>
+            <div><label>StratPad Coach Level 3</label> <span><input type="radio" name="stratPadCoachLevel" value="StratPadCoachLevel3"></span></div>
+            <div></div>
+            <div><label>IPBC Certified Professional Bookkeeper</label> <span><input type="checkbox" name="certifications[]" value="IPBCCertifiedProfessionalBookkeeper"></span></div>
+            <div><label>QBO Certified Pro Advisor</label> <span><input type="checkbox" name="certifications[]" value="QBOCertifiedProAdvisor"></span></div>
+            <div><label>Better Business Bureau</label> <span><input type="checkbox" name="certifications[]" value="BetterBusinessBureau"></span></div>
+            <div><label>Better Business Bureau A-Plus</label> <span><input type="checkbox" name="certifications[]" value="BetterBusinessBureauAPlus"></span></div>
+            <div><label>SBA-8A Certified</label> <span><input type="checkbox" name="certifications[]" value="SBA8ACertified"></span></div>
+            <div><label>SBA</label> <span><input type="checkbox" name="certifications[]" value="SBA"></span></div>
+            <div><label>SDVOSB</label> <span><input type="checkbox" name="certifications[]" value="SDVOSB"></span></div>
+            <div class="save"><button type="button" class="btn btn-primary">Save Certifications</button></div>
+            </form>
+        </div>
+    </script>
+
+    <script id="stratFileTooltipTemplate" type="text/x-handlebars-template">
+        <div class="stratFileTooltip">
+            <div><label>Name:</label> <span>{{name}}</span></div>
+            <div><label>Id:</label> <span>{{id}}</span></div>
+            <div><label>Company:</label> <span>{{companyName}}</span></div>
+            <div><label>Location:</label> <span>{{location}}</span></div>
+            <div><label>Industry:</label> <span>{{industry}}</span></div>
+            <div><label>Created:</label> <span>{{created}}</span></div>
+            <div><label>Modified:</label> <span>{{modified}}</span></div>
+            <div><label>Accessed:</label> <span>{{accessed}}</span></div>
+            <div><a id="exportStratFile" href="">Export</a></div>
+        </div>
+    </script>
+
+    <script id="stratFilesTooltipTemplate" type="text/x-handlebars-template">
+        <div>
+            <h4>StratFiles</h4>
+            <ul class="stratFilesTooltip">
+            </ul>
+        </div>
+    </script>
+    <script id="usersTemplate" type="text/x-handlebars-template">
+        <table id="results" class="table table-condensed table-hover table-striped">
+            <caption>Manage all StratPad users.</caption>
+            <thead>
+                <tr>
+                    <th data-column-id="id" data-visible="false">Id</th>
+                    <th data-column-id="lastname" data-formatter="escape">Last Name</th>
+                    <th data-column-id="firstname" data-formatter="escape">First Name</th>
+                    <th data-column-id="email" data-formatter="email">Email</th>
+                    <th data-column-id="ipnProductCode" data-formatter="ipnProductCode" data-sortable="false">Subscription</th>
+                    <th data-column-id="licenseCode" data-sortable="false">License</th>
+                    <th data-column-id="hasPaidConnect" data-sortable="false">Connect Paid</th>
+                    <th data-column-id="creationDate" data-type="datetime" data-sortable="false">Created</th>
+                    <th data-column-id="lastLoginDate" data-type="datetime" data-sortable="false">Last Login</th>
+                    <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </script>
+
+    <script id="locationsTemplate" type="text/x-handlebars-template">
+    <div id="location">
+        <div><label>Check city:</label> <select id="city" name="city" class="city" placeholder="City name"></select></div>
+
+        <div><label>Choose region:</label> <select id="region" name="region" class="region" placeholder="Region name (region, province, state, etc)"></select></div>
+
+        <div><label>Choose country: <button id="viewAllRegions" type="button" class="btn btn-primary btn-xs">View all regions</button></label>
+            <select id="country" name="country" class="country" placeholder="Country name"></select>
+        </div>
+
+        <hr>
+
+        <p>Find city in wikipedia. Can get the proper name, latitude, longitude, and timezone from there. For reference, South latitudes are negative, while West longitudes are negative. eg. 34.534°S 138.748°E is -34.5 latitude and 138.7</p>
+
+        <p>Check geobytes for the most up-to-date version of this db: <a href="http://www.geobytes.com/free-ajax-cities-jsonp-api/" target="_new">http://www.geobytes.com/free-ajax-cities-jsonp-api/</a></p>
+
+        <p>Keep a log of the inserts!!</p>
+
+        <div id="insert"><textarea>insert into Cities (CountryID, RegionID, City, Latitude, Longitude, TimeZone) VALUES (0, 0, 'CityName', 0, 0, '00:00');</textarea></div>
+    </div>
+    </script>
+    
+
+</body>
+
+</html>

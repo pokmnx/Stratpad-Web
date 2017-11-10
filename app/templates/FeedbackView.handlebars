@@ -1,0 +1,19 @@
+<div id="feedback-form">
+	<nav id="feedback-trigger"><span>{{feedbackOpen}}</span><i class="icon-ui-arrow-up-2"></i></nav>
+	<div id="feedback-panel">
+		<form>
+		<p>Your opinion is very important to us! I would like to:</p>
+		<ul class="clean-list">
+			<li><input type="radio" name="category" value="Question" tabindex="-1">Ask a Question</li>
+			<li><input type="radio" name="category" value="Suggestion" tabindex="-1">Make a Suggestion</li>
+			<li><input type="radio" name="category" value="Bug" tabindex="-1">Report a Bug</li>
+			<li><input type="radio" name="category" value="Comment" tabindex="-1">Make a Comment</li>
+		</ul>
+
+		<p>Explain in as much detail as needed:</p>
+		<textarea id="feedback" tabindex="-1"></textarea>
+		<button class="blue-btn" tabindex="-1">Submit</button>
+		<span class="message"></span>
+		</form>
+	</div>
+</div>

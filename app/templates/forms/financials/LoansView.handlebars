@@ -1,0 +1,76 @@
+<header>
+  <hgroup>
+    <h1>{{heading}}</h1>
+    <h2>{{loans_title}}</h2>
+  </hgroup>
+</header>
+<section>
+  <article id="loans" class="objectiveActivities">
+    <div class="stratFileHelp">
+      <iframe src="" data-url="help/view-financials/options/loans/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    </div>
+    <div class="permissions"></div>
+    <h3>Describe any loans that your business currently has or will receive.</h3>
+    <div>Loans will affect the Cash and Liabilities accounts in your Balance Sheet.</div>
+    <div class="stageContentInner">
+      <ul class="loans loanRow group">
+        <li>Name of Loan</li>
+        <li>Date Rcvd</li>
+        <li>Amount</li>
+        <li>Term</li>
+        <li>Rate</li>
+        <li>Type</li>
+        <li>Schedule</li>
+      </ul>
+      <ul class="sortable ui-sortable">
+        <!-- rows go here -->
+      </ul>
+      <a href="#" class="button addButton">
+      <span class="icon-ui-file-plus"></span>{{btnAddLoan}}</a>
+    </div>
+  </article>
+  <script type="text/template" id="dialogEditAddLoan">
+    <span class="instructions">{{loanInstructions}}</span>
+    <ul id="loanFields" class="group s1_formPanel dialogFields">
+      <li class="ocLabel">{{lblLoanName}}</li>
+      <li>
+        <input name="loanName" type="text" id="loanName" placeholder="{{plhrLoanName}}" tabindex="1"/>
+      </li>
+      <li class="ocLabel">{{lblLoanDate}}</li>
+      <li>
+        <div class="datepickerWrapper">
+          <i class="icon-ui-calendar-2"></i>
+          <input id="loanDate" type="text" name="loanDate" placeholder="{{plhrLoanDate}}" class="datepicker" tabindex="2" />
+        </div>
+      </li>
+      <li class="ocLabel">{{lblLoanAmount}}</li>
+      <li>
+        <input name="loanAmount" type="number" id="loanAmount" placeholder="{{plhrLoanAmount}}" tabindex="3"/>
+      </li>
+      <li class="ocLabel">{{lblLoanTerm}}</li>
+      <li>
+        <input name="loanTermYears" type="number" id="loanTermYears" placeholder="{{plhrLoanTermYears}}" max="999" tabindex="4"/>
+        <input name="loanTermMonths" type="number" id="loanTermMonths" placeholder="{{plhrLoanTermMonths}}" max="12" tabindex="5" />
+      </li>
+      <li class="ocLabel">{{lblLoanRate}}</li>
+      <li>
+        <input name="loanRate" type="text" id="loanRate" placeholder="{{plhrLoanRate}}" max="100" fixed="2" tabindex="6"/>
+      </li>
+      <li class="ocLabel">{{lblLoanType}}</li>
+      <li>
+        <select name="loanType" id="loanType" class="select2" placeholder="{{plhrLoanType}}" tabindex="7">
+          <option value="PRINCIPAL_PLUS_INTEREST">{{PRINCIPAL_PLUS_INTEREST}}</option>
+          <option value="INTEREST_ONLY">{{INTEREST_ONLY}}</option>
+        </select>
+      </li>
+      <li class="ocLabel">{{lblLoanFrequency}}</li>
+      <li>
+        <select name="loanFrequency" id="loanFrequency" class="select2" placeholder="{{plhrLoanFrequency}}" tabindex="8">
+          <option value="MONTHLY">{{MONTHLY}}</option>
+          <option value="QUARTERLY">{{QUARTERLY}}</option>
+          <option value="ANNUALLY">{{ANNUALLY}}</option>
+        </select>
+      </li>
+    </ul>
+  </script>  
+</section>

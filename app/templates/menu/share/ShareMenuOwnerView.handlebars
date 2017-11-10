@@ -1,0 +1,52 @@
+<h4 class="tooltip icon-ui-notification" title="{{beta_notes}}"><span class='beta_notes'>BETA: </span>{{menuTitle}}</h4>
+<article class="invite-user">
+	<div id="accessControlInviteControls">
+		<input type="email" id="accessControlInvite" name="accessControlInvite" placeholder="{{plhdr_accessControlInvite}}" />
+		<div class="inviteButtonWrap">
+			<a id="sendAceInvite" class="blue-btn" href="#">{{btn_invite}}</a>
+			<span id="shareSpinner"></span>
+		</div>
+		<div class="permission-details">
+			{{invitePermsStart}}
+			<span class="access-level al-invite domain-plan" data-permission="WRITE" data-type="PLAN">
+				<i>{{aceSelect_edit}}</i>
+				<span class="permission-select">
+					<b data-permission="WRITE" class="permission-type">{{aceSelect_edit}}</b>
+					<b data-permission="READ" class="permission-type">{{aceSelect_view}}</b>
+					<!-- <b data-permission="NONE" class="permission-type">{{aceSelect_none}}</b> -->
+				</span>
+			</span>
+			{{invitePermsMiddle}}
+			<span class="access-level al-invite domain-stratboard" data-permission="WRITE" data-type="STRATBOARD">
+				<i>{{aceSelect_edit}}</i>
+				<span class="permission-select">
+					<b data-permission="WRITE" class="permission-type">{{aceSelect_edit}}</b>
+					<b data-permission="READ" class="permission-type">{{aceSelect_view}}</b>
+					<b data-permission="NONE" class="permission-type">{{aceSelect_none}}</b>
+				</span>
+			</span>
+			{{invitePermsEnd}}
+		</div>
+	</div>
+</article>
+<article class="user-wrap">
+	<h5>{{haveAccessTitle}}</h5>
+	<div class="user-entry root-user group">
+		<figure class="avatar">
+			<a href="http://www.gravatar.com" target="_blank">
+				<img src="https://secure.gravatar.com/avatar/{{{md5}}}?s=120" />
+			</a>
+		</figure>
+		<div class="user">
+			<ul class="clean-list">
+				<li class="user-details">
+					<span class="user-name">{{fullName}}</span>
+					<span class="user-status">({{ownerStatus}})</span>
+				</li>
+				<li class="permission-details">{{aceOwnerPermissions}}</li>
+			</ul>
+		</div>
+	</div>
+	<ul id="accessControlEntries" class="clean-list"></ul>
+</article>
+

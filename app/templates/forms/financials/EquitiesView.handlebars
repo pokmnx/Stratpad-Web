@@ -1,0 +1,49 @@
+<header>
+  <hgroup>
+    <h1>{{heading}}</h1>
+    <h2>{{equities_title}}</h2>
+  </hgroup>
+</header>
+<section>
+  <article id="equities" class="objectiveActivities">
+    <div class="stratFileHelp">
+      <iframe src="" data-url="help/view-financials/options/equities/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    </div>
+    <div class="permissions"></div>
+    <h3>Describe any equity investments that have been made (or that will be made) into your company.</h3>
+    <div>These will affect the Capital Stock and Cash accounts on your Balance Sheet.</div>
+    <div class="stageContentInner">
+      <ul class="equities equityRow group">
+        <li>Name of Investment</li>
+        <li>Date</li>
+        <li>Amount</li>
+      </ul>
+      <ul class="sortable ui-sortable">
+        <!-- rows go here -->
+      </ul>
+      <a href="#" class="button addButton ">
+      <span class="icon-ui-file-plus"></span>{{btnAddEquity}}</a>
+    </div>
+  </article>
+  <script type="text/template" id="dialogEditAddEquity">
+    <span class="instructions">{{equityInstructions}}</span>
+    <ul id="equityFields" class="group s1_formPanel dialogFields">
+      <li class="ocLabel">{{lblEquityName}}</li>
+      <li>
+        <input name="equityName" type="text" id="equityName" placeholder="{{plhrEquityName}}" tabindex="1" />
+      </li>
+      <li class="ocLabel">{{lblEquityDate}}</li>
+      <li>
+        <div class="datepickerWrapper">
+          <i class="icon-ui-calendar-2"></i>
+          <input id="equityDate" type="text" name="equityDate" placeholder="{{plhrEquityDate}}" class="datepicker" tabindex="2" />
+        </div>
+      </li>
+      <li class="ocLabel">{{lblEquityValue}}</li>
+      <li>
+        <input name="equityValue" type="number" id="equityValue" placeholder="{{plhrEquityValue}}" tabindex="3" />
+      </li>
+    </ul>
+  </script>
+
+</section>

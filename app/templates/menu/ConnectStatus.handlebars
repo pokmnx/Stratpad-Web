@@ -1,0 +1,14 @@
+{{#if isConnectComplete}}
+  <p>You are Connected.</p>
+  <a id="goConnectReport" href="#">Click here to check your Connect activity.</a>
+{{else}}
+  {{#if isConnectNotStarted}}
+  <p>You do not have a Connect account.</p>
+  <p>Do you want small businesses looking for your products &amp; services to find you in StratPad?</p>
+  <a id="goConnect" href="#">Click here to create your Connect account.</a>
+  {{else}}
+    {{!-- partial --}}
+    <p>Your Connect account is incomplete.</p>
+    <a id="goConnectForm" href="#">Click here to finish signing up for Connect.</a>
+  {{/if}}
+{{/if}}

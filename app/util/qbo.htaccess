@@ -1,0 +1,31 @@
+# 480 weeks
+<FilesMatch ".(ico|swf)$">
+Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+ 
+# 2 DAYS
+<FilesMatch ".(xml|txt|jpg|png|gif)$">
+Header set Cache-Control "max-age=172800, public, must-revalidate"
+</FilesMatch>
+ 
+# 2 HOURS
+<FilesMatch ".(html|htm|css|js|pdf)$">
+Header set Cache-Control "max-age=3600, must-revalidate"
+</FilesMatch>
+
+# cache buster for css and js files
+RewriteEngine on
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+RewriteRule ^(.*)\/[\d]{10}\/(.*) $1/$2 [L]
+
+# maintenance (can allow specific IP's to access)
+# RewriteEngine On
+# RewriteBase /
+# RewriteCond %{REMOTE_ADDR} !^11\.111\.111\.111
+# RewriteCond %{REQUEST_URI} !^/images/.*$
+# RewriteCond %{REQUEST_URI} !^/css/.*$
+# RewriteCond %{REQUEST_URI} !^/js/.*$
+# RewriteCond %{REQUEST_URI} !^/fonts/.*$
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+# RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+# RewriteRule ^(.*)$ http://staging.stratpad.com/maintenance.html [R=307,L]

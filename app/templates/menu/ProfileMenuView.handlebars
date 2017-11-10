@@ -1,0 +1,33 @@
+<div class="nano">
+  <div class="content">
+    <h4>Account</h4>
+    <article>
+      <figure id="profileDisplay" class="group">
+        <a href="http://www.gravatar.com" target="_blank">
+          <img src="https://secure.gravatar.com/avatar/{{{md5}}}?s=120" />
+        </a>
+        <figcaption>
+        <b>{{firstname}} {{lastname}}</b>{{email}}</figcaption>
+        <a id="editProfile" href="#" title="{{editProfile_tip}}">{{editProfile_btnName}}</a> •
+        <a id="changePassword" href="#" title="{{changePassword_tip}}">{{changePassword_btnName}}</a>
+      </figure>
+    </article>
+    <h4></h4>
+    <article class="versionDetails {{className}}">
+      <span class="stratpadVersion">{{name}}</span>
+      <p id="planExpiry">{{{planExpiry}}}</p>
+    </article>
+    <h4></h4>
+    <article class="connect">
+      <span>StratPad Connect</span>
+      <p>{{!-- connect-status-template goes here --}}</p>
+    </article>
+    {{#if showUpgrade}}
+    <h4></h4>
+    <article class="upgrade">
+      <p>{{message}}</p>
+      <a id="showUpgrade" class="blue-btn" href="#">{{buttonText}}</a>
+    </article>
+    {{/if}}
+  </div>
+</div>

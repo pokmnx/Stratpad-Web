@@ -1,0 +1,20 @@
+<div>
+<h2>{{listTitle}}</h2>
+<ul>
+  {{#each listItems}}
+  <li>
+    {{this.name}} 
+    {{#if this.hasOlympicGold}}
+    <em>*</em>
+    {{/if}}
+  </li>
+  {{/each}}
+
+</ul>
+
+{{#hasGold}}
+<p style="font-size: 12px ;">
+  <em>* Olympic gold medalist</em>
+</p>
+{{/hasGold}}
+</div>

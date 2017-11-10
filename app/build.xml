@@ -1,0 +1,634 @@
+<project name="StratWeb" default="build.dev" basedir=".">
+      <!-- 
+
+      For building: need java, ant, ruby, compass, handlebars
+      NB. npm install handlebars@1.3.0 -g because handlebars 2.0 alpha causes problems
+
+      ant build.dev
+
+      You'll need to download and install jsch-0.1.49.jar from http://www.jcraft.com/jsch/index.html to run the deploy tasks.
+      That's in addition to the ant-jsch.jar which may already be installed.
+      It goes in the $ANT_HOME/lib - it should be picked up automatically (probably need to install latest version of ant).
+      You'll also need to make sure ~/.ssh/known-hosts gets updated (ie just ssh into cloud.stratpad.com manually), or if the hosts are hashed, 
+      you can enter the line manually
+      
+      You also need to supply password on the commandline eg. ant deploy -Dpassword=*** 
+
+      - new digital ocean server
+      ant deploy-prod -Ddeploy.host.username=root -Dpassword=***  
+    -->
+
+
+  <target name="init">    
+    <echo message="---------------------------------------------------------------"/>  
+    <echo message="-----------         BUILDING STRATWEB PACKAGE         ---------"/>
+    <echo message=""/>
+
+    <!-- build-specific directories -->
+    <property name="dist.home" value="${basedir}/dist" />
+    <property name="deploy.home" value="${basedir}/deploy" />
+    <property name="js" value="${basedir}/js" />
+    <property name="css" value="${basedir}/css" />
+    <property name="fonts" value="${basedir}/fonts" />
+    <property name="images" value="${basedir}/images" />
+    <property name="static" value="${basedir}/static" />    
+    <property name="templates" value="${basedir}/templates" />
+
+
+    <!-- server domains used as hosts for our resources; possible values for staticServerDomain -->
+    <property name="staging.staticServerDomain" value="staging.stratpad.com"/>
+    <property name="prod.staticServerDomain" value="cloud.stratpad.com"/>
+
+
+    <!-- Properties are immutable: whoever sets a property first freezes it for the rest of the build -->
+    <property file="build.${user.name}.properties"/>
+
+
+    <!-- default locations for helper apps, based on platform -->
+    <condition property="compass.exe" value="C:\\Libs\\Ruby\\bin\\compass.bat">
+      <os family="windows" />
+    </condition>
+
+    <condition property="compass.exe" value="/usr/bin/compass">
+      <os family="unix" />
+    </condition>
+
+    <condition property="node.exe" value="C:\\Libs\\node\\node.exe">
+      <os family="windows" />
+    </condition>
+
+    <condition property="node.exe" value="/usr/local/bin/node">
+      <os family="unix" />
+    </condition>
+
+    <condition property="handlebars.exe" value="C:\\Libs\\Nodist\\bin\\handlebars.cmd">
+      <os family="windows" />
+    </condition>
+
+    <condition property="handlebars.exe" value="/usr/local/bin/handlebars">
+      <os family="unix" />
+    </condition>
+
+    <condition property="phantomjs.exe" value="C:\\Libs\\phantomjs\\phantomjs.exe">
+      <os family="windows" />
+    </condition>
+
+    <condition property="phantomjs.exe" value="/usr/local/bin/phantomjs">
+      <os family="unix" />
+    </condition>
+
+    <condition property="git.exe" value="C:\\Program Files (x86)\\Git\\bin\\git.exe">
+      <os family="windows" />
+    </condition>
+
+    <condition property="git.exe" value="/usr/bin/git">
+      <os family="unix" />
+    </condition>
+
+    <!-- the rest of our properties; Properties are immutable: whoever sets a property first freezes it for the rest of the build -->
+    <property file="build.properties"/>
+
+  </target>
+
+  <target name="echo" depends="init">
+    <echo message="The operating system is: ${os.name}"/>  
+
+    <!-- absolute path of the project. -->
+    <echo message="The home path is: ${basedir}"/>
+
+    <!-- absolute path of the build file. -->
+    <echo message="The file name is: ${ant.file}"/>
+
+    <!-- root directory of ant. -->
+    <echo message="The Project name is: ${ant.project.name}"/>
+    <echo message="The Ant home directory is: ${ant.home}"/>
+    <echo message="The Ant version is: ${ant.version}"/> 
+    <echo message="The Java version is: ${ant.java.version}"/>
+    
+    <!-- System properties. -->
+    <echo message="The Java home directory is: ${java.home}"/>
+    <echo message="The User home directory is: ${user.home}"/>
+    <echo message="The User name is: ${user.name}"/>
+
+    <!-- servers -->
+    <echo message="The development GAE server is: ${dev.serverBaseUrl}"/>
+    <echo message="The staging GAE server is: ${staging.serverBaseUrl}"/>
+    <echo message="The production GAE server is: ${prod.serverBaseUrl}"/>
+    <echo message="The staging static server is: ${staging.staticServerDomain}"/>
+    <echo message="The production static server is: ${prod.staticServerDomain}"/>
+
+    <!-- folders -->
+    <echo message="The distribution folder is: ${dist.home}"/>
+    <echo message="The deployment folder is: ${deploy.home}"/>
+
+    <!-- helper apps - usually need installing -->
+    <echo message="Compass: ${compass.exe}"/>
+    <echo message="Node: ${node.exe}"/>
+    <echo message="Handlebars: ${handlebars.exe}"/>
+    <echo message="Phantomjs: ${phantomjs.exe}"/>
+    <echo message="Git: ${git.exe}"/>
+
+  </target>
+
+  <target name="clean" depends="init">
+    <echo message="------ Cleaning ..."/>
+    <delete dir="${dist.home}"/> 
+    <mkdir dir="${dist.home}"/> 
+    <delete dir="${deploy.home}"/> 
+    <mkdir dir="${deploy.home}"/> 
+  </target>
+
+
+  <target name="build.scss" depends="init">
+    <echo message="------ Compiling scss"/>
+    <delete dir="${css}"/> 
+    <mkdir dir="${css}"/> 
+
+    <!-- if no scss.config.file, then set it to dev.scss.config.file -->
+    <condition property="scss.config.file" value="${dev.scss.config.file}">
+      <not>
+        <isset property="scss.config.file" />
+      </not>
+    </condition>
+    <echo message="using scss.config.file: ${scss.config.file}"/>
+
+    <exec dir="${basedir}" executable="${compass.exe}">
+      <arg line="compile"/>
+      <arg line="."/>
+      <arg line="-c"/>
+      <arg line="${scss.config.file}"/>
+      <arg line="--boring"/>
+      <arg line="--force"/>
+    </exec>
+  </target>
+
+
+  <target name="build.handlebars" depends="init">
+    <!-- handlebars templates/ > js/modules/PrecompiledTemplates.js -->
+    <echo message="------ Compiling handlebars templates"/>
+    <exec dir="${basedir}" executable="${handlebars.exe}">
+      <arg line="--output"/>
+      <arg line="js/modules/PrecompiledTemplates.js"/>
+      <arg line="templates"/>
+    </exec>
+  </target>
+
+
+  <target name="build.config" depends="init">
+    <!-- puts together the Config.js file (in the src dir!!), with runtime directives for the app -->
+    <!-- NB if any of these properties are set in a previous target, they will take precedent -->
+    <echo message="------ Building Config.js"/>
+
+    <!-- if no serverBaseUrl, then set it to dev.serverBaseUrl -->
+    <property name="serverBaseUrl" value="${dev.serverBaseUrl}"/>
+    <echo message="using serverBaseUrl: ${serverBaseUrl}"/>
+
+    <!-- if no staticServerDomain, then set it to staging.staticServerDomain -->
+    <property name="staticServerDomain" value="${staging.staticServerDomain}"/>
+    <echo message="using staticServerDomain: ${staticServerDomain}"/>
+
+    <property name="disableFinancials" value="${dev.disableFinancials}"/>
+
+    <!-- js app logging -->
+    <property name="logLevel" value="${dev.logLevel}"/>
+    <echo message="using logLevel: ${logLevel}"/>
+
+    <!-- analytics -->
+    <property name="analytics" value="false"/>
+    <echo message="using analytics: ${analytics}"/>
+
+    <!-- git sha1 revision -->
+    <exec dir="${basedir}" executable="${git.exe}" spawn="false" outputproperty="sha1">
+      <arg line="rev-parse" />
+      <arg line="HEAD" />
+    </exec>
+
+    <!-- buildDate -->
+    <tstamp>
+      <format property="buildDate" pattern="MMM d, yyyy HH:mm:ss z"
+              timezone="Canada/Mountain"/>
+    </tstamp>
+
+    <!-- avangate product ids and urls -->
+    <property name="prodIdStartup" value="${staging.prodIdStartup}"/>
+    <property name="prodIdBusiness" value="${staging.prodIdBusiness}"/>
+    <property name="prodIdUnlimited" value="${staging.prodIdUnlimited}"/>
+    <property name="prodIdConnect" value="${staging.prodIdConnect}"/>
+
+    <property name="prodIdBusinessMonthly" value="${staging.prodIdBusinessMonthly}"/>
+    <property name="prodIdUnlimitedMonthly" value="${staging.prodIdUnlimitedMonthly}"/>
+    <property name="prodIdCoach" value="${staging.prodIdCoach}"/>
+    <property name="prodIdCoachMonthly" value="${staging.prodIdCoachMonthly}"/>
+    <property name="prodIdAssociation" value="${staging.prodIdAssociation}"/>
+    <property name="prodIdAssociationMonthly" value="${staging.prodIdAssociationMonthly}"/>
+
+    <property name="cartUrl" value="${staging.cartUrl}"/>
+    <property name="upgradeUrl" value="${staging.upgradeUrl}"/>
+
+    <!-- use paymentType=Test in Connect payment dialog? -->
+    <property name="connectTestPayments" value="${dev.connectTestPayments}"/>
+
+    <echo file="${js}/modules/Config.js" append="false">
+// NB. this file is overwritten by the ant build, on deployment
+// properties come from build.properties
+define(function() {
+  var Config = {
+    // dictates i18n choice
+    lang: 'en',
+
+    // used for constructing URL's to the backend
+    serverBaseUrl: '${serverBaseUrl}',
+
+    // base url to google cloud service storage
+    gcsBaseUrl: 'https://storage.googleapis.com',
+
+    // used for building URL's to WP-hosted content
+    wpUrl: '${wpUrl}',
+
+    // the main site, with pricing tables, etc
+    siteUrl: '${siteUrl}',
+
+    // city lookup service
+    regionsUrl: '${regionsUrl}',
+
+    // Avangate store URL for product purchases
+    cartUrl: '${cartUrl}',
+
+    // Avangate URL for upgrading from one product to the next
+    upgradeUrl: '${upgradeUrl}',
+
+    // the Avangate product ids (NB can be for production or their sandbox)
+    // Free is not an Avangate product, but we still need an id
+    prodIdFreeTrial: 'Free',
+    prodIdStartup: '${prodIdStartup}',
+    prodIdBusiness: '${prodIdBusiness}',
+    prodIdUnlimited: '${prodIdUnlimited}',
+    prodIdConnect: '${prodIdConnect}',
+
+    prodIdBusinessMonthly: '${prodIdBusinessMonthly}',
+    prodIdUnlimitedMonthly: '${prodIdUnlimitedMonthly}',
+    prodIdCoach: '${prodIdCoach}',
+    prodIdCoachMonthly: '${prodIdCoachMonthly}',
+    prodIdAssociation: '${prodIdAssociation}',
+    prodIdAssociationMonthly: '${prodIdAssociationMonthly}',
+
+    // sku's for our products
+    skuFree: 'com.stratpad.cloud.free',
+    skuStudent: 'com.stratpad.cloud.student',
+    skuBusiness: 'com.stratpad.cloud.business',
+    skuUnlimited: 'com.stratpad.cloud.unlimited',
+    skuConnect: 'com.stratpad.cloud.connect',
+
+    skuBusinessMonthly: 'com.stratpad.cloud.business.monthly',
+    skuUnlimitedMonthly: 'com.stratpad.cloud.unlimited.monthly',
+    skuCoach: 'com.stratpad.cloud.coach',
+    skuCoachMonthly: 'com.stratpad.cloud.coach.monthly',
+    skuAssociation: 'com.stratpad.cloud.association',
+    skuAssociationMonthly: 'com.stratpad.cloud.association.monthly',
+
+    // in some cases, we need to build a URL to a static resource (eg. for princexml to use to grab css)
+    staticServerName: '${staticServerDomain}',
+
+    // should we record analytics?
+    analytics: ${analytics},
+
+    // should we show QBO widgets?
+    qbo: true,
+
+    // channels, for multiuser notifications?
+    channels: ${channels},
+
+    // show extended financials?
+    disableFinancials: ${disableFinancials},
+
+    // use paymentType=Test in Connect payment dialog?
+    connectTestPayments: ${connectTestPayments},   
+
+    // which messages do we want to show
+    logLevel: '${logLevel}',
+
+    // app version number
+    version: '${version}',
+
+    // git revision
+    sha1: '${sha1}',
+
+    // the date the build was made
+    buildDate: '${buildDate}'
+
+  };
+  return Config;
+});      
+    </echo>    
+  </target>
+
+
+  <!-- needs to be called from another target eg. build.dev -->
+  <target name="build.all" depends="init">
+    <antcall target="build.config"/>
+    <antcall target="build.scss"/>
+    <antcall target="build.handlebars"/>
+  </target>
+
+
+  <target name="build.dev" depends="init">
+    <antcall target="build.all"/>
+  </target>
+
+
+  <target name="build.dev2" depends="init">
+    <antcall target="build.config"/>
+    <antcall target="build.handlebars"/>
+  </target>
+
+
+  <target name="dist" depends="init">
+    <!-- Copy all the files needed for a distribution into the dist dir -->
+    <antcall target="build.all"/>
+    <echo message="Copying files"/>
+    <mkdir dir="${dist.home}" />
+
+    <!-- for cache busting; could be set first in optimize, but that's fine -->
+    <tstamp>
+      <format property="timestamp" pattern="yyMMddHHmm"
+              timezone="Canada/Mountain"/>
+    </tstamp>
+
+    <copy todir="${dist.home}">
+      <fileset dir="${basedir}" includes="js/**"/>
+      <fileset dir="${basedir}" includes="css/**"/>
+      <fileset dir="${basedir}" includes="fonts/**"/>
+      <fileset dir="${basedir}" includes="reference/**"/>
+      <fileset dir="${basedir}" includes="images/**" excludes="images/screens/**,images/slider-images/**,images/dummy/**"/>
+      <!-- <fileset dir="${basedir}" includes="ipp/**"/> -->
+      <fileset dir="${basedir}" includes="favicon.ico"/>
+      <fileset dir="${basedir}" includes="*.shtml"/>
+    </copy>
+
+    <!-- replace @timestamp@ string with something real -->
+    <copy todir="${dist.home}">
+      <fileset dir="${basedir}" includes="index.html"/>
+      <fileset dir="${basedir}" includes="stratweb.html"/>
+      <fileset dir="${basedir}" includes="maintenance.html"/>
+      <fileset dir="${basedir}" includes="sp-admin.html"/>
+      <fileset dir="${basedir}" includes="ipp/**/*.html"/>
+      <filterset>
+        <filter token="timestamp" value="${timestamp}"/>
+        <filter token="serverBaseUrl" value="${serverBaseUrl}"/>
+      </filterset>
+    </copy>
+
+  </target>
+
+
+  <target name="optimize" depends="init">
+    <!-- 
+      Concatenate most of our js scripts into one, and then uglify it, into the dist directory (removing any old dist/js).
+      Copy minimized versions of anything else needed into dist dir.
+
+      node r.js -o name=main out=main-built.js baseUrl=js mainConfigFile=js/main.js 
+      - the only other js files required once this is built are text.js, and require.js, thus use minimized versions of those
+      - everything else is the same
+      - update Sep 9, 2012 - now we need the nls files separate, because of how we load them on demand 
+        - (ie we can't map them out beforehand because their names are computed on the fly)
+
+      - cache busting (see Card #454):
+      - for css, we change the link in the html to include a timestamp, and then use mod-rewrite to change it back
+        - this helps for links to images, etc
+      - for js, we do it differently because of require.js
+        - instead we pretend assets are in a timestamped dir, then change the baseUrl for requirejs to include the timestamp
+        - then we mod-rewrite the url to omit the timestamp
+        - this fools the browser into loading up new resources, rather than using its cache, when the link changes on deploy
+        - for people already logged in, their old asset links still work, but will get the new script resources (this is applicable when requirejs is loading i18n resources on the fly); they'll start getting the new software once they hit index.html again
+    -->
+    <echo message="------ Optimizing js"/>
+
+    <!-- for cache busting -->
+    <tstamp>
+      <format property="timestamp" pattern="yyMMddHHmm"
+              timezone="Canada/Mountain"/>
+    </tstamp>
+
+    <antcall target="dist"/>
+
+    <delete dir="${dist.home}/js" />
+    <mkdir dir="${dist.home}/js" />
+
+    <!-- these files don't go into main.js, so minimize manually -->
+    <copy todir="${dist.home}/js">
+      <fileset dir="${js}" includes="lib/require/*.min.js"/>
+      <fileset dir="${js}" includes="lib/nv.d3/*.min.js"/>     
+      <fileset dir="${js}" includes="ext/*.min.js"/>     
+      <globmapper from="*.min.js" to="*.js"/>
+    </copy>
+    <copy todir="${dist.home}/js">
+      <fileset dir="${js}" includes="nls/**"/>     
+    </copy>
+
+    <!-- instead of copying all the js files, we merge them into one -->
+    <exec dir="${basedir}" executable="${node.exe}">
+      <!-- node r.js -o name=main out=dist/js/1409291703/main.js baseUrl=js mainConfigFile=js/main.js -->
+      <arg line="r.js"/>
+      <arg line="-o"/>
+      <arg line="name=main"/>
+      <arg line="out=${dist.home}/js/main.js"/>
+      <arg line="baseUrl=js"/>
+      <arg line="mainConfigFile=js/main.js"/>
+      <arg line="optimize=uglify"/>
+    </exec> 
+
+  </target>
+
+
+  <!-- deploys to staging, unless overridden -->
+  <target name="deploy" depends="clean,init">
+
+    <!-- where do we send our resources - default values for our site5 server -->
+    <property name="deploy.host" value="staging.stratpad.com"/>
+    <property name="deploy.host.username" value="stratpad"/>    
+
+    <!-- if no staticServerDomain, then set it to staging.staticServerDomain -->
+    <property name="staticServerDomain" value="${staging.staticServerDomain}"/>
+
+    <property name="deploy.host.dir" value="/var/www/${staticServerDomain}/public_html"/>
+    <echo message="using deploy.host.dir: ${deploy.host.dir}"/>
+
+    <!-- if no serverBaseUrl, then set it to staging.serverBaseUrl -->
+    <property name="serverBaseUrl" value="${staging.serverBaseUrl}"/>
+
+    <!-- if no logLevel, then set it to staging.logLevel -->
+    <property name="logLevel" value="${staging.logLevel}"/>
+
+    <!-- if no analytics, then set it to false -->
+    <property name="analytics" value="false"/>
+
+    <!-- use paymentType=Test in Connect payment dialog? -->
+    <property name="connectTestPayments" value="${staging.connectTestPayments}"/>
+
+    <!-- if we started with deploy-prod, this will already be set -->
+    <property name="scss.config.file" value="${staging.scss.config.file}"/>
+
+    <!-- disable financials until reports are updated -->
+    <property name="disableFinancials" value="${staging.disableFinancials}"/>
+
+    <!-- generate the js, css etc -->
+    <antcall target="optimize"/>
+
+    <delete dir="${deploy.home}"/> 
+    <mkdir dir="${deploy.home}"/> 
+
+    <echo message="Zipping StratWeb"/>
+    <zip destfile="${deploy.home}/stratweb.zip" basedir="${dist.home}" />
+
+    <echo message="Sending zip to ${deploy.host} (overwriting)"/>
+    <scp 
+      trust="true"
+      file="${deploy.home}/stratweb.zip" 
+      todir="${deploy.host.username}@${deploy.host}:${deploy.host.dir}" 
+      password="${password}"/>
+
+    <echo message="Expanding zip"/>
+    <sshexec 
+      trust="true" 
+      host="${deploy.host}" 
+      username="${deploy.host.username}" 
+      password="${password}" 
+      command="cd ${deploy.host.dir}; rm -rf js css fonts images static ipp; unzip -o ${deploy.host.dir}/stratweb.zip" />
+
+    <tstamp>
+      <format property="deploy.time" pattern="yy.MM.dd HH:mm:ss"
+              timezone="Canada/Mountain"/>
+    </tstamp>
+    <echo message="Deployed at: ${deploy.time}"/>
+
+  </target>
+
+  <target name="deploy-prod" depends="clean,init">
+    <property name="scss.config.file" value="${prod.scss.config.file}"/>
+    <property name="analytics" value="true"/>
+    <property name="logLevel" value="${prod.logLevel}"/>    
+    <property name="serverBaseUrl" value="${prod.serverBaseUrl}"/>
+    <property name="staticServerDomain" value="${prod.staticServerDomain}"/>
+    <property name="deploy.host" value="cloud.stratpad.com"/>        
+    <property name="deploy.host.dir" value="/var/www/html"/>        
+    <property name="cartUrl" value="${prod.cartUrl}"/>
+    <property name="upgradeUrl" value="${prod.upgradeUrl}"/>
+    <property name="prodIdStartup" value="${prod.prodIdStartup}"/>
+    <property name="prodIdBusiness" value="${prod.prodIdBusiness}"/>
+    <property name="prodIdUnlimited" value="${prod.prodIdUnlimited}"/>
+    <property name="prodIdConnect" value="${prod.prodIdConnect}"/>
+    <property name="prodIdBusinessMonthly" value="${prod.prodIdBusinessMonthly}"/>
+    <property name="prodIdUnlimitedMonthly" value="${prod.prodIdUnlimitedMonthly}"/>
+    <property name="prodIdCoach" value="${prod.prodIdCoach}"/>
+    <property name="prodIdCoachMonthly" value="${prod.prodIdCoachMonthly}"/>
+    <property name="prodIdAssociation" value="${prod.prodIdAssociation}"/>
+    <property name="prodIdAssociationMonthly" value="${prod.prodIdAssociationMonthly}"/>    
+    <property name="connectTestPayments" value="${prod.connectTestPayments}"/>   
+    <property name="disableFinancials" value="${prod.disableFinancials}"/>
+    <antcall target="deploy"/>
+  </target>
+
+
+  <target name="deploy-tests" depends="clean,init">
+
+    <property name="serverBaseUrl" value="${staging.serverBaseUrl}"/>
+    <antcall target="build.all"/>
+
+    <property name="deploy.host.dir" value="/var/www/${staticServerDomain}/public_html"/>    
+
+    <mkdir dir="${dist.home}"/> 
+    <delete dir="${dist.home}/qtest"/> 
+    <copy todir="${dist.home}/qtest">
+      <fileset dir="${basedir}" includes="js/**"/>
+    </copy>
+    <copy todir="${dist.home}/qtest">
+      <fileset dir="${basedir}" includes="test/**"/>
+    </copy>
+
+    <echo message="Zipping StratWeb Tests"/>
+    <zip destfile="${deploy.home}/stratwebtests.zip" basedir="${dist.home}/qtest" />
+
+    <echo message="Sending zip to staging.stratpad.com (overwriting)"/>
+    <scp 
+      trust="true"
+      file="${deploy.home}/stratwebtests.zip" 
+      todir="${deploy.host.username}@${deploy.host}:${deploy.host.dir}" 
+      password="${password}"/>
+
+    <echo message="Expanding zip"/>
+    <sshexec 
+      trust="true" 
+      host="${deploy.host}" 
+      username="${deploy.host.username}" 
+      password="${password}" 
+      command="mkdir -p ${deploy.host.dir}/stratwebtests; rm -rf ${deploy.host.dir}/stratwebtests/*; unzip -o ${deploy.host.dir}/stratwebtests.zip -d ${deploy.host.dir}/stratwebtests" />
+
+  </target>
+
+
+  <target name="test" depends="init">
+    <!-- 
+      - we need a server running on some port, hosting this dir, to run the tests 
+      - you must install phantomjs, and specify the location of the binary above (can override in build.[username].properties)
+      - remember you can run them locally with the python simple server: http://localhost:8000/test/qtest.html
+    -->
+      <property name="cgi-bin.dir" value="/Library/Webserver/CGI-Executables"/>
+      <property name="htdocs.dir" value="/Library/Webserver/Documents"/>
+      <property name="server" value="localhost"/>
+      <property name="port" value="80"/>
+
+      <!-- eg curl localhost:80/stratwebtest/test/qtest.html will work after copying -->
+      <condition property="isLocalServerRunning">
+        <socket server="${server}" port="${port}"/>
+      </condition>
+
+      <!-- copy necessary file to web server directories, and check permissions -->
+      <mkdir dir="${htdocs.dir}/stratwebtest" />
+      <delete>
+        <fileset dir="${htdocs.dir}/stratwebtest" includes="**/*"/>
+      </delete>
+      <copy todir="${htdocs.dir}/stratwebtest/test">
+        <fileset dir="test"/>     
+      </copy>
+      <copy todir="${htdocs.dir}/stratwebtest/js">
+        <fileset dir="js"/>     
+      </copy>
+
+      <mkdir dir="${cgi-bin.dir}/stratwebtest" />
+      <delete>
+        <fileset dir="${cgi-bin.dir}/stratwebtest" includes="**/*"/>
+      </delete>
+      <copy todir="${cgi-bin.dir}/stratwebtest">
+        <fileset dir="cgi-bin"/>     
+      </copy>
+      <chmod file="${cgi-bin.dir}/stratwebtest/log.py" perm="775"/>
+      <touch file="${cgi-bin.dir}/stratwebtest/report.xml"/>
+      <chmod file="${cgi-bin.dir}/stratwebtest/report.xml" perm="777"/>
+
+      <fail unless="${isLocalServerRunning}" message="You must get a server running on port ${port}."/>
+
+      <!-- phantomjs runner.js http://localhost:80/stratwebtest/test/qtest.html -->
+      <exec dir="${basedir}/test" executable="${phantomjs.exe}" spawn="false" resultproperty="testResult">
+        <arg line="runner.js" />
+        <arg line="http://${server}:${port}/stratwebtest/test/qtest.html" />
+        <!-- also make sure we use http://${server}:${port}/cgi-bin/stratwebtest/log.py in qtest.html -->
+      </exec>
+
+      <!-- we're running a script on the jenkins server to make the xml test results readable -->
+      <delete dir="${htdocs.dir}/stratwebtest/results" />
+      <mkdir dir="${htdocs.dir}/stratwebtest/results" />
+      <xslt basedir="${cgi-bin.dir}/stratwebtest" destdir="${htdocs.dir}/stratwebtest/results" extension=".html" style="test/junit-noframes.xsl" includes="report.xml"/>
+      <echo message="Test results at: http://${server}:${port}/stratwebtest/results/report.html"/>
+
+      <!-- make sure we produce test results before potentially failing the build -->
+      <fail message="There were one or more failures in the test suite.">
+         <condition>
+           <not>
+             <equals arg1="${testResult}" arg2="0"/>
+           </not>
+         </condition>
+       </fail>
+
+  </target>
+
+</project>

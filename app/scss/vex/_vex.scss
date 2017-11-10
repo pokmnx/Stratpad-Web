@@ -1,0 +1,77 @@
+@import "compass/css3";
+
+@import "mixins";
+@import "keyframes";
+
+@include keyframes-vex-fadein;
+@include keyframes-vex-fadeout;
+@include keyframes-vex-rotation;
+
+.vex, .vex *, .vex *:before, .vex *:after {
+  @include box-sizing(border-box);
+}
+
+.vex {
+  position: fixed;
+  overflow: auto;
+  z-index: 1111;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.vex-overlay {
+  @include vex-animation(vex-fadein 0.5s);
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  .vex.vex-closing & {
+    @include vex-animation(vex-fadeout 0.5s);
+  }
+}
+
+.vex-content {
+  @include vex-animation(vex-fadein 0.5s);
+  background: white;
+  .vex.vex-closing & {
+    @include vex-animation(vex-fadeout 0.5s);
+  }
+}
+
+.vex-close:before {
+  font-family: Arial, sans-serif;
+  content: "\00D7";
+}
+
+.vex-dialog-form {
+  margin: 0;
+}
+
+.vex-dialog-button {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.vex-loading-spinner {
+  @include vex-animation(vex-rotation 0.7s linear infinite);
+  @include box-shadow(0 0 1em rgba(0, 0, 0, 0.1));
+  position: fixed;
+  z-index: 1112;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2em;
+  width: 2em;
+  background: white;
+}
+
+.vex-dialog-message {
+	font-weight:600;
+	color:#777;
+}

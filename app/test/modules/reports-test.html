@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>StratWeb QUnit - Reports</title>
+  <link rel="stylesheet" href="../qunit-1.12.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  
+  <script src="../qunit-1.12.0.js"></script>
+
+  <script src="../../js/lib/jquery/jquery-2.1.1.js"></script>
+  <script src="../../js/lib/underscore/underscore.js"></script>
+
+  <script src="../../js/lib/sprintf/sprintf-0.7-beta1.js"></script>
+  <script src="../../js/lib/log/loglevel.js"></script>
+
+  <script src="../lib.js"></script>
+  <script>
+
+// custom defines for report-tests
+function define(ary, func) {
+  // we are basically calling the function that is a parameter of define, with a parameter representing our Config; ignoring the rest
+  var tmpModel;
+
+  // eg when testing formats.js, or something that just wants jquery around as a dep
+  if (ary.length == 1 && ary[0] == 'jquery') {
+    func();
+    return;
+  }
+  else if (ary.length == 4) {
+    // R1.StrategyMap
+    tmpModel = func(window.BaseReport, window.SVG /* don't need PageStructure or Discussion for tests */ );
+  }
+  else {
+    // BaseReport && BizPlanSummary
+    tmpModel = func({serverBaseUrl: serverURL}, window.BaseReport);
+  } 
+
+  var className = tmpModel.entityName || tmpModel.prototype.className;
+
+  // place this class in the global namespace, for testing
+  window[className] = tmpModel;
+}
+
+
+  </script>
+  <script src="../config.js"></script>
+
+  <script src="../../js/lib/jquery/jquery.html5storage.js"></script>
+  <script src="../../js/lib/svg/svg-1.0.0-rc61.js"></script>
+    <script src="../../js/lib/jquery/util.js"></script>
+  <script src="../../js/modules/Class.js"></script>
+  <script src="../../js/views/reports/BaseReport.js"></script>
+  <script src="../../js/views/reports/R1.StrategyMap.js"></script>
+  <script src="../../js/views/reports/R9.BizPlanSummary.js"></script>
+  <script src="reports-test.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+#pageToolbar {
+	position:absolute;
+	display:block;
+	right:12px;
+	top:65px;
+	height:35px;
+	width:500px;
+	margin:0;
+	line-height:35px;
+	text-align:center;
+	z-index:10;
+
+	li {
+		float:right;
+		list-style-type: none;
+		margin:0;
+		padding:0;
+		a {
+			display:block;
+			height: 52px;
+			line-height: 55px;
+			text-align: center;
+			width: 40px;
+		}
+
+		/* these are slidedown windows, attached to their icon */
+		&#showHelp{
+			a {
+				background:transparent;
+				border:1px solid transparent;
+				cursor:pointer;
+				@include transition(background-color 0.4s ease-in, border-color 0.4s ease-in);
+			}
+			&.active {
+				a {
+					background:#daedef;
+					border-top:1px solid #81d0d9;
+					border-right:1px solid #81d0d9;
+					border-left:1px solid #81d0d9;
+				}
+			}
+		}
+		&#showGuide{
+			a {
+				background:transparent;
+				border:1px solid transparent;
+				cursor:pointer;
+				@include transition(background-color 0.4s ease-in, border-color 0.4s ease-in);
+			}
+			&.active {
+				a {
+					background:#ffe9ca;
+					border-top:1px solid #edc182;
+					border-right:1px solid #edc182;
+					border-left:1px solid #edc182;
+				}
+			}
+		}
+		&#showCommunityAgreement{
+			a {
+				background:transparent;
+				border:1px solid transparent;
+				cursor:pointer;
+				@include transition(background-color 0.4s ease-in, border-color 0.4s ease-in);
+			}
+			&.active {
+				a {
+					background:#fefefe;
+					border-top:1px solid #eee;
+					border-right:1px solid #eee;
+					border-left:1px solid #eee;
+				}
+			}
+		}
+
+		&.serviceProviders{
+			a {
+				width: 110px;
+				text-align: right;
+				margin-right: 5px;
+				line-height: 14px;
+				font-size: 12px;
+				margin-top: 5px;
+				height: 47px;
+				.earn {
+					color: $secondaryBlue;
+					font-weight: 500;
+				}
+			}
+			&#suggestCategory {
+				a {
+					width: 60px;
+					margin-right: 10px;
+				}
+			}
+			&#linkToMyAccount {
+				a {
+					margin-right: 15px;
+				}
+			}
+			&#referFriend {
+				a {	
+					text-align: center;
+				}
+			}
+		}
+
+		&:last-child {
+			padding-right:7px;
+		}
+
+		/* typically icons */
+		span:not(.text) {
+			font-size:30px;
+			color:#555;
+			font-weight:600;
+			display:block;
+			height:30px;
+			position:relative;
+			&:before {
+				color:$linkColor;
+			}
+		}
+
+		&.disabled span:not(.text):before {
+			color: #aaa;
+			cursor: default;
+			pointer-events: none;
+		}
+		
+	}
+
+	h6 {
+		margin:0;
+		line-height:35px;
+		@include font-size(13);
+		color:#555555;
+	}
+
+}
+
+/* special spacing for refer a lawyer */
+body.location-page_lawyers #pageToolbar .serviceProviders a {
+	margin-top: 10px;
+}
+
+/* custom styles for icons */
+
+
+#showEmailDialog {
+	.icon-ui-envelop {
+		font-size: 26px;
+	}
+}
+#showExportDialog {
+	.icon-ui-file-download {
+		font-size: 24px;
+	}
+}
+
+/* which pagetoolbarview icons are on or off, according to body class?
+  start with all icons off, except help */
+
+#showGuide,
+#addProject,
+#cloneProject,
+#deleteProject,
+#showNavigator,
+#showChartControl,
+#showPrintPopup,
+#showExportDialog,
+#newChart,
+#showEmailDialog,
+#showCommunityAgreement,
+#linkToMyAccount,
+#suggestCategory,
+#referFriend,
+#connectProgressBar
+{
+	display:none;
+}
+
+.location-section_plan,
+.location-section_stratboard:not(.location-chapter_summary_charts),
+.location-section_report,
+.location-section_financials:not(.location-chapter_financial_edits)
+{
+	#showPrintPopup,
+	#showExportDialog,
+	#showEmailDialog  {
+		display:list-item;
+	}
+}
+
+/* community agreement only for lenders and investors */
+.location-section_community.location-chapter_lenders_and_investors #pageToolbar {
+	#showCommunityAgreement {
+		display:list-item;
+		span {
+			height:55px;
+			line-height:55px;
+		}
+	}
+}
+
+/* in community, show 3 toolbar items on all community chapters except lenders and my account (ie the non-lender search pages) */
+.location-section_community.location-chapter_professional_services, 
+.location-section_community.location-chapter_support_services,
+.location-section_community.location-chapter_products
+ {
+ 	#pageToolbar {
+		#linkToMyAccount, #suggestCategory, #referFriend {
+			display: list-item;
+		} 		
+ 	}
+}
+
+/* in my account, turn off the progressbar for the first page, but on for the others */
+.location-section_community.location-chapter_my_account {
+	#pageToolbar #connectProgressBar {
+		display: list-item;
+    	width: 200px;
+	    height: 20px;
+	    line-height: 20px;
+	    margin-top: 18px;
+	    .progressWell {
+		    position: absolute;
+		    border: 1px solid #db8101;
+		    height: inherit;
+		    @include border-radius(2px);
+		    width: inherit;
+	    }
+	    .progress {
+		    width: 0; /* alter width to get progress */
+		    height: inherit;
+		    @include border-radius(2px);
+		    position: absolute;
+		    background: #db8101;
+			@include transition(width 0.4s ease-in);
+	    }
+	    .progressLabel {
+    	  position: absolute;
+		  top: -20px;
+		  @include font-size(11);
+	    }
+	}
+}
+
+.location-section_form.location-chapter_themes,
+.location-section_form.location-chapter_objectives,
+.location-section_form.location-chapter_activities {
+	#showNavigator
+  	{
+		display:list-item;
+		span {
+			font-size: 26px;
+			top: 1px;
+			line-height: 52px;
+		}
+	}
+}
+
+.location-section_form.location-chapter_themes {
+	#showGuide {
+		display:list-item;
+	}
+	#addProject, 
+	#cloneProject,
+	#deleteProject
+  	{
+		display:list-item;
+		span {
+			font-size: 26px;
+			top: 1px;
+		}
+	}
+
+}
+
+.location-section_stratboard.location-chapter_summary_charts {
+	#newChart  {
+		display:list-item;
+		span{
+			font-size:24px;
+			top:1px;
+		}
+	}
+}
+
+.location-section_stratboard:not(.location-chapter_summary_charts) {
+	#showChartControl {
+		display: list-item;
+	}
+}
+
+.location-section_plan {
+	&.location-chapter_biz_plan, &.location-chapter_playbook {
+		#showPrintPopup,
+		#showExportDialog,
+		#showEmailDialog  {
+			display:none;
+		}
+	}
+}

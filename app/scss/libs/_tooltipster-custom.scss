@@ -1,0 +1,139 @@
+.tooltipster-stratpad {
+	border-radius: 2px;
+	border:1px solid $dark-gray-2;
+	background: $dark-gray-2;
+	color: #fff;
+	.tooltipster-content {
+		font-weight: bold;
+		font-size: 11px;
+		line-height: 18px;
+		padding:10px;
+		i:before {
+			font-size:16px;
+		}
+	}
+}
+
+.tooltipster-stratpad.tooltip-compare {
+	.tooltipster-content {
+		i {
+			margin-right:10px;
+			position:relative;
+			top:3px;
+		}
+	}
+	.tooltipster-arrow-bottom-right span {
+		right:17px;
+	}
+}
+
+.tooltipster-stratpad.tooltip-small {
+	width:240px;
+	border:0;
+	border-radius: none;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+	.tooltipster-content {
+		padding:0;
+		background:#fff;
+		color:$dark-gray;
+	}
+	.tooltipster-arrow {
+		span {
+			border-color:transparent !important;
+			width:40px;
+			height:40px;
+			&:after {
+				content: "";
+				background: $light-gray;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				transform: rotate(45deg);
+				box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+			}
+		}
+		&.tooltipster-arrow-bottom {
+			span:after {
+				left: 3px;
+			}
+		}
+	}
+	.tooltipster-arrow-top {
+		span:after {
+			background: #fff;
+			top: 10px;
+			left: 2px;
+
+		}
+	}
+	&.no-related {
+		.tooltipster-arrow-top {
+			span:after {
+				background: $light-gray;
+				top: 10px;
+				left: 2px;
+			}
+		}
+	}
+	&.tooltip-important {
+		width:500px;
+		.tooltipster-content {
+			line-height:20px;
+			header {
+				background: $light-gray;
+				padding:20px;
+				font-size:16px;
+				h4 {
+					margin:0;
+				}
+			}
+			article {
+				padding:20px;
+			}
+			p {
+				font-weight:400;
+				font-size:12px;
+			}
+			h6 {
+				font-size:16px;
+				margin:10px 0;
+			}
+		}
+		&.tooltip-form-dialog {
+			.tooltipster-content {
+				p {
+					margin-top: 0;
+				}
+				p, input {
+					font-size: 14px;
+				}
+				.small {
+					font-size: 90%;
+				}
+			}
+		}
+	}
+
+}
+
+
+.tooltip-overlay {
+	background: black;
+	filter: alpha(opacity = 40);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+}
+
+.tooltip-overlay {
+	opacity:0;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.3);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index:2;
+	.tooltip-closing & {
+
+	}
+}
+

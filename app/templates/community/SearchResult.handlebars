@@ -1,0 +1,42 @@
+<li class="searchResult" data-fid="{{id}}">
+	<ul class="clean-list group">
+		<li class="logo"><img src="{{logoUrl}}"></li>
+		<li class="location">
+			<ul>
+				<li><strong>{{name}}</strong></li>
+				<li>{{address1}}</li>
+				<li>{{address2}}</li>
+				{{#if provinceState}}
+				<li>{{city}}, {{provinceState}}</li>
+				<li>{{country}}, {{zipPostal}}</li>
+				{{else}}
+				<li>{{city}}, {{country}}, {{zipPostal}}</li>
+				{{/if}}
+				
+			</ul>
+		</li>
+		<li class="description">{{{servicesDescription}}}</li>
+		<li class="certifications">
+			{{#each certifications}}
+				<img src="{{this}}">
+			{{/each}}
+			{{#each accreditationLogos}}
+				<img src="{{this}}">
+			{{/each}}			
+		</li>
+		<li class="actions">
+			{{#if invitationSent}}
+				<button class="learnMore orange-btn icon-ui-arrow-right-4">{{matching_btn_intro_request_sent}}</button>
+			{{else}}
+				{{#if learnMore}}
+					<button class="learnMore blue-btn icon-ui-arrow-right-4">{{matching_btn_learn_more}}</button>
+				{{/if}}
+				{{#if claimServiceProvider}}
+					<button class="claimServiceProvider blue-btn icon-ui-link-2" data-company-name="{{name}}" data-service-provider-id="{{id}}">{{matching_btn_claim_service_provider}}</button>
+				{{/if}}					
+			{{/if}}
+		</li>
+
+	</ul>
+
+</li>

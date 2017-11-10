@@ -1,0 +1,142 @@
+@font-face {
+	font-family: 'New-Ui';
+	src:url('fonts/New-Ui.eot?narn1s');
+	src:url('fonts/New-Ui.eot?#iefixnarn1s') format('embedded-opentype'),
+		url('fonts/New-Ui.woff?narn1s') format('woff'),
+		url('fonts/New-Ui.ttf?narn1s') format('truetype'),
+		url('fonts/New-Ui.svg?narn1s#New-Ui') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-new {
+	font-family: 'New-Ui';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-newth-list:before {
+	content: "\f00b";
+}
+.icon-newcheck:before {
+	content: "\f00c";
+}
+.icon-newtimes:before {
+	content: "\f00d";
+}
+.icon-newrefresh:before {
+	content: "\f021";
+}
+.icon-newalign-justify:before {
+	content: "\f039";
+}
+.icon-newlist:before {
+	content: "\f03a";
+}
+.icon-newtwitter-square:before {
+	content: "\f081";
+}
+.icon-newfacebook-square:before {
+	content: "\f082";
+}
+.icon-newlist-ul:before {
+	content: "\f0ca";
+}
+.icon-newchevron-circle-left:before {
+	content: "\f137";
+}
+.icon-newchevron-circle-right:before {
+	content: "\f138";
+}
+.icon-newchevron-circle-up:before {
+	content: "\f139";
+}
+.icon-newchevron-circle-down:before {
+	content: "\f13a";
+}
+.icon-newpaint-format:before {
+	content: "\e035";
+}
+.icon-newcamera:before {
+	content: "\e04b";
+}
+.icon-newfolder-plus:before {
+	content: "\e0a5";
+}
+.icon-newfolder-minus:before {
+	content: "\e0a6";
+}
+.icon-newcertificate:before {
+	content: "\e0b1";
+}
+.icon-newlocation:before {
+	content: "\e0f1";
+}
+.icon-newbell:before {
+	content: "\e10c";
+}
+.icon-newuser-plus:before {
+	content: "\e187";
+}
+.icon-newuser-minus:before {
+	content: "\e189";
+}
+.icon-newexpand:before {
+	content: "\e1c1";
+}
+.icon-newcog:before {
+	content: "\e1e1";
+}
+.icon-newcog2:before {
+	content: "\e1e4";
+}
+.icon-newtools:before {
+	content: "\e1e9";
+}
+.icon-newgrid:before {
+	content: "\e2a1";
+}
+.icon-newcircle-small:before {
+	content: "\e2ab";
+}
+.icon-newmenu:before {
+	content: "\e2ad";
+}
+.icon-newmenu2:before {
+	content: "\e2af";
+}
+.icon-newloop:before {
+	content: "\e3a9";
+}
+.icon-newparagraph-left:before {
+	content: "\e470";
+}
+.icon-newhandshake:before {
+	content: "\e46f";
+}
+.icon-newreading:before {
+	content: "\e073";
+}
+.icon-newbubble-dots:before {
+	content: "\e165";
+}
+.icon-newbubble-user:before {
+	content: "\e16e";
+}
+.icon-newkey:before {
+	content: "\e1cd";
+}
+.icon-newlock:before {
+	content: "\e1d5";
+}
+.icon-newunlocked:before {
+	content: "\e1d6";
+}

@@ -1,0 +1,50 @@
+// globals.scss
+
+/* Global Standards ---------------------- */
+
+*, *:after, *:before {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;     
+}
+html { 
+	font-size: 100%; 
+	-webkit-tap-highlight-color: $black; 
+	-webkit-font-smoothing: antialiased; 
+}
+html, button, input, select, textarea { 
+	color: $default; 
+}
+body { 
+	background-color: $bgd; 
+	margin: 0 auto; 
+	color: $grey; 
+	@include sansFont; 
+	min-width: 768px; 
+}
+::-moz-selection { 
+	background: $grey; 
+	color: $white; 
+	text-shadow: none; 
+}
+::selection { 
+	background: $grey; 
+	color: $white; 
+	text-shadow: none; 
+}
+
+/* Links ---------------------- */
+
+a {
+	color: $linkColor;
+	text-decoration: none;	
+	&:visited { 
+		color: $linkColor; 
+	}
+	&:hover { 
+		color: $linkHover; 
+	}
+}
+  
+
+	

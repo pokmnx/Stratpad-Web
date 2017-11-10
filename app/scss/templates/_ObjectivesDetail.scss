@@ -1,0 +1,318 @@
+.themeObjective, .objectiveActivities {
+	max-width:100% !important;
+	h2, h5 {
+		margin-top:0;
+	}
+	h5 {
+		font-size:20px;
+	}
+	ul {
+		list-style:none;
+		padding:0;
+	}
+	table {
+		width:100%;
+		empty-cells: show;
+		td:not(.first) {
+			width:14.28%
+		}
+		.first,
+		th {
+			font-size:14px;
+			font-weight:bold;
+		}
+		th{
+			padding-bottom:10px;
+		}
+	}
+	input[type="number"],
+	input[type="text"] {
+		width:100%;
+	}
+	input[type="text"] {
+		padding-right:40px;
+	}
+	label {
+		display:block;
+		margin-bottom:10px;
+	}
+	.stageHeader {
+		position:relative;
+		h2 {
+			span {
+				display:inline-block;
+				vertical-align:middle;
+			}
+			b {
+				display:inline-block;
+				vertical-align:middle;
+				margin:-2px 0 0 10px;
+				font-weight:400;
+				font-size:14px;
+			}
+		}
+		.icon-misc-plus {
+			position:absolute;
+			height:100%;
+			width:50px;
+			text-align:right;
+			cursor:pointer;
+			right:20px;
+			top:50%;
+			margin-top:-13px;
+			font-size:20px;
+			text-shadow:none;
+			@include transition(all 0.2s ease-in);
+			&:hover {
+				color:#444;
+			}
+		}
+	}
+}
+
+#objectiveHeader {
+	margin-bottom:20px;
+	label {
+		display:block;
+		float:left;
+		width:20%;
+		padding-left:20px;
+		line-height:38px;
+		font-weight:bold;
+		font-size:16px;
+		border: 1px solid #C6C6C6;
+		border-right: 0;
+		background:#eee;
+	}
+	#s2id_themeSelect{
+		width:80%;
+		float:right;
+	}
+}
+
+.objectiveStage {
+	.stageContentInner {
+		border-right:1px solid  #C6C6C6;
+		border-left:1px solid  #C6C6C6;
+		border-bottom:1px solid  #C6C6C6;
+		margin-bottom: 50px;
+		padding-bottom:0;
+		background:#efefef;
+	}
+}
+
+.objectiveRow {
+	li {
+		float:left;
+		padding-right: 10px;
+		min-height:2px;
+		&:first-child {
+			width: 40%;
+			+ li {
+				width: 25%;
+				+ li {
+					width: 15%;
+					text-align: right;
+					+ li {
+						width: 10%;
+						+ li {
+							padding-right: 30px;
+							width: 10%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.activityRow {
+	li {
+		float:left;
+		&:first-child {
+			width: 50%;
+			+ li {
+				width: 30%;
+				+ li {
+					width: 10%;
+					+ li {
+						width: 10%;
+					}
+				}
+			}
+		}
+		.timeframe {
+			display: block;
+			font-size: small;
+		}
+	}
+}
+
+#objectiveFields .metrics {
+	width: 100%;
+	height: inherit;
+	list-style:none;
+	padding:0;
+
+	/* holds a list of metric rows */
+	> ul {
+		padding: 0;
+		width: 100%;
+		li {
+			width: 100%;
+			padding: 0 5px 0 0;
+			height: 65px;
+			position: relative;
+			border-top: none;
+			nav {
+				position: absolute;
+				right: 0;
+				top: 19px;
+			}
+		}
+		> li:first-child {
+			height: 45px;
+		}
+	}
+
+	/* each metric row is a number of floated li's */
+	.metricRow {
+		height: inherit;
+		padding: 10px 20px 0 0;
+
+		/* the header row */
+		&.metricLabels {
+			font-weight: 600;
+			font-size: 16px;
+			li:first-child + li {
+				margin-top:0;
+			}
+		}
+
+		/* data rows */
+		li {
+			float:left;
+			border-top: none;
+			&:first-child {
+				width: 40%;
+				+ li {
+					width: 20%;
+					margin-top: -6px;
+					+ li {
+						width: 20%;
+						+ li {
+							width: 20%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.themeObjective, .objectiveActivities {
+	.addButton {
+		margin-top:20px;
+		span {
+			color:#888;
+			display:inline-block;
+			margin-right:6px;
+		}
+	}
+	.sortable{
+		position:relative;
+	}
+	.objectiveLabels, .activityLabels {
+		padding:10px;
+		font-weight:bold;
+		font-size:14px;
+	}
+	.objectiveSortableItem, .activitySortableItem {
+		padding:10px;
+		cursor: pointer;
+		position: relative;
+		@include transition(background-color 0.3s ease-in);
+		background:rgba(255,255,255,0.7);
+		border-top:1px solid rgba(0,0,0,0.1);
+		&:hover {
+			background:rgba(255,255,255,0.8);
+		}
+	    &:hover {
+			background:rgba(255,255,255,0.9);
+	    	nav:not([disabled]) {
+	    		display: block;
+			    a {
+			    	color: $linkHover;
+			    	&:hover {
+			    		color: $linkColor;
+			    	}
+			    }
+	    	}
+	    }
+		nav {
+		    position: absolute;
+		    right: 19px;
+		    top: 13px;
+		    display: none;
+		    a {
+		    	color: $linkHover;
+		    }
+		}
+	}
+}
+
+.touch .objectiveSortableItem nav {
+	display: block;
+}
+
+.dialogFields {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+	li {
+		float:left;
+		width:60%;
+		padding:20px 0;
+		list-style-type: none;
+		height:82px;
+		border-top:1px solid #ddd;
+		&.ocLabel {
+			width:40%;
+			font-weight:600;
+			font-size:16px;
+			padding-right:10px;
+			padding-top: 28px;
+			div {
+				font-weight: 400;
+				font-size: small;
+			}
+		}
+		&:last-child {
+			padding-bottom:0;
+		}
+	}
+	&.s1_formPanel {
+		padding:0;
+		border:0;
+	}
+}
+
+#objectiveFields, #activityFields {
+	#s2id_themeSelect,
+	#s2id_reviewSelect{
+		width:100%;
+	}
+	#objectiveName {
+		width:100%;
+	}
+	#objectiveType {
+		label{
+			width:50%;
+			float:left;
+			padding-bottom:10px;
+			input{
+				margin-right:10px;
+			}
+		}
+	}
+}

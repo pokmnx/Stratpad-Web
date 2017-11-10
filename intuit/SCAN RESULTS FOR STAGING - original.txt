@@ -1,0 +1,110 @@
+ SCAN RESULTS FOR STAGING.STRATPAD.COM:443 - 192.241.237.47:443
+ --------------------------------------------------------------
+
+  * TLSV1 Cipher Suites:
+      Preferred:                       
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+      Accepted:                        
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_256_CBC_SHA                  DH-2048 bits   256 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA             DH-2048 bits   256 bits                                                                  
+        TLS_RSA_WITH_AES_256_CBC_SHA                      -              256 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_256_CBC_SHA                 -              256 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH-256 bits  128 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_128_CBC_SHA                  DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_SEED_CBC_SHA                     DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA             DH-2048 bits   128 bits                                                                  
+        TLS_RSA_WITH_SEED_CBC_SHA                         -              128 bits                                                                  
+        TLS_RSA_WITH_AES_128_CBC_SHA                      -              128 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_128_CBC_SHA                 -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_RC4_128_SHA                    ECDH-256 bits  128 bits                                                                  
+        TLS_RSA_WITH_RC4_128_SHA                          -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA               ECDH-256 bits  112 bits                                                                  
+        TLS_RSA_WITH_3DES_EDE_CBC_SHA                     -              112 bits                                                                  
+        TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA                 DH-2048 bits   112 bits                                                                  
+
+  * TLSV1_1 Cipher Suites:
+      Preferred:                       
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+      Accepted:                        
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA             DH-2048 bits   256 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_256_CBC_SHA                  DH-2048 bits   256 bits                                                                  
+        TLS_RSA_WITH_AES_256_CBC_SHA                      -              256 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_256_CBC_SHA                 -              256 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH-256 bits  128 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_128_CBC_SHA                  DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_SEED_CBC_SHA                     DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA             DH-2048 bits   128 bits                                                                  
+        TLS_RSA_WITH_SEED_CBC_SHA                         -              128 bits                                                                  
+        TLS_RSA_WITH_AES_128_CBC_SHA                      -              128 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_128_CBC_SHA                 -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_RC4_128_SHA                    ECDH-256 bits  128 bits                                                                  
+        TLS_RSA_WITH_RC4_128_SHA                          -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA               ECDH-256 bits  112 bits                                                                  
+        TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA                 DH-2048 bits   112 bits                                                                  
+        TLS_RSA_WITH_3DES_EDE_CBC_SHA                     -              112 bits                                                                  
+
+  * TLSV1_2 Cipher Suites:
+      Preferred:                       
+        TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384             ECDH-256 bits  256 bits                                                                  
+      Accepted:                        
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384             ECDH-256 bits  256 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384             ECDH-256 bits  256 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_256_GCM_SHA384               DH-2048 bits   256 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_256_CBC_SHA256               DH-2048 bits   256 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_256_CBC_SHA                  DH-2048 bits   256 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA             DH-2048 bits   256 bits                                                                  
+        TLS_RSA_WITH_AES_256_GCM_SHA384                   -              256 bits                                                                  
+        TLS_RSA_WITH_AES_256_CBC_SHA                      -              256 bits                                                                  
+        TLS_RSA_WITH_AES_256_CBC_SHA256                   -              256 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_256_CBC_SHA                 -              256 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256             ECDH-256 bits  128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256             ECDH-256 bits  128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH-256 bits  128 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_128_GCM_SHA256               DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_128_CBC_SHA256               DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_128_CBC_SHA                  DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_SEED_CBC_SHA                     DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA             DH-2048 bits   128 bits                                                                  
+        TLS_RSA_WITH_AES_128_GCM_SHA256                   -              128 bits                                                                  
+        TLS_RSA_WITH_AES_128_CBC_SHA256                   -              128 bits                                                                  
+        TLS_RSA_WITH_AES_128_CBC_SHA                      -              128 bits                                                                  
+        TLS_RSA_WITH_SEED_CBC_SHA                         -              128 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_128_CBC_SHA                 -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_RC4_128_SHA                    ECDH-256 bits  128 bits                                                                  
+        TLS_RSA_WITH_RC4_128_SHA                          -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA               ECDH-256 bits  112 bits                                                                  
+        TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA                 DH-2048 bits   112 bits                                                                  
+        TLS_RSA_WITH_3DES_EDE_CBC_SHA                     -              112 bits                                                                  
+
+  * SSLV2 Cipher Suites:
+      Server rejected all cipher suites.
+
+  * SSLV3 Cipher Suites:
+      Preferred:                       
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+      Accepted:                        
+        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                ECDH-256 bits  256 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_256_CBC_SHA                  DH-2048 bits   256 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA             DH-2048 bits   256 bits                                                                  
+        TLS_RSA_WITH_AES_256_CBC_SHA                      -              256 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_256_CBC_SHA                 -              256 bits                                                                  
+        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                ECDH-256 bits  128 bits                                                                  
+        TLS_DHE_RSA_WITH_AES_128_CBC_SHA                  DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_SEED_CBC_SHA                     DH-2048 bits   128 bits                                                                  
+        TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA             DH-2048 bits   128 bits                                                                  
+        TLS_RSA_WITH_AES_128_CBC_SHA                      -              128 bits                                                                  
+        TLS_RSA_WITH_SEED_CBC_SHA                         -              128 bits                                                                  
+        TLS_RSA_WITH_CAMELLIA_128_CBC_SHA                 -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_RC4_128_SHA                    ECDH-256 bits  128 bits                                                                  
+        TLS_RSA_WITH_RC4_128_SHA                          -              128 bits                                                                  
+        TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA               ECDH-256 bits  112 bits                                                                  
+        TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA                 DH-2048 bits   112 bits                                                                  
+        TLS_RSA_WITH_3DES_EDE_CBC_SHA                     -              112 bits                                                                  
+
+
+
+ SCAN COMPLETED IN 2.89 S
+ ------------------------

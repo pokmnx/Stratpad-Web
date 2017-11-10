@@ -1,0 +1,139 @@
+@import "compass/css3";
+
+@import "mixins";
+
+// Overlay/content animations
+
+@mixin keyframes-vex-fadein {
+  @include vex-keyframes("vex-fadein") {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin keyframes-vex-fadeout {
+  @include vex-keyframes("vex-fadeout") {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+// Content animations
+
+@mixin keyframes-vex-flyin {
+  @include vex-keyframes("vex-flyin") {
+    0% {
+      opacity: 0;
+      @include vex-transform(translateY(-40px));
+    }
+    100% {
+      opacity: 1;
+      @include vex-transform(translateY(0));
+    }
+  }
+}
+
+@mixin keyframes-vex-flyout {
+  @include vex-keyframes("vex-flyout") {
+    0% {
+      opacity: 1;
+      @include vex-transform(translateY(0));
+    }
+    100% {
+      opacity: 0;
+      @include vex-transform(translateY(-40px));
+    }
+  }
+}
+
+@mixin keyframes-vex-dropin {
+  @include vex-keyframes("vex-dropin") {
+    0% {
+      @include vex-transform(translateY(-800px));
+    }
+    100% {
+      @include vex-transform(translateY(0));
+    }
+  }
+}
+
+@mixin keyframes-vex-dropout {
+  @include vex-keyframes("vex-dropout") {
+    0% {
+      @include vex-transform(translateY(0));
+    }
+    100% {
+      @include vex-transform(translateY(-800px));
+    }
+  }
+}
+
+@mixin keyframes-vex-flipin-horizontal {
+  @include vex-keyframes("vex-flipin-horizontal") {
+    0% {
+      opacity: 0;
+      @include vex-transform(rotateY(-90deg));
+    }
+    100% {
+      opacity: 1;
+      @include vex-transform(rotateY(0deg));
+    }
+  }
+}
+
+@mixin keyframes-vex-flipout-horizontal {
+  @include vex-keyframes("vex-flipout-horizontal") {
+    0% {
+      opacity: 1;
+      @include vex-transform(rotateY(0deg));
+    }
+    100% {
+      opacity: 0;
+      @include vex-transform(rotateY(90deg));
+    }
+  }
+}
+
+// Spinner animations
+
+@mixin keyframes-vex-rotation {
+  @include vex-keyframes("vex-rotation") {
+    0% {
+      @include vex-transform(rotate(0deg));
+    }
+    100% {
+      @include vex-transform(rotate(359deg));
+    }
+  }
+}
+
+// Button animations
+
+@mixin keyframes-vex-pulse {
+  @include vex-keyframes("vex-pulse") {
+    0% {
+      opacity: 1;
+      -webkit-filter: brightness(1);
+    }
+    40% {
+      opacity: 0.7;
+      -webkit-filter: brightness(1);
+    }
+    80% {
+      opacity: 1;
+      -webkit-filter: brightness(1.5);
+    }
+    100% {
+      opacity: 1;
+      -webkit-filter: brightness(1);
+    }
+  }
+}

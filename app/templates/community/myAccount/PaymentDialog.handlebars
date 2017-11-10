@@ -1,0 +1,43 @@
+<div id="paymentDialog">
+  <span class="instructions">Credit/debit card only</span>
+  <ul id="paymentFields" class="group s1_formPanel dialogFields">
+    <li class="ocLabel">Name (Billing)</li>
+    <li class="billingInputs">
+      <input name="firstName" type="text" id="firstName" placeholder="{{plhrHolderFirstName}}" tabindex="21" autocomplete="off" required/>
+      <input name="lastName" type="text" id="lastName" placeholder="{{plhrHolderLastName}}" tabindex="22" autocomplete="off" required/>
+    </li>
+    <li class="ocLabel">Email (Billing)</li>
+    <li>
+      <input name="email" type="text" id="email" placeholder="{{plhrHolderEmail}}" tabindex="23" autocomplete="off" required/>
+    </li>
+    <li class="ocLabel billing">Cardholder Name</li>
+    <li class="billing">
+      <input name="holderName" type="text" id="holderName" placeholder="{{plhrHolderName}}" tabindex="24" autocomplete="off" required/>
+    </li>    
+    <li class="ocLabel">Card Type</li>
+    <li>
+      <select name="cardType" id="cardType" tabindex="25">
+        <option value="VISA">VISA</option>
+        <option value="VISAELECTRON">VISAELECTRON</option>
+        <option value="MASTERCARD">MASTERCARD</option>
+        <option value="MAESTRO">MAESTRO</option>
+        <option value="AMEX">AMEX</option>
+        <option value="DISCOVER">DISCOVER</option>
+        <option value="DANKORT">DANKORT</option>
+        <option value="CARTEBLEUE">CARTEBLEUE</option>
+        <option value="JCB">JCB</option>
+      </select>
+    </li>    
+    <li class="ocLabel">Credit Card Number</li>
+    <li>
+      <input name="cardNumber" type="text" id="cardNumber" placeholder="{{plhrCardNumber}}" tabindex="26" maxlength="16" autocomplete="off" required/>
+    </li>
+    <li class="ocLabel">Expiry and Security</li>
+    <li class="expiry">
+      <input name="expirationMonth" type="text" id="expirationMonth" placeholder="MM" tabindex="27" maxlength="2" autocomplete="off" required/>
+      <input name="expirationYear" type="text" id="expirationYear" placeholder="YYYY" tabindex="28" maxlength="4" autocomplete="off" required/>
+      <input name="ccid" type="text" id="ccid" placeholder="CVV" tabindex="29" maxlength="4" autocomplete="off" required/>
+    </li>
+  </ul>
+  <div class="response"></div>
+</div>

@@ -1,0 +1,86 @@
+@charset "utf-8";
+.location-chapter_biz_plan, .location-chapter_playbook {
+	#toc {
+		float: left;
+		width: 50%;
+		ul {
+			margin-top: 0;		
+			list-style-type: square;
+			ul {
+			  	list-style: none;
+			  	padding: 0;
+				li {
+				  padding-left: 1.3em;
+				}
+				li:before {
+				  content: "□";
+				  display: inline-block;
+				  margin-left: -1.3em; /* same as padding-left set on li */
+				  width: 1.3em; /* same as padding-left set on li */
+				}
+			}		
+		}
+	}
+
+	ol {
+		margin-top: 0;
+	}
+	h4 {
+		margin: 0;
+	}
+	#download {
+		float: left;
+		margin: 0 50px;
+		width: 350px;
+		button {
+			width: 100%;
+			padding: 20px;
+		}
+		#status {
+			padding: 30px 0 30px 40px;
+			span {
+				position: relative;
+				top: -12px;
+			}
+		}		
+	}
+}
+
+.location-chapter_playbook {
+	#download {
+		.datepickerWrapper {
+			margin-bottom: 20px;
+			input {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.location-chapter_summary_biz_plan {
+
+	#gantt, #goals, #progress {
+		&.reportTable {
+			tr {
+				td {
+					text-shadow: none;
+					div {
+						line-height: 23px;
+						padding-right: 5px;				
+					}
+				}
+			}
+			tfoot {
+				td {
+					font-weight: 100;
+					text-align:center;
+				}
+			}
+		}
+	}
+	#copyright {
+		padding: 25px 0;
+		text-align: center;
+	}
+
+}

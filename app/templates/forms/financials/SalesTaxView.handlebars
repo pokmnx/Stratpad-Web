@@ -1,0 +1,68 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{st_title}}</h2>
+	</hgroup>
+</header>
+<section>
+	<article id="salesTax">
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/view-financials/options/salesTax/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+
+	    <div class="permissions"></div>		
+
+		<div class="section">
+			<h3>What percentage of your revenues do you charge sales tax on?</h3>
+			<fieldset>
+				<ul class="clean-list percentages">
+					<li id="percentRevenuesIsTaxable">
+						<div class="value">&nbsp;</div> 			
+						<label>&nbsp;</label>
+						<div class="slider" data-field="percentRevenuesIsTaxable"></div>
+					</li>
+				</ul>
+			</fieldset>
+		</div>
+
+		<div class="section">		
+			<h3>What is your sales tax rate?</h3>
+			<fieldset>
+				<input type="text" id="salesTaxRate" data-field="rate" placeholder="{{plhrSalesTaxRate}}" sp-max="100" sp-fixed="3" disabled>
+			</fieldset>
+		</div>
+
+		<div class="section remittanceFrequency">		
+			<h3>How frequently do you remit the sales taxes you collect?</h3>
+			<fieldset>
+				<input type="radio" name="remittanceFrequency" value="MONTHLY" disabled>Monthly
+				<input type="radio" name="remittanceFrequency" value="QUARTERLY" disabled>Quarterly
+				<input type="radio" name="remittanceFrequency" value="ANNUALLY" disabled>Annually
+			</fieldset>
+		</div>
+
+		<div class="section remittanceMonth">		
+			<h3>In which month do you remit your sales taxes?</h3>
+			<fieldset>
+		        <select name="remittanceMonth" id="remittanceMonth">
+		          <option value="0">January</option>
+		          <option value="1">February</option>
+		          <option value="2">March</option>
+		          <option value="3">April</option>
+		          <option value="4">May</option>
+		          <option value="5">June</option>
+		          <option value="6">July</option>
+		          <option value="7">August</option>
+		          <option value="8">September</option>
+		          <option value="9">October</option>
+		          <option value="10">November</option>
+		          <option value="11">December</option>
+		        </select>
+			</fieldset>
+		</div>
+
+	</article>
+</section>
+
+
+

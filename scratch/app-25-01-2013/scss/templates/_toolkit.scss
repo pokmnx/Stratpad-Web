@@ -1,0 +1,52 @@
+/* toolkit06.htm */
+
+table#swot {
+    margin-top: 40px;
+    background-color: #FFF;
+    width: 100%;
+    -webkit-box-shadow: 3px 3px 5px #4C4C4C;    
+    border-spacing: 0;
+}
+
+#swot th, #swot td {
+    vertical-align: top;
+    width: 50%;
+    text-align: left;
+    border: 1px solid #A5A7A6;
+    padding: 5px;
+}
+
+#swot th {
+    background-color: #EBEBEB;        
+    height: 40px;
+}
+
+#swot td {
+    height: 200px;    
+}
+
+#swot .heading {
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+#swot .subheading {
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+
+/* toolkit17.htm */
+
+#profitVsIncome #bottomLine {
+    padding-top: 20px;
+}
+
+#profitVsIncome .total {
+    border-top: 1px solid #4C4C4C;
+    padding-bottom: 1em;
+}
+
+#profitVsIncome .expense {
+    padding-left: 1em;
+}

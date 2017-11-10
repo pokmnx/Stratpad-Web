@@ -1,0 +1,250 @@
+#pageFooter {
+	height:60px;
+	line-height:60px;
+	margin:0 0 -60px -300px;
+	clear:both;
+	color:#555;
+	background:#222 url(../images/bg-footer.jpg);
+	border-top:1px solid #fff;
+	.l-grid {
+		div:first-child{
+			font-size:14px;	
+			span {
+				margin:0;
+				padding-left:20px;			
+			}
+		}
+		div:last-child{
+			font-size:20px;
+			text-align:right;	
+			padding-right:20px;
+			span {
+				@include transition(all 0.2s ease-in);				
+				&:hover{
+					cursor:pointer;	
+					color:$linkColor;					
+				}
+				&.icon-chrome {
+					font-size:92%;				
+				}
+				&.icon-firefox {
+					font-size:94%;				
+				}
+				&.icon-safari {
+					font-size:96%;				
+				}
+				&.icon-opera {
+					font-size:88%;				
+				}
+			}
+		}
+	}
+}
+
+#site-footer {
+	padding: 50px 0 40px;
+	background:#26292E;
+	h3 {
+		font-size:18px;
+		text-shadow:none;
+		color:#999;
+	}
+	#foot_header {
+		margin:1px 0 20px 0;
+		padding:10px 0 13px 0;
+	}
+	#sub-footer {
+		width:960px;
+		margin:0 auto;
+		padding-bottom:20px;
+	}
+	.main-foot {
+		margin:0 auto;
+		width:960px;
+		padding:0;
+		overflow:hidden;
+		.mf-cell {
+			width:220px;
+			padding-right:10px;
+			margin-right:10px;
+			float:left;
+		}
+		.flast {
+			width:240px;
+			padding-right:0;
+			margin-right:0;
+			border-right:none;
+			text-shadow:none;
+			color:#ccc;
+			p:last-child {
+				margin-top:15px;
+			}
+			a {
+				text-shadow:none;
+			}
+		}
+	}
+	ul li ul li a {
+		display:block;
+		text-shadow:none;
+		background-color:transparent;
+		padding:3px 1px;
+	}
+}
+
+#social-area {
+	text-align: center;
+	background:url("../images/bg-landing-3.png") repeat scroll 0 0 #F0F0F0;
+	border-top:0;
+	padding:50px 0;
+	#social ul {
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			margin-left: 30px;
+			list-style: none;
+			cursor: pointer;
+			&:first-child {
+				margin-left: 0;
+			}
+
+		}
+	}
+}
+
+#social ul li a {
+	display: block;
+	width: 70px;
+	height: 70px;
+	background: #ae6f01;
+	text-shadow:none;
+	@include transition(all 400ms ease-out 0s);
+	@include transform(rotateY(0deg));
+	span {
+		display: inline-block;
+		margin: 0;
+		color: #222;
+		font-size: 32px;
+		line-height: 70px;
+		opacity: 0.8;
+		filter: alpha(opacity=30);
+		@include transition(all 400ms ease-out 0s);
+		@include transform(rotateY(0deg));
+	}
+}
+
+#social ul li:hover a,
+#social ul li.active a {
+	background-color: #da8216;
+	@include transform(rotateY(180deg));
+}
+
+#social ul li:hover a span,
+#social ul li.active a span {
+	color: #FFFFFF;
+	opacity: 1;
+	filter: alpha(opacity=100);
+	@include transform(rotateY(180deg));
+}
+
+.sps_share {
+	display:none;
+	height:30px;
+	margin-bottom:20px;
+}
+.sps_share a {
+	text-shadow:none;
+	font-size:30px;
+	height:30px;
+	line-height:30px;
+	margin-right:3px;
+	width:30px;
+	text-align:center;
+	display:inline-block;
+	color:#fff
+}
+
+a.sfm_rs {color:#fd9603}
+a.sfm_fb {color:#3B5998}
+a.sfm_tw {color:#4099FF}
+a.sfm_tm {color:#668195}
+a.sfm_gp {color:#db5a3c}
+a.sfm_in {color:#4875B4}
+a.sfm_yt {color:#FF3333}
+
+.widget ul li a {
+	color: #37646f;
+	text-shadow:1px 1px rgba(255,255,255,0.7)
+}
+.twitterwidget-title {
+	display:none;
+}
+.widget_twitter .entry-content {
+	display:block;
+	padding:0 20px 5px 0;
+	background: url(../images/twitter.png) 100% 5px no-repeat;
+}
+.widget_twitter .entry-meta {
+	display:block;
+	padding:0 0 5px 0;
+	font-size:11px;
+}
+.widget_twitter .intent-meta {
+	display:block;
+	padding:0 0 10px 0;
+	margin-bottom:10px;
+	background: url(../images/div2.png) 100% 100% repeat-x;
+}
+.widget_twitter .intent-meta a.in-reply-to {
+	padding-right:10px;
+	margin-right:10px;
+	border-right:1px solid #888;
+}
+.widget_twitter .intent-meta a.retweet {
+	padding-right:10px;
+	margin-right:10px;
+	border-right:1px solid #888;
+}
+
+footer#final-footer {
+	background:#26292E;
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+
+nav#sub_links {
+	margin: 0 auto;
+	padding:20px 0 0 0;
+	width:960px;
+	text-align:center
+}
+nav#sub_links a {
+	font-size: 11px;
+	color: #5E5B5B;
+	padding:5px 11px 7px 0;
+	text-shadow:none;
+}
+nav#sub_links a:hover {
+	color: #C98001;
+}
+nav#sub_links a#last_sub_link {
+	background:none;
+}
+nav#sub_links a.active {
+	color:#eee;
+}
+#footer {
+	text-shadow:none;
+	margin: 0 auto;
+	padding:20px 0;
+	text-align:center;
+	font-family: Georgia, serif;
+	font-size: 11px;
+	font-style: italic;
+	a {
+		text-shadow:none;
+	}
+}

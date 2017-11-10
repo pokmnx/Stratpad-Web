@@ -1,0 +1,74 @@
+body {
+	padding:60px 0 60px 300px; 
+	border:1px solid #fff;
+}
+
+#wrapper {
+	height:100%;	
+}
+
+// grid.scss
+
+.l-content-wrap {
+	max-width: 2560px;
+	min-width: 768px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+// Basic Grid
+
+.l-grid {	
+	margin-left: -20px;
+	
+	&[class*='l-col-'] > * {
+  		float: left;
+  		padding-left: 20px;
+	}
+	
+	// base columns
+	&.l-col-20 > * {
+		width: 20%;
+	}
+	&.l-col-25 > * {
+		width: 25%;
+	}
+	&.l-col-33 > * {
+		width: 33.33%
+	}
+	&.l-col-50 > * {
+		width: 50%;
+	}
+	&.l-col-66 > * {
+		width: 66.66%
+	}
+	&.l-col-75 > * {
+		width: 75%
+	}
+	
+	// Unequal columns
+	&.l-col-50and25 > * {
+		width: 25%;
+		&:first-child {
+			width: 50%;
+		}
+	}	
+	&.l-col-25and75 > * {
+		width: 75%;
+		&:first-child {
+			width: 25%;
+		}
+	}
+	&.l-col-66and33 > * {
+		width: 33.33%;
+		&:first-child {
+			width: 66.66%;
+		}
+	}
+	&.l-col-33and66 > * {
+		width: 66.66%;
+		&:first-child {
+			width: 33.33%;
+		}
+	}
+}

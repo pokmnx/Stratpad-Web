@@ -1,0 +1,155 @@
+#pageContent{
+	li, .relative {
+		position:relative;
+	}
+	.welcomePage {
+		text-align:center;
+		padding-top:50px;
+		.lineBreak {
+			margin-bottom:36px;
+		}
+		.largeText {
+			font-family: 'LatoRegular';
+			font-size:36px;
+		}
+		.boldText {
+			font-family: 'LatoBold';
+		}
+		.fadeIn{
+			opacity:0;
+			@include transition(opacity 600ms ease-in);
+			&.loaded {
+				opacity:1;
+			}
+		}
+		.dropIn{
+			margin-top:-20px;
+			@include transition(margin 200ms ease-in);
+			&.loaded {
+				margin-top:0;
+			}
+		}
+	}
+	.welcomeNumber {
+		font-family: 'LatoBold';
+		font-size:36px;
+		position:fixed;
+		left:10px;
+		top:50%;
+		width:100px;
+		height:100px;
+		line-height:100px;
+		background:#008595;
+		color:#fff;
+		@include border-radius(100%);
+		display:none;
+	}
+	.clickNextHelper {
+		font-size:30px;
+		text-shadow:none;
+		position:fixed;
+		right:108px;
+		bottom:70px;
+		background:transparent url(../images/arrow-blue-right-bottom.png) 100% 100% no-repeat;
+		opacity:0;
+		@include transition(opacity 600ms ease-in);
+		@include background-size(80px 77px);
+		height:100px;
+		padding:0 75px 0 0;
+		span {
+			display:block;
+			position:relative;
+			background:#008595;
+			color:#fff;
+			padding:10px 20px;
+			@include border-radius(5px);
+			i {
+				cursor:pointer;
+				position:absolute;
+				top:4px;
+				right:8px;
+				font-size:18px;
+				color:#fff;
+			}
+		}
+	}
+	.orangeArrowLeft {
+		display:block;
+		position:absolute;
+		width:67px;
+		height:61px;
+		left:-79px;
+		top:-20px;
+		background:transparent url(../images/arrow-orange-left.png) 0 0 no-repeat;
+		@include background-size(67px 61px);
+	}
+	.orangeArrowLeft2 {
+		display:block;
+		position:absolute;
+		width:71px;
+		height:47px;
+		left:-85px;
+		top:5px;
+		background:transparent url(../images/arrow-orange-left2.png) 0 0 no-repeat;
+		@include background-size(71px 47px);
+	}
+	.orangeArrowTopRight {
+		display:block;
+		position:absolute;
+		width:67px;
+		height:61px;
+		right:-79px;
+		top:-23px;
+		background:transparent url(../images/arrow-orange-top-right.png) 0 0 no-repeat;
+		@include background-size(67px 61px);
+	}
+	.orangeArrowBottomRight {
+		display:block;
+		position:absolute;
+		width:67px;
+		height:61px;
+		right:-79px;
+		top:8px;
+		background:transparent url(../images/arrow-orange-bottom-right.png) 0 0 no-repeat;
+		@include background-size(67px 61px);
+	}
+	.orangeArrowBottom {
+		display:block;
+		position:absolute;
+		width:49px;
+		height:58px;
+		left:-59px;
+		top:20px;
+		background:transparent url(../images/arrow-orange-bottom.png) 0 0 no-repeat;
+		@include background-size(49px 58px);
+	}
+}
+
+.location-chapter_welcome {
+	#pageContent {
+		background: url(../images/polygon1.jpg) 0 0 no-repeat;
+		background-size:cover;
+	}
+}
+
+.location-chapter_welcome:not(.location-page_2) {
+	#feedback-form {
+		display:none !important;
+	}
+}
+
+.location-chapter_about.location-page_0{
+	#pageContent{
+		.clickNextHelper {
+			bottom:80px;
+		}
+	}
+}
+
+.chrome, .firefox, .safari {
+	#pageContent{
+		.welcomeNumber {
+			display:block;
+		}
+	}
+}

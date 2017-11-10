@@ -1,0 +1,53 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{location_subtitle}}</h2>
+	</hgroup>
+</header>
+<section>
+	<article id="location">
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/community/my-connect-account/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+
+		<div class="instructions">Tell us about the location of your company, so that we can match you with nearby prospective clients.<br>Please complete the following fields.</div>
+
+		<form class="formPanel" autocomplete="off">
+            <ul class="clean-list group">
+                <li>
+                    <label for="address1">{{location_label_address}}</label>
+                    <input id="address1" tabindex="1" type="text" name="address1" placeholder="{{location_plhr_address}}" autocomplete="off" autofocus />
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li>
+                    <label for="location">{{location_label_location}} <a id="suggestCity" href="" class="small">{{location_link_suggest_city}}</a></label>
+                    <select class="location" id="location" tabindex="2" type="text" name="location" placeholder="{{location_plhr_location}}" autocomplete="off" />
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li>
+                    <label for="zipPostal">{{location_label_zipPostal}}</label>
+                    <input id="zipPostal" tabindex="3" type="text" name="zipPostal" placeholder="{{location_plhr_zipPostal}}" maxlength="10" autocomplete="off" />
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li>
+                      <label>{{location_label_terms}}</label>
+                      <div class="termsWrapper">
+                          <input id="termsAccepted" tabindex="4" type="checkbox" name="termsAccepted" />
+                          <label for="termsAccepted">I agree to the <a href="#">Terms and Conditions</a></label>
+                      </div>
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+
+                <li>
+                    <label for="payment">{{location_label_payment}}</label>
+                    <button id="payment" class="orange-btn" disabled>{{btnMakePayment}}<i class="icon-ui-credit"></i></button>
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+            </ul>
+
+        </form>        
+	</article>
+</section>
+
+
+

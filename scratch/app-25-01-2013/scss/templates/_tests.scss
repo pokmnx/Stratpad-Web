@@ -1,0 +1,28 @@
+// lets play here for now
+
+h2 {	
+	@include font-size(20);
+	margin-bottom:20px;
+	
+}
+
+#hockey,
+#cycling {
+	width:300px;
+	margin:30px auto 0 auto;	
+}
+
+#hockey {
+	ul {
+		li{
+			list-style:none;
+			margin:0 0 5px 0;
+			padding:0 0 5px 0;
+			border-bottom:1px solid $grey;
+			&.gold {
+				color:$gold;
+				font-weight:bold;
+			}		 
+		}	
+	}
+}

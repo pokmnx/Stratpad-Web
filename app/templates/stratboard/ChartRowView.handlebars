@@ -1,0 +1,29 @@
+<ul class="chartRow group">
+	<li>
+		{{title}}
+		<div title="{{subtext1Hint}}">{{subtext1}}</div>
+		<div title="{{subtext2Hint}}">{{subtext2}}</div>
+		<nav>
+			<button class="icon-new-expand blue-btn tooltip" title="{{tooltipViewChart}}"></button>
+			{{#if hasWriteAccess}}
+			<button class="icon-new-tools blue-btn tooltip" title="{{tooltipEditChart}}"></button>
+			<button class="icon-ui-remove deleteChart button orange tooltip" title="{{tooltipDeleteChart}}"></button>
+			{{/if}}
+		</nav>
+	</li>
+	<li>
+		{{{firstValue}}}
+	</li>
+	<li>
+		{{#if isQBOChart}}
+			<img src="/images/qbo-logo.png" class="tooltip qbo-chart-logo" title="{{tooltipQBO}}" />
+		{{/if}}
+		<svg></svg>
+	</li>
+	<li>
+		{{{lastValue}}}
+	</li>
+	<li>
+		{{{onTarget}}}
+	</li>
+</ul>

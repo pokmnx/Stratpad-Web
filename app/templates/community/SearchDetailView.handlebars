@@ -1,0 +1,76 @@
+<div>
+	<ul class="lenderInfo clean-list group">
+		<li class="logo">
+			<img src="{{logoUrl}}">
+
+			<div class="certifications">
+			{{#each certifications}}
+				<img src="{{this}}">
+			{{/each}}
+			{{#each accreditationLogos}}
+				<img src="{{this}}">
+			{{/each}}						
+			</div>
+		</li>
+		<li class="location">
+			<ul>
+				<li><strong>{{name}}</strong></li>
+				<li>{{branchName}}</li>
+				<li>{{address1}}</li>
+				<li>{{address2}}</li>
+				{{#if provinceState}}
+				<li>{{city}}, {{provinceState}}</li>
+				<li>{{country}}, {{zipPostal}}</li>
+				{{else}}
+				<li>{{city}}, {{country}}, {{zipPostal}}</li>
+				{{/if}}
+				
+			</ul>
+		</li>
+		<li class="welcome">{{{welcomeMessage}}}</li>
+	</ul>	
+
+	<div class="lenderIntroduction">
+		<div class="part1 active">
+			<strong>Would you like to be introduced to this organization? </strong>
+			<ol>
+				<li>By clicking the button below you agree to allow Connect to send your first name, last name and email address to this organization. </li>
+				{{#if isLender}}
+				<li>They will contact you within 2 business days. </li>
+				<li>In the meantime, print out and complete the required documents.</li>
+				{{else}}
+					{{#if approved}}
+					<li>They will contact you within 1 business day. </li>
+					{{else}}
+					<li>Because this business is not yet a StratPad Connect partner, it may take up to 3 days to receive an answer.</li>
+					{{/if}}
+				{{/if}}
+			</ol>
+		    <button id="introduceLender" class="orange-btn">I wish to be introduced to this organization</button>
+		    <button id="hideSearchDetail" class="grey-btn">Return to Search Results</button>
+		</div>
+		<div class="part2">
+			<strong>Connect has sent an introductory message to this organization on your behalf.</strong>
+			{{#if isLender}}
+			<p>They will contact you within 2 business days.</p>
+			<p>Please click on the required documents to download, print and complete them.</p>
+			{{else}}
+				{{#if approved}}
+				<li>They will contact you within 1 business day. </li>
+				{{else}}
+				<li>Because this business is not yet a StratPad Connect partner, it may take up to 3 days to receive an answer.</li>
+				{{/if}}
+			{{/if}}
+		    <button id="hideSearchDetail" class="grey-btn">Return to Search Results</button>
+		</div>
+	</div>
+
+	{{#if isLender}}
+	<div class="documents">
+		<strong>Required Documents</strong>
+		<ul></ul>
+	</div>
+	{{/if}}
+
+    <div class="security"><i class="icon-new-lock"></i><span>{{community_security}}</span></div>
+</div>

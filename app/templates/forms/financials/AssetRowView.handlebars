@@ -1,0 +1,28 @@
+<ul class="assetRow group">
+	<li class="assetName">
+
+	</li>
+	<li>
+		{{date}}
+	</li>
+	<li>
+		{{value}}
+	</li>
+	<li>
+		{{depreciationTerm}}
+	</li>
+	<li>
+		{{salvageValue}}
+	</li>
+	<li>
+		{{type}}
+	</li>
+	<li>
+		{{{depreciationType}}}
+		<nav>
+			{{#if hasWriteAccess}}
+			<a href="#" class="icon-ui-remove deleteAsset" title="{{dialogConfirmDeleteAsset}}"></a>
+			{{/if}}
+		</nav>
+	</li>
+</ul>

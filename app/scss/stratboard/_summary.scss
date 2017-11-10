@@ -1,0 +1,304 @@
+.location-section_stratboard.location-chapter_summary_charts.location-page_0 {
+	.stageContentInner {
+		padding-right:35px;
+	}
+	ul.sortable{
+		margin-top:0;
+	}
+	.button.orange.addButton {
+		text-shadow:none;
+		.icon-ui-file-plus {
+			color:#fff;
+		}
+	}
+}
+
+#charts {
+	.addButton{
+		margin-top:0;
+	}
+}
+
+/* table header rows */
+.chartHeader {
+	font-weight:600;
+	border:1px solid #ccc;
+	margin-bottom:0;
+	background:#ededed;
+	font-size: 13px;
+	> li {
+		&.monthYearHeader {
+			padding-right:0;
+		    ul { 
+		    	margin: 24px 0 0; 
+		    	padding: 0; 
+		    	list-style: none;
+				position:relative;
+				left: -1px;
+				top: -6px;
+				border-top:1px solid #ccc;
+		    } 
+		    li { 
+		    	float: left; 
+		    	width: 4.16%;
+		    	text-align: center;
+				border-left:1px solid #ccc;
+				padding: 10px 0;
+				font-weight:400;
+				font-size:13px;
+				height: 40px;
+				position:relative;
+				background:#f3f3f3;
+				&:last-child:after {
+					content:'';
+					height:41px;
+					width:1px;
+					right:-2px;
+					top:-1px;
+					background:#ccc;
+					position:absolute;
+					display:block;
+				}
+		    	div {
+					width: 50%;
+					margin: 0 auto;
+					text-align: center;
+					padding-left: 3px;
+					position: relative;
+					span {
+						position: relative;
+						top: -31px;
+						left: -8px;
+						font-size:13px;
+						font-weight:600;
+					}
+		    	}
+		    }
+		}
+		&:not(.monthYearHeader) {
+			position: relative;
+			span {
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+			}
+			+li {
+				span {
+					right: 10px;
+				}
+				+li +li {
+					span {
+						right: 10px;
+					}
+					+li {
+						span {
+							left: 0;
+						}
+					}
+				}
+			}
+			
+		}
+
+	}
+}
+
+/* color palette in edit dialog */
+.sp-container.sp-flat {
+	float: right;
+	width: 100%;
+	border-color: rgb(204, 204, 204);
+	.sp-palette-container {
+		border: none;
+		#chartFields & {
+			margin-left: 8px;
+		}
+	}
+	.sp-thumb-el {
+		margin: 2px 5px;
+		#chartControlDrawer & {
+	        margin: 2px 4px;
+		}
+	}
+}
+
+/* Add/Edit chart dialog */
+#chartFields.dialogFields {
+	li.ocLabel {
+		width: 35%;
+		+ li {
+			width: 65%;
+			font-size: 0.9em;
+			overflow: hidden;
+			#linkToQBO {
+				margin: 13px 4px 0 0;
+			}
+		}
+	}
+	li.linkToQBO {
+		display: none;
+	}
+}
+
+/* data rows only */
+.chartItem.noValueSummaryChart .chartRow {
+	> li {
+		&:first-child {
+			+ li {
+				+ li {
+					background:url('../images/chart-novalues-default.png') 0 0 no-repeat;
+					background-size:cover;
+				}
+			}
+		}
+	}
+}
+.chartItem.projectedSummaryChart .chartRow {
+	> li {
+		&:first-child {
+			+ li {
+				+ li {
+					background:url('../images/chart-projected-default.png') 0 0 no-repeat;
+					background-size:cover;
+				}
+			}
+		}
+	}
+}
+
+.chartItem .chartRow {
+	@include transition(background-color 300ms ease-in);
+	background-color:#f3f3f3;
+	&:hover {
+		background:#ededed;
+		> li {
+			&:first-child {
+				nav {
+					opacity:1;
+					}
+				}
+		}
+	}
+	> li {
+		&:first-child {
+			border-left:1px solid #ccc;
+			border-right:1px solid #ccc;
+			font-weight:600;
+			nav {
+				position:absolute;
+				left:10px;
+				bottom:10px;
+				opacity:0;
+				@include transition(opacity 300ms ease-in);
+				button {
+					font-size:18px;
+					width:30px;
+					text-shadow:none;
+					color:#fff !important;
+					padding:0;
+					&:hover:before{
+						color:#fff !important;
+					}
+					&:before {
+						margin-right: 0;
+						vertical-align: inherit;
+					}
+				}
+			}
+			div {
+				font-weight:400;
+			}
+			+ li {
+				font-size: 13px;
+				border-right:1px solid #ccc;
+				+ li {
+					border-right:1px solid #ccc;
+					padding-right:0;
+					background:#ededed;
+					.qbo-chart-logo {
+						position:absolute;
+						left:5px;
+						top:5px;
+						width:40px;
+					}
+					+ li {
+						font-size: 13px;
+						border-right:1px solid #ccc;
+						+ li {
+							font-size: 13px;
+							border-right:1px solid #ccc;
+						}
+					}
+				}
+			}
+		}
+	}
+	&:hover {
+
+	}
+	> li {
+		height:150px;
+		min-height: 150px;
+	}	
+}
+
+html.touch {
+	.chartItem .chartRow {
+			> li {
+				&:first-child {
+					nav {
+						opacity:1;
+					}
+				}
+			}
+
+	}
+}
+
+
+/* header and data rows */
+
+.chartRow {
+	margin-top:0;
+	border-bottom:1px solid #ccc;
+	svg {
+		cursor: pointer;
+	}
+	.nvd3 .nv-axis path.domain {
+		stroke: rgba(120, 115, 115, 0.5);
+		stroke-opacity: 1.0;
+		shape-rendering: crispEdges;
+	}
+
+	.nvd3 .nv-axis line {
+		stroke: rgba(120, 115, 115, 0.5);
+	}
+
+	> li {
+		float:left;
+		padding:10px 10px 10px 0;
+		height: 69px;
+		&:first-child {
+			width: 30%;
+			padding: 10px;
+			div {
+				font-size: 12px;
+			}
+			+ li {
+				width: 10%;
+				text-align: right;
+				+ li {
+					width: 40%;
+					+ li {
+						width: 10%;
+						text-align: right;
+						+ li {
+							width: 10%;
+							text-align: right;
+						}
+					}
+				}
+			}
+		}
+	}
+}

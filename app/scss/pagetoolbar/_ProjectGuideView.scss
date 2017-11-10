@@ -1,0 +1,146 @@
+
+#contentGuide {
+	position:absolute;
+	height:100%;
+	background:#ffe9ca;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #edc182;
+	top:-100%;
+	overflow:hidden;
+	color:#eee;
+	@include font-size(13);
+	text-shadow:none;
+	left:0;
+	padding-top:116px;
+	width:100%;
+	@include transition(top 0.4s ease-in);
+	z-index:5;
+	&.active {
+		top:0;
+	}
+}
+
+.warnNotes {
+	font-size:13px;
+	font-style:italic;
+}
+
+#pageContent {
+
+	.guidePage {
+		position:absolute;
+		width:100%;
+		height:100%;
+		padding-top:116px;
+		margin-top:-116px;
+		background:#ffe9ca;
+		display:none;
+		text-shadow:none;
+		color:#555;
+		font-size:16px;
+		line-height:22px;
+		.contentWrap {
+			height:100%;
+			padding:0 0 0 20px;
+			position:relative;
+			overflow-y:auto;
+			.gContent {
+				padding:10px 20px 50px 0;
+				max-width:1350px;
+				.button {
+					text-shadow:none;
+				}
+			}
+		}
+		.table-wrap {
+			background:rgba(255,255,255,0.8);
+			border:1px solid #ccc;
+			@include border-radius(3px);
+			padding:20px;
+			max-width:1200px;
+			margin-top:20px;
+			img{
+				display:block;
+				width:100%;
+			}
+		}
+		input {
+			&.fullWidth{
+				width:100%;
+			}
+		}
+		.fixedInput {
+			width:350px;
+		}
+		label {
+			display:block;
+			font-weight:600;
+			margin:20px 0 10px 0;
+		}
+		// these are the continue to use guide checkboxes
+		&#guidePage1 label, &#guidePage11 label {
+			text-align: center;
+			font-weight: normal;
+			font-size: 0.9em;
+			margin: 0;
+		}
+		fieldset{
+			max-width:600px;
+		}
+		.inputRight{
+			float:right;
+		}
+		.inputList {
+			margin-left:-20px;
+			.group {
+				text-align:right;
+			}
+		}
+		.select2,
+		#s2id_responsible {
+			width:100%;
+		}
+		.datepickerWrapper{
+			width:200px;
+		}
+		.finishedGuide {
+			margin:30px auto 0 auto;
+			background:#fefefe;
+			border:1px solid #ccc;
+			@include border-radius(3px);
+			padding:30px 20px;
+			text-align:center;
+			width:400px;
+			a {
+				display:block;
+				font-weight:600;
+				margin-bottom:30px;
+			}
+		}
+		&.active {
+			display:block;
+		}
+	}
+
+	.selectGuide {
+		margin-top:30px;
+		background:#fefefe;
+		border:1px solid #ccc;
+		@include border-radius(3px);
+		padding:20px;
+		text-align:center;
+		h2, p {
+			margin-top:5px;
+			text-align:left;
+		}
+		button {
+			margin-top:30px;
+		}
+	}
+}
+
+.guideOpen {
+	.s1_formPanel {
+		display:none;
+	}
+}

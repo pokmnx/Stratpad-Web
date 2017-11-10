@@ -1,0 +1,18 @@
+/* summary and detailed bizplans, used by phantom when rendering charts to images, typically for inclusion in a docx */
+html, body { 
+	padding: 0; margin: 0; overflow: auto; height: auto; 
+	font-size: 11px; 
+	font-weight: 600;
+	font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif !important; 
+	color: black;
+}
+
+#gantt thead tr th, #goals thead tr th, #progress thead tr th {
+	color: #fff;
+	font-size: 0.9rem;
+	font-weight: 700;
+} 
+
+#gantt tbody tr td, #goals tbody tr td, #progress tbody tr td {
+	font-weight: 400;
+}

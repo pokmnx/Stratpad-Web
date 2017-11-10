@@ -1,0 +1,53 @@
+#themeDetailReport {
+	tr {
+		td, th {
+			&:first-child {
+				border-color:#333 !important;
+			}
+		}
+		th.objectiveGroup {
+			text-transform:uppercase;
+			font-weight:600;
+		}
+		th.activityCost,
+		td.activityCost,
+		th.target,
+		td.target{
+			text-align:right !important;
+			padding-right:8px !important;
+		}
+		table {
+			table-layout:fixed;
+			width:100%;
+			th, td {
+				text-align:left;
+				width: auto !important;
+			}
+			td:first-child,
+			td:nth-child(2){
+				padding-left:0;
+			}
+		}
+	}
+	tbody {
+		tr {
+			td, th {
+				font-weight:400;
+			}
+			th {
+				padding-top:8px;
+			}
+		}
+	}
+}
+
+.location-section_report.location-chapter_project_detail {
+	.warn {
+		margin-top: 100px;
+		text-align: center;
+	}
+	tfoot .responsible {
+		border-top: 1px solid;
+		@include font-size(11);
+	}
+}

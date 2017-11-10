@@ -1,0 +1,233 @@
+#pageHeader .l-grid{
+	#navShare {
+		> div {
+			-webkit-transform: translateZ(0);
+		}
+		.menu.nano .content {
+
+			.error {
+				@include font-size(14);
+				height:70px;
+				left:20px;
+				width:650px;
+				top:20px;
+			}
+		}
+		article{
+			padding:30px 20px 10px 20px !important;
+			@include font-size(14);
+			&.invite-user {
+				padding-bottom:30px !important;
+			}
+			h5 {
+				margin:-10px 0 10px 0;
+				@include font-size(16);
+				font-weight:400;
+			}
+			li {
+				@include font-size(14);
+			}
+			#accessControlInviteControls {
+				@include font-size(14);
+			}
+			.button{
+				margin-bottom:20px;
+			}
+			.navInfo {
+				text-align:left;
+				font-weight:600;
+			}
+		}
+		.avatar {
+			float:left;
+			width:60px;
+			padding-right:10px;
+			a, img {
+				display:block;
+			}
+			img {
+				width:100%;
+				border:#fff 3px solid;
+			}
+		}
+		.user-entry {
+			position:relative;
+			padding:15px 0;
+			border-bottom:1px solid #ddd;
+			border-top:1px solid #fff;
+			.user {
+				width:500px;
+				float:left;
+				&.invited {
+					width:620px;
+				}
+			}
+			&.root-user {
+				border-top:0;
+			}
+			&:last-child {
+				border-bottom:0;
+				padding-bottom:70px;
+			}
+		}
+		.user-name {
+			@include font-size(16);
+			font-weight:600;
+		}
+		.invite-user{
+			border-bottom:1px solid #ddd;
+		}
+		.user-status {
+			color: #008D9E;
+		}
+		.user-email {
+			@include font-size(13);
+		}
+		.permission-details {
+			position:relative;
+			top:-2px;
+			margin-top:20px;
+			@include font-size(13);
+		}
+		.icon-ui-remove {
+			position:absolute;
+			right:0px;
+			top:17px;
+			@include font-size(18);
+			color:#999999;
+			&:hover {
+				color:#D37D02;
+			}
+		}
+		.user-details {
+			margin-bottom:10px;
+		}
+		#accessControlInviteControls{
+			position:relative;
+		}
+		#accessControlInvite{
+			width:300px;
+		}
+		.inviteButtonWrap {
+			display:inline-block;
+			position:relative;
+			margin-left:5px;
+			top:-1px;
+		}
+		#sendAceInvite {
+
+		}
+		.permission-request {
+			padding-top:10px;
+			font-weight:600;
+			@include font-size(14);
+		}
+	}
+}
+
+
+#shareSpinner {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	margin-left:10px;
+	top:2px;
+}
+
+.access-level {
+	position:relative;
+	display:inline-block;
+	padding:5px 20px 7px 8px;
+	background:#fff;
+	border:1px solid #ccc;
+	margin:0 5px;
+	font-weight:bold;
+	cursor:pointer;
+	i {
+		font-style:normal;
+	}
+	&.active .permission-select {
+		display:block;
+	}
+	&:after {
+		font-family: 'UI-Icons';
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		content:"\e034";
+		font-size:16px;
+		position:absolute;
+		right:3px;
+		top:4px;
+	}
+}
+
+.permission-select {
+	position:absolute;
+	z-index:100;
+	top:100%;
+	left:-1px;
+	padding:4px 0;
+	background:#fff;
+	border:1px solid #ccc;
+	display:none;
+	width:80px;
+	b {
+		display:block;
+		white-space: nowrap;
+		font-weight:400;
+		padding:4px 8px;
+		cursor:pointer;
+		&:hover {
+			color:#D37D02;
+		}
+	}
+}
+
+#userUpdateLockMask {
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+
+div#userUpdateSpinner {
+	position:absolute;
+	width:30px !important;
+	height:30px !important;
+	right:-3px;
+	bottom:6px;
+}
+
+#shareLoadingMask {
+	position:absolute;
+	width:100%;
+	background:url("../images/bg-content.png") repeat scroll 0 0 #DDDDDD;
+	left:0;
+	top:0;
+}
+
+/* add icon and styles to beta tooltip notification */
+
+#navShare .icon-ui-notification:before {
+	content:"";
+}
+
+.icon-ui-notification:after {
+	content:"\e003";
+	margin-left: 5px;
+	color: #008d9e;
+}
+
+#navShare .beta_notes {
+	color: #008d9e;
+	font-weight: 700;
+}
+
+.tooltipster-share .tooltipster-content {
+	font-size: 14px;
+	line-height: 18px;
+}

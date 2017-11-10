@@ -1,0 +1,670 @@
+/* big hack for windows - otherwise most of the navbar is hidden */
+.no-mac #pageNavigation {
+	overflow-y: scroll;
+	&.nano .content {
+		position: relative;
+		overflow: initial;
+	}
+}
+
+#pageNavigation {
+	float:left;
+	height:100%; 
+	width:300px;
+	margin: 0 0 0 -300px;
+	background:#eee;
+	border-right:1px solid #b5b5b5;
+	overflow: hidden;
+	-webkit-overflow-scrolling: touch;
+	ul, li {
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+	h6{
+		margin:0;
+		font-weight:500;		
+		@include font-size(13);
+		padding:10px 10px 10px 30px;
+		color:#333;
+		position:relative;
+		&:hover {
+			cursor:pointer;		
+		}
+		i {
+			position:absolute;
+			display:block;
+			width:16px;
+			height:16px;
+			top:50%;
+			color:#999;
+			margin-top:-10px;
+			left:10px;
+			font-weight:400;
+			vertical-align:middle;
+			font-size:14px;
+			&.closed:before{
+				content:"\e03a";
+			}
+		}
+		+ ul {
+			display:none;
+		}
+		&.subLevel {
+			font-weight: normal;
+		}
+		&.disabled {
+			color: #aaa;
+		}
+	}
+	span {
+		display:block;
+		white-space: nowrap;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		@include font-size(12);
+		padding:10px;
+		@include transition(border-top 0.2s ease-in, background-color 0.2s ease-in);
+		&:hover {
+			cursor:pointer;				
+		}
+		i {
+			margin-right:5px;		
+		}		
+	}
+	> ul > li {		
+		span {
+			padding-left:20px;		
+		}
+		> ul > li {
+			
+			h6 {
+				padding-left:40px;
+				i {
+					left:20px;				
+				}
+				.add-button {
+					left:275px;
+				}
+			}
+			span {
+				padding-left:20px;		
+			}			
+			> ul > li {
+			
+				h6 {
+					padding-left:50px;
+					i {
+						left:30px;			
+					}
+				}
+				span {
+					padding-left: 50px;
+				}
+			}			
+		}		
+	}
+	.menuGroup {
+
+		span, h6 {
+			background-color:rgba(0,0,0,0.1);
+			border-top:1px solid rgba(255,255,255,0.5);
+			border-bottom:1px solid rgba(0,0,0,0.2);
+			@include no-select();
+		}
+		> h6 {
+			background-color:rgba(0,0,0,0.2);
+		}
+		&.portal {
+			> h6 {
+				background: linear-gradient(#0099ab, #008d9e);
+				color: #eee;
+				i {
+					color: #eee;
+				}
+			}
+		}
+
+		span {
+			color:#444;
+			-webkit-transform: translate3d(0, 0, 0);
+			-webkit-backface-visibility: hidden;
+			-webkit-perspective: 1000;
+			&:hover{
+				cursor:pointer;
+				border-top:1px solid transparent;
+				background-color:rgba(0,0,0,0.15);
+			}
+			&.active {
+				color:#fff;
+				font-weight:bold;
+				background-color:rgba(219,121,1,0.9);
+				border-top:1px solid rgba(0,0,0,0.1);
+				border-bottom:1px solid rgba(0,0,0,0.2);
+			}
+		}
+		.navSubSection {
+			> li.disabled span {
+				color: #aaa;
+			}
+			span {
+				-webkit-transform: translate3d(0, 0, 0);
+				-webkit-backface-visibility: hidden;
+				-webkit-perspective: 1000;
+				background:	rgba(55, 55, 55, 0.05);
+				&:hover{
+					background-color:rgba(0,0,0,0.1);
+				}
+				&.active {
+					background-color:rgba(219,121,1,0.9);
+					border-top:1px solid rgba(0,0,0,0.1);
+					border-bottom:1px solid rgba(0,0,0,0.2);
+				}
+			}
+		}
+
+	}
+
+	.pane {
+		display:none !important;
+	}
+
+	* {
+		-webkit-transform: translate3d(0,0,0);	
+	}
+}
+
+.nicescroll-rails {
+	z-index:100 !important;
+}
+
+#navMenubar {
+	emphasis {
+		font-weight: 600;
+	}
+	list-style:none;
+	padding:0;
+	margin:0;
+	float:right;
+	padding-right:110px;
+	position:relative;
+	z-index:5;
+	> li {
+		position:relative;
+		float:left;
+		border-left:1px solid transparent;
+		border-right:1px solid transparent;
+		> span {
+			padding:0 8px;
+			@include transition(color 0.2s ease-in);	
+			color:#eee;
+			display:block;
+			text-shadow: none;
+			height:100%;
+			position:relative;
+			.navSub {
+				@include font-size(13);
+				line-height:60px;
+				display:block;
+				position:absolute;
+				margin-top:-6px;
+				vertical-align:middle;
+				visibility:hidden;
+				@include transition(width 0.3s ease-in);
+				overflow:hidden;
+				padding-left:0px;
+				@include no-select();
+				&.parsed {
+					position:relative;
+					display:inline-block;
+					visibility:visible;
+				}
+				b {
+					font-weight:400;
+					padding-left:8px;
+					white-space:nowrap;
+					overflow:hidden;
+				}
+			}
+
+			.onLoad {
+				position:relative;
+				display:inline-block;
+				visibility:visible;
+				margin:-6px 0 0 8px;
+				vertical-align:middle;
+				@include font-size(13);
+				line-height:60px;
+			}
+			&:hover {
+				cursor:pointer;	
+				color:#fff;
+				&:after {
+					@include background-image(linear-gradient(center top, #F8F8F8, #F1F1F1));	
+					opacity:1;				
+				}
+			}
+			&:before {
+				position:relative;
+				z-index:3;
+			}
+			&:after {
+				position:absolute;
+				content:'';
+				display:block;				
+				left:0;				
+				z-index:1;				
+			}
+		}
+		> div {
+			display:none;
+			position:absolute;			
+			top:100%;
+			right:0;
+			width:300px;
+			padding:20px !important;
+			height:500px;
+			line-height:1;
+			margin-right:-1px;
+			border-right:1px solid #fff;
+			border-left:1px solid #fff;
+			border-bottom:1px solid #fff;
+			background:#ddd url(../images/bg-content.png);	
+			z-index:10;
+			@include box-shadow(rgba(0,0,0,0.2) 0 5px 5px);
+			.button {
+				color: #777777 !important;
+			}
+			.navInfo {
+				display:block;
+				margin-bottom:20px;
+				@include font-size(13);
+				line-height:1.5;
+			}
+			h4 {
+				font-family:'LatoRegular';
+				font-weight:400;			
+				margin:0;
+				border-bottom:1px solid #ddd;
+				padding:0 0 10px 0;
+				line-height: 20px;
+				@include font-size(18);
+				text-align:left;
+			}
+		}
+		.menu {
+			text-align:left;
+			article {
+				border-top:1px solid #fff;
+				padding:20px 0;
+			}
+		}
+		&#newStratfileParent{
+			width:90px;
+			height:65px;
+		}
+		#newStratfile {
+			@include font-size(13);
+			margin-right:5px;
+			top:12px;
+			left:0;
+			position:absolute;
+			background:#c17202;
+			border:1px solid #AC6501;
+			padding:5px 12px 5px 40px;
+			line-height:13px;
+			color:#eee;
+			@include transition(background-color 300ms ease-in, color 300ms ease-in);
+			@include border-radius(2px);
+			&:hover {
+				background:#b76c01;
+				color:#fff;
+			}
+			&:active {
+				top:13px;
+			}
+			.icon-misc-plus {
+				@include font-size(20);
+				position:absolute;
+				left:10px;
+				top:8px;
+
+			}
+		}
+		&#navStratFile {
+			.trigger {
+				line-height: 65px;
+			}
+			> div {
+				width:450px;
+				padding:0 !important;
+				text-align:left;
+				header {
+					position:relative;
+					h4 {
+						padding:29px 20px 31px 20px;
+						text-align:left;
+					}
+					a#newStratfile {
+						position:absolute;
+						right:230px;
+						top:20px;
+					}
+					a#importStratFile {
+						position:absolute;
+						right:124px;
+						top:20px;
+					}
+					a#exportStratFile {
+						position:absolute;
+						right:20px;
+						top:20px;
+					}
+				}
+				.stratFileItem {
+					position:relative;
+					padding:20px;
+					border-bottom:1px solid #ddd;
+					border-top:1px solid #fff;
+					text-align:left;
+					background-color:transparent;
+					min-height:85px;
+					cursor:pointer;
+					@include transition(background-color 0.3s ease-in);
+					h6 {
+						width:400px;
+						margin:-5px 0 15px 0;
+						@include font-size(16);
+						padding-right: 120px;
+						line-height: 25px;
+						opacity:1;
+						@include transition(color 0.3s ease-in, opacity 0.3s ease-in);
+					}
+					span {
+						@include font-size(12);
+						color:#999;
+						display:block;
+						opacity:1;
+						@include transition(opacity 0.3s ease-in);
+					}
+					time {
+						position:absolute;
+						display:block;
+						top:20px;
+						right:20px;
+						font-weight:600;
+						color:#999;
+						opacity:1;
+						@include font-size(13);
+						@include transition(opacity 0.3s ease-in);
+						width: 120px;
+						text-align: right;
+					}
+					nav {
+						position:absolute;
+						bottom:15px;
+						right:20px;
+						@include transition(opacity 0.3s ease-in);
+						a, span {
+							@include font-size(18);
+							color:#999;
+							margin-left:13px;
+							@include transition(color 0.3s ease-in);
+							&:hover {
+								color:#D37D02;
+							}
+						}
+						span{
+							display:inline-block;
+						}
+					}
+					&:hover {
+						background-color:#e2e2e2;
+						h6 {
+							color:#D37D02;
+						}
+					}
+					&.active {
+						background-color:#EBDAC8;
+						h6 {
+							color:#D37D02;
+						}
+					}
+					.unaccepted-stratfile {
+						position:absolute;
+						left:0;
+						top:0;
+						width:100%;
+						height:100%;
+						background:rgba(218,237,239,0.9);
+						.table{
+							display:table;
+							width:100%;
+							height:100%;
+						}
+						.td {
+							display:table-cell;
+							width:100%;
+							height:100%;
+							padding:0 20px;
+							vertical-align:middle;
+							color:#D37D02;
+							text-align:left;
+							font-weight:bold;
+							@include font-size(16);
+							span {
+								@include font-size(16);
+								color:#02a4b6;
+							}
+						}
+					}
+					&.pendingAcceptance {
+						background:#daedef;
+						h6 {
+							color:#02a4b6;
+						}
+					}
+				}
+				footer {
+					border-top:1px solid #fff;
+					text-align:right;
+					padding:20px;
+				}
+			}
+		}
+		&#navShare {
+			> div {
+				width:700px;
+				height:400px;
+				h4 {
+					padding:0 20px 10px 20px
+				}
+				.content {
+					border:0;
+				}
+			}
+		}
+		&#navSettings {
+			display:none;
+		}
+		&#navUser {
+			#recurringBilling {
+				margin-right: 5px;
+			}
+			> div {
+				width:410px;
+				height:520px;
+				.menu.nano.has-scrollbar{
+					border-top:0;
+				}
+				article {
+					padding:0;
+				}
+				figure {
+					padding:20px 0 0;
+					@include font-size(12);
+					img {
+						float:left;
+						border:3px solid #fff;
+						margin:0 10px 10px 0;
+						width:66px;
+					}
+					figcaption {
+						margin-bottom: 8px;
+						b {
+							display:block;
+							@include font-size(16);
+							font-weight:600;
+							text-transform:capitalize;
+							margin-bottom:10px;
+						}
+					}
+				}
+				.content, .nano {
+					border:0;
+				}
+				.versionDetails, .connect, .upgrade {
+					p {
+						@include font-size(12);
+						line-height:20px;
+					}					
+				}
+				.versionDetails {
+					padding-bottom: 0;
+					
+					.stratpadVersion {
+						@include font-size(16);
+						padding:20px 0 6px 0;
+						display:block;
+						font-weight:600;
+						color:$linkColor;
+					}
+					.trialTimeLeft {
+						font-weight:600;
+					}
+				}
+				.connect {
+					> span {
+						@include font-size(16);
+						padding:20px 0 6px 0;
+						display:block;
+						font-weight:600;
+  						color: $secondaryBlue;
+					}
+					a {
+						@include font-size(12);
+					}
+				}
+			}
+		}
+		#newStratfile {
+			.spinning{
+				&:before{
+					visibility:hidden;
+				}
+			}
+		}
+		#managePassword {
+			input {
+				width:100%;
+				margin-bottom:10px;
+				@include font-size(16);
+			}
+			#newPasswordWrap {
+				display:none;
+			}
+		}
+		&.active {
+			border-right:1px solid #fff;
+			border-left:1px solid #fff;
+			background:#ddd url(../images/bg-content.png);
+			margin-bottom:-5px;
+			z-index:12;
+			> span {
+				color:$linkColor;
+			}
+			> div {
+				display:block;
+			}
+		}
+	}
+}
+
+#stratPadSignout {
+	position:absolute;
+	top:12px;
+	right:10px;
+	font-weight:bold;
+	display:none;
+	z-index:100;
+}
+
+#pageHeader .l-grid #navInfo > div {
+	@include font-size(13);
+	-webkit-transform: translateZ(0);
+	width: 420px;
+	line-height:17px;
+	padding:0 !important;
+	.content {
+		font-size: inherit;
+		padding:20px;
+		border-top:0;
+	}
+	.appversion {
+		@include font-size(16);
+		color:#D37D02;
+	}
+	.buildDetails {
+		text-align: center;
+		color: #ccc;
+		span:nth-child(2) {
+			display: none;
+		}
+	}
+}
+
+#changePasswordSuccess,
+#changePasswordError {
+	display:none;
+	padding-top:20px;
+}
+
+.pass-error {
+	#newPassword, #confirmNewPassword {
+		border-color:#D8000C;
+	}
+}
+.pass-warn {
+	#newPassword, #confirmNewPassword {
+		border-color:#9F6000;
+	}
+}
+
+#validatePasswordMessage {
+	display:none;
+	padding:9px 10px;
+	color:  #00529B;
+	background-color: #BDE5F8;
+	&.passValidate {
+		display:block;
+	}
+	&.pass-error {
+		color:  #D8000C;
+		background-color: #FFBABA;
+	}
+	&.pass-warn {
+		color: #9F6000;
+		background-color: #FEEFB3;
+	}
+	&.pass-success{
+		color: #4F8A10;
+		background-color: #DFF2BF;
+	}
+}
+
+#changePassMessage {
+	padding-bottom:20px;
+	@include font-size(14);
+}
+

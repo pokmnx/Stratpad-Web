@@ -1,0 +1,882 @@
+<!doctype html>
+<html class="no-js home not-logged waiting">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>StratPad Intuit SSO</title>
+<meta charset='utf-8'/>
+<script>var stratpad_oldie = false;</script>
+<!--[if lte IE 9]><script>stratpad_oldie = true;</script><![endif]-->
+<script type="text/javascript">
+	var timestamp = '@timestamp@';
+	var isLocal = timestamp.indexOf('@') == 0;
+	var style    = isLocal ? '/css/style.css' : '/css/style.@timestamp@.css',
+		ssoStyle = isLocal ? '/css/intuit-sso.css' : '/css/intuit-sso.@timestamp@.css';
+
+	document.write('<link rel="stylesheet" type="text/css" href="' + style + '"/>');
+	document.write('<link rel="stylesheet" type="text/css" href="' + ssoStyle + '"/>');
+
+	if(!stratpad_oldie) {
+		document.write('\x3Cscript type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">\x3C/script>');
+		document.write('\x3Cscript type="text/javascript" src="/js/ext/jquery-ui-1.10.4.custom.js">\x3C/script>');
+		document.write('\x3Cscript type="text/javascript" src="/js/ext/jquery.html5storage.js">\x3C/script>');
+		document.write('\x3Cscript type="text/javascript" src="/js/ext/spin-1.3.2.js">\x3C/script>');
+	} else {
+		document.write('\x3Cscript type="text/javascript" src="/js/lib/modernizr/html5shiv.js">\x3C/script>');
+	}
+	var config = {
+		serverBaseUrl: '@serverBaseUrl@'
+	}
+</script>
+
+<!-- crazy egg -->
+<script type="text/javascript">
+	setTimeout(function () {
+		var a = document.createElement("script");
+		var b = document.getElementsByTagName("script")[0];
+		a.src = document.location.protocol + "//dnn506yrbagrg.cloudfront.net/pages/scripts/0021/9862.js?" + Math.floor(new Date().getTime() / 3600000);
+		a.async = true;
+		a.type = "text/javascript";
+		b.parentNode.insertBefore(a, b)
+	}, 1);
+</script>
+
+<script type="text/javascript" src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js"></script>
+
+
+<!--[if lte IE 9]>
+<link rel="stylesheet" type="text/css" href="/css/ie.css">
+<![endif]-->
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body id="home">
+	<header id="pageHeader">
+		<div class="l-grid l-col-50 group">
+			<div>
+				<a href="http://www.stratpad.com/" id="pageLogo">StratPad</a>
+				<i class="icon-misc-cloud"></i>
+			</div>
+			<div></div>
+		</div>
+	</header>
+	<section id="ssoPage">
+
+		<div class="sso-content-wrap">
+
+			<div id="linkOrCreate" class="sso-module">
+
+				<div id="ssoError" class="error"><div class="table"><div id="errorMessage" class="td"></div></div></div>
+
+				<div class="message-wrap">
+					<h3>Welcome to StratPad <span id="welcomeName"></span>!</h3>
+
+					<p>Please choose one of these options to create your account with us and link it to your QBO Account.</p>
+					<p id="emailExistsMessage">We detected the email <span id="existsEmailDisplay"></span> in our system. If you choose to link to an existing StratPad account the field will be set to use this email. You can still choose a different StratPad account if you need to.</p>
+				</div>
+
+				<div class="l-grid l-col-50">
+
+					<div class="create-account-wrap">
+
+						<a class="button orange icon-ui-user typeTrigger" href="#" title="Click to reset your password" data-active-class="create-account"><span>Create a New Stratpad Account</span></a>
+						<div class="message-or">or</div>
+						<div id="createAccountDetails" class="form-wrap">
+							<div class="lock-mask"></div>
+							<form id="createForm" action="">
+								<fieldset>
+
+									<label for="createEmail">Create Account with this Email</label>
+									<p>(Your QBO information has been automatically added here - you can change it if you like)</p>
+									<input type="email" name="linkToEmail" id="createEmail" class="createInput" placeholder="Email" />
+
+									<label for="createFirstName">First Name</label>
+									<input type="text" name="createFirstName" id="createFirstName" class="createInput" />
+
+									<label for="createLastName">Last Name</label>
+									<input type="text" name="createLastName" id="createLastName" class="createInput" />
+
+								</fieldset>
+
+								<fieldset class="submits">
+									<input class="button orange formSubmit" type="submit" value="Create Account" />
+								</fieldset>
+							</form>
+						</div>
+
+					</div>
+
+
+					<div class="link-account-wrap">
+
+						<a class="blue-btn icon-ui-link-2 typeTrigger" href="#" title="Link to your existing StratPad account" data-active-class="link-account"><span>Link Your Existing StratPad Account</span></a>
+						<div id="linkAccountDetails" class="form-wrap">
+							<div class="lock-mask"></div>
+							<form id="linkToForm" action="">
+								<fieldset>
+
+									<label for="linkToEmail">Link Account to this Email</label>
+									<p>(This is the email of the existing StratPad account you are linking)</p>
+									<input type="email" name="linkToEmail" id="linkToEmail" class="linkToInput" />
+
+								</fieldset>
+
+								<fieldset id="linkToPasswordWrap">
+
+									<label for="linkToPassword">Password</label>
+									<p>(This is the password of the existing StratPad account you are linking)</p>
+									<input type="password" name="linkToPassword" id="linkToPassword" class="linkToInput" />
+
+								</fieldset>
+
+								<fieldset class="submits">
+									<input class="button orange formSubmit" type="submit" value="Link Accounts" />
+								</fieldset>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+	<footer id="final-footer">
+		<nav id="sub_links">
+			<a href="http://www.stratpad.com/strategy-and-execution-topics/yammer-transforms-strategic-business-planning-process/" title="Go to the Yammer integration Page">Yammer Transforms Strategic Business Planning Process</a>
+			<a href="http://www.stratpad.com/strategy-and-execution-topics/short-business-plans/" title="Go to the Short Business Plans Page">Short Business Plans</a>
+			<a href="http://www.stratpad.com/strategy-and-execution-topics/business-planning-on-the-ipad/" title="Go to the Do Your Business Planning on Your iPad Page">Business Planning On The Ipad</a>
+			<a href="http://www.stratpad.com/strategy-and-execution-topics/ipad-strategic-plan/" title="Go to the Create your Strategic Plan quickly and easily on your iPad. Page">Ipad Strategic Plan</a>
+			<a href="http://www.stratpad.com/strategy-and-execution-topics/ipad-business-plan/" title="Go to the Create your business plan quickly and easily on your iPad. Page">Ipad Business Plan</a>
+			<a href="http://www.stratpad.com/strategy-and-execution-topics/ipad-business-strategy/" title="Go to the Build Your Business Strategy in Minutes Page">Ipad Business Strategy</a>
+			<a id="last_sub_link" href="http://www.stratpad.com/strategy-and-execution-topics/balanced-scorecard-on-the-ipad/" title="Go to the Balanced Scorecard.  Work with themes, objectives and metrics on your iPad. Page">Balanced Scorecard On The Ipad</a>
+		</nav>
+		<div id="footer">
+			<span>© 2011-<script type="text/javascript">document.write(new Date().getFullYear());</script> StratPad Inc. All rights reserved.</span><span> | </span>
+			<a href="http://www.stratpad.com/privacy/">Privacy</a><span> | </span>
+			<a href="http://www.stratpad.com/termsofuse/">Terms of Use</a>
+		</div>
+	</footer>
+
+	<div id="old-ie">
+		<div id="ie-header">
+			<img src="/images/ie/logo.png" alt="sorry"/>
+
+			<h1>StratPad uses the latest web technologies</h1>
+
+			<h2>Unfortunately your browser is unsupported at this time.</h2>
+		</div>
+		<div id="ie-message">
+			<h1>Supported Browsers:</h1>
+			<ul class="group">
+				<li>
+					<a href="http://windows.microsoft.com/en-ca/internet-explorer/ie-10-worldwide-languages">
+						<img src="/images/ie/ie.png" alt="ie"/>
+					</a>
+
+					<h3>Internet Explorer 10+</h3>
+				</li>
+				<li>
+					<a href="http://www.mozilla.org/en-US/firefox/new/">
+						<img src="/images/ie/firefox.png" alt="ie"/>
+					</a>
+
+					<h3>Firefox</h3>
+				</li>
+				<li>
+					<a href="https://www.google.com/intl/en/chrome/browser/">
+						<img src="/images/ie/chrome.png" alt="ie"/>
+					</a>
+
+					<h3>Chrome</h3>
+				</li>
+				<li>
+					<a href="http://support.apple.com/downloads/#safari">
+						<img src="/images/ie/safari.png" alt="ie"/>
+					</a>
+
+					<h3>Safari</h3>
+				</li>
+			</ul>
+		</div>
+		<div id="ie-footer">
+			<div id="ie-inner-footer">
+				<span>© 2011-<script type="text/javascript">document.write(new Date().getFullYear());</script> StratPad Inc. All rights reserved.</span><span> | </span>
+				<a href="http://www.stratpad.com/privacy/">Privacy</a><span> | </span>
+				<a href="http://www.stratpad.com/termsofuse/">Terms of Use</a>
+			</div>
+		</div>
+	</div>
+	<div id="initialLoader">
+		<div class="outer">
+			<div class="inner">
+				<p>Getting to business...</p>
+				<div id="status">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	if(!stratpad_oldie) {
+		(function (window, $) {
+
+			// make sure we can send server cookies back and forth
+			$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+				options.xhrFields = {
+					withCredentials: true
+				};
+			});			
+
+			var $el = {},
+				intuitUser = {},
+				errorMessages = {
+					DUPLICATE_EMAIL    : 'That email is already in our system. Either link that account or choose a different email.',
+					INVALID_CREDENTIALS: 'We\'re sorry that password is incorrect, please try again.',
+					REQUIRED_FIELD     : 'You have missed one or more required fields, please check below.',
+					USER_NOT_FOUND     : 'We\'re sorry, that email is not in our system. Please check the email and try again.'
+				},
+				fn = {
+
+					activateSide: function(e){
+
+						// sets the form which has been selected to an active and usable state
+
+						var side = $(this).attr('data-active-class');
+
+						e.preventDefault();
+						$el.page.removeClass().addClass(side);
+
+						if(side === 'link-account')
+							$el.createInputs.removeClass('required');
+						else
+							$el.linkToInputs.removeClass('required');
+
+					},
+
+					cacheElements: function(){
+
+						$el.hb = $('html, body');
+
+						// wrappers
+
+						$el.page = $('#ssoPage');
+						$el.linkOrCreate = $('#linkOrCreate');
+
+						// message area
+
+						$el.emailExistsMessage = $('#emailExistsMessage');
+						$el.existsEmailDisplay = $('#existsEmailDisplay');
+						$el.errorMessage = $('#errorMessage');
+
+						// forms
+
+						$el.createForm = $('#createForm');
+						$el.linkToForm = $('#linkToForm');
+						$el.submits = $('.formSubmit');
+
+						// create account inputs and els
+
+						$el.createAccountDetails = $('#createAccountDetails');
+						$el.createInputs = $('.createInput');
+						$el.createEmail = $('#createEmail');
+						$el.createFirstName = $('#createFirstName');
+						$el.createLastName = $('#createLastName');
+
+						// link to account inputs and els
+
+						$el.linkAccountDetails = $('#linkAccountDetails');
+						$el.linkToInputs = $('.linkToInput');
+						$el.linkToEmail = $('#linkToEmail');
+						$el.linkToPasswordWrap = $('#linkToPasswordWrap');
+						$el.linkToPassword = $('#linkToPassword');
+
+					},
+
+					displayError: function(messageKey){
+
+						// see if a supplied key is in our error message array and display that or a default if not found
+
+						var message = 'We\'re sorry there was an error processing your request. Please review the information you entered and contact support if the issue persists.';
+
+						if(errorMessages.hasOwnProperty(messageKey))
+							message = errorMessages[messageKey];
+
+						fn.scrollTo($el.errorMessage, 100);
+						$el.submits.prop('disabled', true);
+
+						$el.page.addClass('has-error');
+						$el.errorMessage.text(message);
+
+						setTimeout(function(){
+							$el.page.removeClass('has-error');
+							$el.submits.prop('disabled', false);
+						}, 5000);
+
+					},
+
+					handleCreateFormSubmit: function(e){
+
+						// create a new user
+
+						e.preventDefault();
+
+						// first validate fields are populated with something at least (all fields are required)
+
+						if(fn.validateSubmit()){
+
+							var $btn = $(this);
+
+							e.stopPropagation();
+
+							$btn.prop('disabled', true);
+
+							var userData = {
+								email: $el.createEmail.val(),
+								firstname: $el.createFirstName.val(),
+								lastname: $el.createLastName.val()
+							};
+
+							// spin
+							var opts = {
+								lines: 12,
+								length: 13,
+								width: 5,
+								radius: 12,
+								color: '#333'
+							};
+							var spinner = new Spinner(opts).spin($('#linkOrCreate').get(0)); 
+
+
+				            var stratFileId, themeId, projectionId;
+				            var deferred = $.Deferred();
+				            deferred.resolve();
+
+				            deferred = deferred.then(function() {
+				                return $.ajax({
+									url: config.serverBaseUrl + "/ipp/v3/users/create",
+				                    type: "POST",
+				                    data: JSON.stringify(userData),
+				                    dataType: 'json',
+				                    contentType: "application/json; charset=utf-8"
+				                })
+				                .done(function(response, textStatus, jqXHR) {
+				                    // put user in localstorage
+									response.data.user.fullname = response.data.user.firstname + ' ' + response.data.user.lastname;
+									console.debug("Welcome: " + response.data.user.fullname);
+									response.data.user.loginTime = new Date().getTime();
+									$.localStorage.setItem('user', JSON.stringify(response.data.user));
+
+				                })
+				                .fail(function(jqXHR, textStatus, errorThrown) {
+				                    console.error("%s: %s", textStatus, errorThrown);
+
+									var errors = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+									var messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+									fn.displayError(messageKey);
+				                });             
+				            });	
+
+							// just enter the app
+				            deferred = deferred.then(function() {
+				            	$btn.prop('disabled', false);
+				            	spinner.spin(false);
+								window.location = "/stratweb.html#nav/0/0/0";								
+				            });
+
+						}
+
+						return false;
+
+					},
+
+					handleLinkToFormSubmit: function(e){
+
+						// link to an existing stratpad user
+
+						e.preventDefault();
+
+						// first validate fields are populated with something at least (all fields are required)
+
+						if(fn.validateSubmit()){
+
+							var $btn = $(this);
+
+							e.stopPropagation();
+							$btn.prop('disabled', true);
+
+							// did the user enter a new email, or use the intuit-suggested email
+							var isMatchingUser = ($el.linkToEmail.val() === intuitUser.email) && intuitUser.exists,
+								method,
+								data;
+
+							// gather ajax options
+							if (isMatchingUser) {
+								// we don't need to send anything
+								method = 'GET';
+							} else {
+								method = 'POST';
+								 data = {
+									email: $el.linkToEmail.val(),
+									password: $el.linkToPassword.val()
+								}
+							}
+
+							// submit
+							$.ajax({
+								url: config.serverBaseUrl + "/ipp/v3/users/link",
+								type: method,
+								dataType: 'json',
+								data: JSON.stringify(data),
+								contentType: "application/json; charset=utf-8"
+							})
+								.done(function(response, textStatus, jqXHR) {
+									response.data.user.fullname = response.data.user.firstname + ' ' + response.data.user.lastname;
+									console.debug("Welcome: " + response.data.user.fullname);
+									response.data.user.loginTime = new Date().getTime();
+									$.localStorage.setItem('user', JSON.stringify(response.data.user));
+									window.location = "/stratweb.html#nav/0/0/0";
+								})
+								.fail(function(jqXHR, textStatus, errorThrown) {
+									console.warn("%s: %s", textStatus, errorThrown);
+
+									var errors = (((jqXHR || {}).responseJSON || {}).data || {}).errors;
+									var validations = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+									var messageKey;
+
+									if(errors)
+										messageKey = errors && errors.length ? (errors[0].applicationError || 'intuit.unknownError') : 'intuit.unknownError';
+									else if(validations)
+										messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+									fn.displayError(messageKey);
+
+								})
+								.always(function() {
+									$btn.prop('disabled', false);
+								});
+
+							}
+
+						return false;
+
+					},
+
+					highlightRequired: function(){
+
+						// loops over inputs on the selected form and if any are empty and visible it highlights them
+
+						var $inputs = $el.createInputs;
+
+						if($el.page.is('.link-account'))
+							$inputs = $el.linkToInputs;
+
+						$inputs
+							.each(function () {
+
+								var $this = $(this);
+
+								if($this.val().length)
+									$this.removeClass('required');
+								else if($this.is(':visible'))
+									$this.addClass('required');
+
+							});
+
+					},
+
+					getUrlData: function(){
+
+						intuitUser.email = fn.getUrlParam('email');
+						intuitUser.firstName = fn.getUrlParam('firstname');
+						intuitUser.lastName = fn.getUrlParam('lastname');
+						intuitUser.exists = fn.getUrlParam('found') == 1 || fn.getUrlParam('found') == 'true';
+						intuitUser.tryBuy = fn.getUrlParam('tryBuy');
+
+					},
+
+					getUrlParam: function (name) {
+						return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || '';
+					},
+
+					maybeShowExistsMessage: function(){
+
+						if(intuitUser.exists){
+
+							// Alex didn't want this - but keep it around for now
+							// $el.existsEmailDisplay.text(intuitUser.email);
+							// $el.emailExistsMessage.show();
+
+						}
+
+					},
+
+					maybeShowPasswordInputForLinking: function(){
+
+						// if creating a new account instead, we generate a password for them automatically, since they won't normally use it
+
+						if(intuitUser.email.length){
+							var $this = $(this),
+								inputValue = $this.val();
+
+							// if a stratpad user exists with the same email - don't need to ask for credentials
+							var isMatchingUser = inputValue === intuitUser.email;
+							if(!isMatchingUser){
+								$el.linkToPasswordWrap.show();
+							} else{
+								$el.linkToPasswordWrap.hide();
+								$el.linkToPassword.val('');
+							}
+
+						}
+
+					},
+
+					populateFields: function(){
+
+						// when creating, don't bother autofilling email if it already exists in jstratpad
+						if (!intuitUser.exists) {
+							$el.createEmail.val(intuitUser.email);
+						}
+
+						if (intuitUser.exists) {
+							// tweak the messaging if you want to create a new user with a different email
+							$('label[for=createEmail]').text('Create Account with a different Email');
+						}
+
+						$el.createFirstName.val(intuitUser.firstName);
+						$el.createLastName.val(intuitUser.lastName);
+
+						$('#welcomeName').text(intuitUser.firstName);
+
+						// when linking, only set values if the user actually exists (we know they won't find the existing user)
+						if (intuitUser.exists) {
+							$el.linkToEmail.val(intuitUser.email);
+						}
+
+					},
+
+					scrollTo: function($target, offset, duration, easetype){
+
+						// scrolls the body to el with some opts
+
+						if(!offset) offset = 0;
+						if(!duration) duration = 1000;
+						if(!easetype) easetype = 'easeInOutQuint';
+
+						$el.hb
+							.stop()
+							.animate({
+								scrollTop: $($target).offset().top - offset}, {
+								duration: duration,
+								easing:easetype
+							});
+					},
+
+					validateSubmit: function(){
+
+						// this just goes over the inputs on the selected side and makes sure none are empty
+						// it allows submit to proceed or it throws a required fields error and highlights empties
+
+						var validate = true,
+							$inputs = $el.createInputs;
+
+						if($el.page.is('.link-account'))
+							$inputs = $el.linkToInputs;
+
+						$inputs
+							.each(function () {
+
+								var $this = $(this);
+
+								if(!$this.val().length && $this.is(':visible'))
+									validate = false;
+
+							});
+
+						if(!validate){
+							fn.highlightRequired();
+							fn.displayError('REQUIRED_FIELD');
+						}
+
+						return validate;
+					},
+
+					createTryBuyStratFile: function() {
+
+						// user data
+						var userData = {
+							email: intuitUser.email,
+							firstname: intuitUser.firstName || "Intuit",
+							lastname: intuitUser.lastName || "User"
+						};
+
+						// stratfile data
+			            var stratFile = {
+			                name: 'QBO Sample Plan',
+			                permissions: '0700'
+			            };
+
+			            var theme = {
+			                name: 'My First Project',
+			                order: 0,
+			                revenueMonthly: 1000,
+			                revenueMonthlyAdjustment: 8.0
+			            };
+
+                        var projection = {
+                            'accountName': 'REVENUE',
+                            'source': "QBO"
+                        };
+
+                        var pChart = {
+                            'title': 'Actual Revenue vs Projected Revenue Chart',
+                            'chartType': 'ChartTypeBar',
+                            'colorScheme': 1,
+                            'showTarget': true, // so that we see the projected values straight away
+                            'zLayer': 0
+                        };
+
+			            var stratFileId, themeId, projectionId;
+			            var deferred = $.Deferred();
+			            deferred.resolve();
+
+			            // create user
+			            deferred = deferred.then(function() {
+			            	$('#initialLoader #status').text('Creating StratPad User...');
+			                return $.ajax({
+								url: config.serverBaseUrl + "/ipp/v3/users/create",
+			                    type: "POST",
+			                    data: JSON.stringify(userData),
+			                    dataType: 'json',
+			                    contentType: "application/json; charset=utf-8"
+			                })
+			                .done(function(response, textStatus, jqXHR) {
+			                    // put user in localstorage
+								response.data.user.fullname = response.data.user.firstname + ' ' + response.data.user.lastname;
+								console.debug("Welcome: " + response.data.user.fullname);
+								response.data.user.loginTime = new Date().getTime();
+								$.localStorage.setItem('user', JSON.stringify(response.data.user));
+
+			                })
+			                .fail(function(jqXHR, textStatus, errorThrown) {
+			                    console.error("%s: %s", textStatus, errorThrown);
+
+								var errors = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+								var messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+								if (messageKey == 'DUPLICATE_EMAIL') {
+									// a user with same email who already exists in StratPad is doing the try buy
+									// so send them to normal link page
+									window.location = document.location.protocol + "//" + 
+														document.location.host +
+														document.location.pathname + 
+														"?found=" + intuitUser.exists +
+														"&email=" + intuitUser.email +
+														"&firstname=" + intuitUser.firstName +
+														"&lastname=" + intuitUser.lastName;														
+								}
+
+								fn.displayError(messageKey);
+			                });             
+			            });	
+
+						// create stratfile
+			            deferred = deferred.then(function() {
+							$('#initialLoader #status').text('Creating Plan...');
+			                return $.ajax({
+			                    url: config.serverBaseUrl + "/stratfiles",
+			                    type: "POST",
+			                    data: JSON.stringify(stratFile),
+			                    dataType: 'json',
+			                    contentType: "application/json; charset=utf-8"
+			                })
+			                .done(function(response, textStatus, jqXHR) {
+			                    stratFileId = response.data.stratFile.id;
+								console.debug('Created stratfile: ' + stratFileId);
+			                })
+			                .fail(function(jqXHR, textStatus, errorThrown) {
+			                    console.error("%s: %s", textStatus, errorThrown);
+
+								var errors = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+								var messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+								fn.displayError(messageKey);				                    
+			                });             
+			            });
+
+						// create theme
+			            deferred = deferred.then(function() {
+			            	$('#initialLoader #status').text('Creating Project...');
+			                return $.ajax({
+			                    url: config.serverBaseUrl + "/stratfiles/" + stratFileId + '/themes',
+			                    type: "POST",
+			                    data: JSON.stringify(theme),
+			                    dataType: 'json',
+			                    contentType: "application/json; charset=utf-8"
+			                })
+			                .done(function(response, textStatus, jqXHR) {
+			                    themeId = response.data.theme.id;
+								console.debug('Created theme: ' + themeId);					                    
+			                })
+			                .fail(function(jqXHR, textStatus, errorThrown) {
+			                    console.error("%s: %s", textStatus, errorThrown);
+
+								var errors = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+								var messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+								fn.displayError(messageKey);				                    
+			                });             
+			            });
+
+						// create projection
+                        deferred = deferred.then(function() {
+                        	$('#initialLoader #status').text('Creating Projection...');
+			                return $.ajax({
+			                    url: config.serverBaseUrl + "/stratfiles/" + stratFileId + '/projections',
+			                    type: "POST",
+			                    data: JSON.stringify(projection),
+			                    dataType: 'json',
+			                    contentType: "application/json; charset=utf-8"
+			                })
+			                .done(function(response, textStatus, jqXHR) {
+			                    projectionId = response.data.projection.id;
+								console.debug('Created projection: ' + projectionId);					                    
+			                })
+			                .fail(function(jqXHR, textStatus, errorThrown) {
+			                    console.error("%s: %s", textStatus, errorThrown);
+
+								var errors = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+								var messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+								fn.displayError(messageKey);				                    
+			                });             
+
+                        });
+
+						// create chart
+                        deferred = deferred.then(function() {
+                        	$('#initialLoader #status').text('Creating Chart...');
+			                return $.ajax({
+			                    url: config.serverBaseUrl + "/stratfiles/" + stratFileId + '/projections/' + projectionId + '/charts',
+			                    type: "POST",
+			                    data: JSON.stringify(pChart),
+			                    dataType: 'json',
+			                    contentType: "application/json; charset=utf-8"
+			                })
+			                .done(function(response, textStatus, jqXHR) {
+								console.debug('Created chart: ' + response.data.chart.id);					                    
+			                })
+			                .fail(function(jqXHR, textStatus, errorThrown) {
+			                    console.error("%s: %s", textStatus, errorThrown);
+
+								var errors = (((jqXHR || {}).responseJSON || {}).data || {}).validations;
+								var messageKey = errors && errors.length ? (errors[0].validationError || 'intuit.unknownError') : 'intuit.unknownError';
+
+								fn.displayError(messageKey);				                    
+			                });             
+
+                        });
+
+						// oauth connection
+			            deferred = deferred.then(function() {
+
+			            	$('#initialLoader #status').text('Creating QuickBooks Connection...');
+
+							// IPP setup
+							var grantUrl = config.serverBaseUrl + '/ipp/v3/requestToken?stratFileId=' + stratFileId + '&tryBuy=1';
+							intuit.ipp.anywhere.setup({ grantUrl: grantUrl });
+
+							// oauth connection
+							intuit.ipp.anywhere.directConnectToIntuit();
+
+							// the connection will take care of the redirect to /stratweb.html#welcomeqbo
+						});
+
+					}
+
+				};
+
+			$(document).ready(function () {
+
+				/**
+				 * load up the user data from the query params. if not in url value is empty string.
+				 */
+
+				fn.getUrlData();
+
+				/**
+				 * cache the els we will play with
+				 */
+
+				fn.cacheElements();
+
+
+				if (intuitUser.tryBuy) {
+				
+
+					// spin
+					var opts = {
+						lines: 8,
+						length: 4,
+						width: 3,
+						radius: 5,
+						color: '#333',
+						top: '145px'
+					};
+					var spinner = new Spinner(opts).spin($('#initialLoader .inner').get(0)); 
+
+					// create user, stratfile, etc
+					fn.createTryBuyStratFile();
+
+				}				
+				else {
+				
+					setTimeout(function(){
+						// needs a little delay
+
+						$('html').removeClass('waiting');
+					}, 400);
+
+					/**
+					 * pre populate the fields with intuit data
+					 */
+
+					fn.populateFields();
+
+					/**
+					 * maybe show account exists message
+					 */
+
+					fn.maybeShowExistsMessage();
+
+					/**
+					 * bind event handlers
+					 */
+
+					$el.linkOrCreate
+						.on('click', '.typeTrigger', fn.activateSide);
+
+					$el.createForm
+						.on('submit', fn.handleCreateFormSubmit)
+						.on('keyup, blur', '.createInput', fn.highlightRequired);
+
+					$el.linkToForm
+						.on('submit', fn.handleLinkToFormSubmit)
+						.on('keyup, blur', '.linkToInput', fn.highlightRequired)
+						.on('keyup', '#linkToEmail', fn.maybeShowPasswordInputForLinking);
+
+
+				}
+
+
+			});
+
+		})(window, jQuery);
+	}
+	</script>
+
+</body>
+
+</html>

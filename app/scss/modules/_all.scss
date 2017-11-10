@@ -1,0 +1,55 @@
+ul.fileTypeGrid {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	li {
+		width:50%;
+		float:left;
+		padding:5px;
+		label {
+			border:1px solid #ccc;
+			background:#fefefe;
+			padding:10px;
+			display:block;
+			cursor:pointer;
+			font-weight:600;
+			position:relative;
+			@include transition(background-color 0.2s ease-in, border-color 0.2s ease-in, color 0.2s ease-in);
+			@include border-radius(3px);
+
+			&.typePdf:hover, &.typePdf.active {
+				background-color:#c11e07;
+				border-color:#a31905;
+				color:#fff;
+			}
+			&.typeDocx:hover, &.typeDocx.active {
+				background-color:#2b5796;
+				border-color:#1f4478;
+				color:#fff;
+			}
+			&.typeCsv:hover, &.typeCsv.active {
+				background-color:#1e7145;
+				border-color:#115933;
+				color:#fff;
+			}
+			&.typeStratfile:hover, &.typeStratfile.active {
+				background-color:#D37D02;
+				border-color:#ad6601;
+				color:#fff;
+			}
+			&.disabled {
+				background:#eee !important;
+				border-color:#ccc !important;
+				color:#ccc !important;
+				cursor:auto !important;
+			}
+			i {
+				font-size:24px;
+				position:absolute;
+				right:10px;
+				top:5px;
+
+			}
+		}
+	}
+}

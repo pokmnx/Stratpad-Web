@@ -1,0 +1,54 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{title}}</h2>
+	</hgroup>
+</header>
+<section id="f1">
+	<article class="stratFileForm">
+		<h2>{{subtitle}}</h2>
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/write-your-plan/about-your-company/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+		<form class="formPanel" autocomplete="off">
+			<fieldset>
+				<ul>
+					<li>
+						<label for="name">{{lblName}}</label>
+						<div class="permissions"></div>						
+						<input id="name" type="text" name="name" placeholder="{{plhrName}}" autofocus />
+					</li>
+					<li>
+						<label for="companyName">{{lblCompanyName}}</label>
+						<div class="permissions"></div>
+						<input id="companyName" type="text" name="companyName" placeholder="{{plhrCompanyName}}" />
+					</li>
+					<li>
+						<label for="location" class="two-lines"><a id="suggestCity" href="#">Can't find your city?</a>{{lblLocation}}</label>			
+	                    <select id="location" name="location" class="location" placeholder="{{plhrLocation}}"></select>						
+					</li>
+					<li>
+						<label for="currency">{{lblCurrency}}</label>
+						<div class="permissions"></div>
+						<input id="currency" type="text" name="currency" placeholder="{{plhrCurrency}}" />
+					</li>
+					<li>
+						<label for="industry" class="two-lines">{{lblIndustry}}<span>{{subLblIndustry}}</span></label>
+						<select id="industry" name="industry" class="industries" placeholder="{{plhrIndustry}}"></select>
+					</li>
+					<li>
+						<label>{{lblFinancialLink}}</label>
+						<div id="ippConnection">
+							<ipp:connectToIntuit></ipp:connectToIntuit>
+							<div id="ippConnected">
+								<span>{{lblConnected}}</span>
+								<a href="#">{{btnDisconnect}}</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="clickNextHelper"><span>Click here <strong>after</strong><br />you've completed this page.</span></div>
+	</article>
+</section>

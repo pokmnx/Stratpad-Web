@@ -1,0 +1,333 @@
+@charset "UTF-8";
+
+#suggestCategoryForm, #referAFriendForm, #suggestCityForm {
+
+	button {
+	  line-height: 28px;
+	  height: 31px;
+	  margin: 15px 0 20px;	
+	  float: left;		
+	}
+
+	input#category, input#referalEmail, input#city {
+		width: 100%;
+		background: #fafafa;
+	}
+
+	div {
+		float: left;
+		margin: 10px 20px;
+		line-height: 34px;
+	}
+
+}
+
+.location-section_community {
+
+	#communityRequirementsDialog {
+		bottom: 60px;
+		.vex-overlay {
+			bottom: inherit;
+		}
+		.vex-content {
+			width: 640px;
+			padding: 10px 50px 20px;
+		}
+		h3 {
+			text-align: center;
+		}
+		.checkmark:before{
+			content:"✔︎";
+			color: green;
+			margin-right: 5px;
+		}
+		.ex:before{
+			content:"✗";
+			color: darkred;
+			margin-right: 5px;
+		}
+		emphasis {
+			font-style: italic;
+		}
+	}
+
+	.noAccess {
+		display: none;
+	}
+
+	.instructions {
+		font-size: larger;
+		button.important-info {
+			&:focus {outline:0 !important;}
+			font-size: 17px;
+			color:$linkColor;
+		}
+	}
+
+	.formPanel {
+		padding-top:40px;
+		ul {
+			> li {
+				position:relative;
+				padding-bottom:10px;
+				margin-bottom:10px;
+				@media #{$mq-medium-up} {
+					float:left;
+					height:100px;
+					width:50%;
+				}
+			}
+		}
+		label {
+			display:block;
+			font-weight:600;
+			font-size:16px;
+			margin-bottom:10px;
+		}
+		input, .selectize-control {
+			display: inline-block;
+			float: left;
+			width: 80%;
+			color: $default;
+			-webkit-font-smoothing: antialiased;
+		}
+		.important-info {
+			&:focus {outline:0 !important;}
+			padding-left:10px;
+			color:$linkColor;
+			font-weight:600;
+			font-size:20px;
+			position:relative;
+			top:4px;
+		}
+		.selectize-input.items {
+			color: $default;
+			font-size: 100%;
+		}
+		.selectize-dropdown-content {
+			color: $default;
+		}
+	}
+
+	.searchResults {
+		padding-top:40px;
+		> ul {
+			padding-top:20px;
+			border-top:1px solid #ccc;
+			> li.searchResult {
+				/* search result rows */
+				overflow: hidden;
+				position:relative;
+				padding-bottom:20px;
+				margin-bottom:20px;
+				border-bottom:1px solid #ccc;
+				height:120px;
+				width:100%;
+				/* each cell in a search result row */
+				> ul {
+					height: inherit;
+					> li {
+						float:left;
+						width:20%;
+						padding-right: 10px;
+						height: inherit;					
+					}
+				}
+				.blue-btn, .orange-btn {
+					width: 100%;
+					margin-top: 10px;
+				}
+			}
+			li.certifications img {
+				max-width: 40% !important;
+				max-height: 40% !important;			
+			}
+			li.logo img {
+				max-width: 80% !important;
+				max-height: 80% !important;			
+			}		
+
+		}
+	}
+
+	.security {
+		text-align: center;
+		color: $secondaryBlue;
+		font-size: 80%;
+		.icon-new-lock:before {
+			padding-right: 10px;
+		}
+	}
+
+	#communitySearchDetail .security {
+		margin-top: 10px;
+	}
+
+	button.continue {
+		width: 300px;
+		margin-bottom: 10px;
+		i {
+			margin-left: 10px;
+			font-weight: 600;
+		}
+	}
+
+	
+}
+
+
+#communityAgreement, #communitySearchDetail {
+	overflow: auto; /* temp */	
+	position:absolute;
+	height:100%;
+	background:#fefefe;
+	background-size:cover;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #eee;
+	top:-100%;
+	color:#eee;
+	@include font-size(13);
+	text-shadow:none;
+	left:0;
+	padding-top:116px;
+	width:100%;
+	@include transition(top 0.4s ease-in);
+	z-index:5;
+	&.active {
+		top:0;
+	}
+	> div {
+		padding:20px;
+		color:#666;
+		font-size:20px;
+		text-align:center;
+		.blue-btn {
+			font-size:20px;
+			height:50px;
+			line-height:50px;
+		}
+		.small-text {
+			font-size:13px;
+			margin-top:30px;
+		}
+		.howItWorks {
+			text-align: left;
+			h4 {
+				margin: 0 0 10px;
+			}
+			> div {
+				float: left;
+				width: 50%;
+				font-size: smaller;
+			}
+		}
+		.agreement {
+			margin: 30px 0;
+			border-top: 1px solid #ccc;
+			/* border-bottom: 1px solid #ccc; */
+			padding: 25px 0;
+			clear: both;					
+		}
+	}
+}
+
+#communitySearchDetail {
+	display: none;
+	background: white;
+	width:100%;
+	left:100%;
+	top:0;
+	@include transition(left 0.4s ease-in);
+	&.active {
+		left:0;
+	}
+
+	ul.lenderInfo {
+		margin-bottom: 20px;
+		> li {
+			float: left;
+			padding-right: 20px;
+			&:first-child {
+				width: 200px;
+				+ li {
+					width: 220px;
+					+ li {
+						/* fills remaining space */
+						overflow: hidden;
+						float: none;
+						padding-right: 0;
+					}
+				}
+			}
+		}
+		li img {
+			max-width: 95%;
+			max-height: 95%;			
+		}
+		.certifications	{
+			margin-top: 20px;
+			img {
+				max-width: 70px;
+				max-height: 70px;
+			}			
+		}
+		.location {
+			text-align: left;
+			li {
+				font-size: 16px;
+			}
+			li:first-child {
+				font-size: inherit;
+			}
+		}
+		.welcome {
+			text-align: left;
+			p {
+				margin-top: 0;
+			}
+		}
+	}
+	.lenderIntroduction {
+		position: relative;
+		padding: 20px;
+		background: $secondaryBlue;
+		color: #fff;
+		border: 1px solid $secondaryBlueBorder;		
+		@include border-radius(2px);
+		.part1, .part2 {
+			opacity: 0;
+			@include transition(opacity 0.3s ease-in);
+			&.active {
+				opacity: 1;
+			}
+		}
+		.part1 ol {
+			text-align: left;
+		}
+		.part2 {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px;
+		}		
+	}
+	.documents {
+		text-align: left;
+		margin-top: 20px;
+		ul {
+			margin-top: 0;
+			font-size: 16px;
+			a.disabled {
+				color: $default;
+			}
+		}		
+	}
+	#hideSearchDetail {
+		height: 39px;
+		line-height: 35px;
+		font-size: 14px;
+	}
+
+}

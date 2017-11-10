@@ -1,0 +1,38 @@
+<div id="exportDialog">
+	<div id="exportMessage">
+		{{exportDialog_msg_generic}}
+	</div>
+	<div id="exportOptions">
+		<ul class="group fileTypeGrid">
+			<li>
+				<label id="exportPdfRadio" class="exportOptionLabel typePdf" for="exportpdf" data-fileType="pdf">
+					<input type="radio" id="exportpdf" name="exportSelection" value="pdf">
+					<i class="icon-ui-file-pdf"></i>
+					{{exportDialog_pdf_generic_label}}
+				</label>
+			</li>
+			<li>
+				<label id="exportWordRadio" class="exportOptionLabel typeDocx" for="exportdocx" data-fileType="docx">
+					<input type="radio" id="exportdocx" name="exportSelection" value="docx">
+					<i class="icon-ui-file-word"></i>
+					{{exportDialog_docx_generic_label}}
+				</label>
+			</li>
+			<li>
+				<label id="exportCsvRadio" class="exportOptionLabel typeCsv" for="exportcsv" data-fileType="csv">
+					<input type="radio" id="exportcsv" name="exportSelection" value="csv">
+					<i class="icon-ui-file-excel"></i>
+					{{exportDialog_csv_generic_label}}
+				</label>
+			</li>
+			<li>
+				<label id="exportStratFileRadio" class="exportOptionLabel typeStratfile" for="exportstratfile" data-fileType="stratfile">
+					<input type="radio" id="exportstratfile" name="exportSelection" value="stratfile">
+					<i class="icon-ui-file"></i>
+					{{exportDialog_stratfile_generic_label}}
+				</label>
+			</li>
+		</ul>
+	</div>
+	<div id="exportFileInfo"></div>
+</div>

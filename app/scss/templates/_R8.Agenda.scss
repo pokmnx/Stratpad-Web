@@ -1,0 +1,39 @@
+#agendaReport {
+	.meeting {
+		margin-bottom: 10px;
+		padding-bottom: 15px;
+		border-bottom:1px solid #ddd;
+		font-style:italic;
+		.meetingHeader {
+			margin-bottom:10px;
+			font-weight:500;
+			font-style:normal;
+			strong {
+				color:#D37D02;
+			}
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+			margin-bottom:10px;
+			font-style:normal;
+		}
+		li {
+			padding-left: 40px;
+			text-indent: -1em;
+			position:relative;
+			margin-bottom: 3px;
+			background:url('../images/square@2x.png') 0 4px no-repeat;
+			background-size:18px 18px;
+		}
+		.responsible {
+			margin-left: 1em;
+		}
+	}
+	emphasis {
+	    font-style: italic;
+	    font-weight: 500;
+	    text-transform: uppercase;
+	}
+}

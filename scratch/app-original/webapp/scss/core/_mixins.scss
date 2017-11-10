@@ -1,0 +1,26 @@
+// mixins.scss 
+
+// Open Sans
+
+@mixin sansFont($weight: normal, $style: normal, $size: 100%, $lineHeight: 1.5, $shortHand: true) {
+	@if $shortHand {
+		font: $weight $style #{$size}/#{$lineHeight} OpenSans, Helvetica, "Helvetica Neue", Arial, sans-serif;
+		} @else {
+		font-family: OpenSans, Helvetica, "Helvetica Neue", Arial, sans-serif;
+	}
+}
+
+// Font Size: px & rem
+
+@mixin font-size($size: 16) { 
+	font-size:$size * 1px;
+	font-size:$size / 16 * 1rem;
+}
+
+// Retina Background Sizing
+
+@mixin bgd-size($width: 50%, $height: 50%) {
+	-webkit-background-size: $width $height;
+	-moz-background-size: $width $height;
+	background-size: $width $height;
+}

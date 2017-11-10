@@ -1,0 +1,161 @@
+.reportWrapper {
+	width:100%;
+	overflow:hidden;
+	padding-bottom:20px;
+	position:relative;
+	.headerWrapper{
+		width:200px;
+		top:0;
+		left:0;
+		position:absolute;
+		background:#F3F3F3;
+		.tableRowHeaders {
+			empty-cells: show;
+			td, th {
+				padding: 4px;
+				@include font-size(13);
+			}
+			td {
+				&.rowLevel2 {
+					padding-left:1em;
+				}
+				&.rowLevel3 {
+					padding-left:2em;
+				}
+				&.rowLevel4 {
+					padding-left:3em;
+				}
+			}
+			td, th {
+				&:first-child:not(.showMe) {
+					font-weight:600;
+					text-align:left;
+					width:200px !important;
+					border-color:transparent !important;
+				}
+			}
+		}
+	}
+	.tableWrapper {
+		overflow:auto;
+		width:100%;
+	}
+}
+
+.reportTable,
+.tableRowHeaders,
+.fullReportTable {
+	empty-cells: show;
+	tr {
+		&.rowDivider1 td,
+		&.rowDivider1 th {
+			border-top: 1px solid #333;
+		}
+		&.rowDivider2 td,
+		&.rowDivider2 th {
+			border-bottom: 2px solid #333;
+		}
+		&.rowDivider3 td,
+		&.rowDivider3 th {
+			border-bottom: 3px double #333;
+			vertical-align:bottom;
+		}
+		&.rowDivider5 td,
+		&.rowDivider5 th {
+			border-bottom: 3px solid #333;
+			vertical-align:bottom;
+			text-align:left;
+		}
+		&.rowDivider6 td,
+		&.rowDivider6 th {
+			border-bottom: 1px solid #333;
+		}
+		&.totals td,
+		&.totals th {
+			padding-bottom: 20px;
+		}
+		td {
+			&.rowLevel2 {
+				padding-left:1em;
+			}
+			&.rowLevel3 {
+				padding-left:2em;
+			}
+			&.rowLevel4 {
+				padding-left:3em;
+			}
+		}
+	}
+}
+
+.reportTable,
+.fullReportTable {
+	empty-cells: show;
+	width:96%;
+	table-layout:fixed;
+	&.col-15 {
+		th, td {
+			width:6.666666666666667%;
+		}
+	}
+	thead {
+		font-weight:600;
+		th, td {
+			vertical-align:bottom;
+		}
+	}
+	th, td {
+		text-align:right;
+		vertical-align:top;
+		padding:4px;
+	}
+	tr {
+		th {
+			font-weight:600;
+		}
+		td, th {
+			&:first-child:not(.showMe) {
+				font-weight:600;
+				text-align:left;
+				width:200px !important;
+				border-color:transparent !important;
+			}
+		}
+		&.colHeader1 {
+			th, td {
+				padding:4px 0;
+			}
+			th {
+				span {
+					display:block;
+					color:#eee;
+					font-weight:600;
+					padding:8px 16px;
+					margin-right:10px;
+					background:#444;
+					border:1px solid #222;
+					text-shadow:none;
+					text-transform:uppercase;
+					text-align:left;
+					@include border-radius(2px);
+				}
+				&:last-child {
+					span {
+						margin-right:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.fullReportTable {
+	empty-cells: show;
+	width:800%;
+	font-size: 0.8125rem;
+	td, th {
+		@include font-size(13);
+	}
+}
+
+

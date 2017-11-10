@@ -1,0 +1,122 @@
+body {
+	padding:65px 0 0 250px;
+}
+
+#landingPage {
+	background:#efefef url('../images/landing/bg.jpg') 20% 100% no-repeat;
+}
+
+#pageNavigation {		
+	width:250px;
+	margin: 0 0 0 -250px;
+	> ul > li {
+		> ul > li {
+			h6 {
+				.add-button {
+					left:225px;
+				}
+			}
+		}
+	}
+}
+
+#pageHeader {		
+	height:65px;
+	line-height:65px;
+	margin:-65px 0 0 -250px;
+	.l-grid {		
+		div:last-child{
+			font-size:24px;
+		}
+	}
+	#stratFileTitle {
+		padding:0 290px 0 270px;
+		@include font-size(20);
+	}
+}
+
+#pageFooter {	
+	height:80px;
+	line-height:80px;
+	margin:0 0 -80px -250px;
+	.l-grid {
+		div:first-child{
+			font-size:16px;				
+		}
+		div:last-child{
+			font-size:30px;			
+		}
+	}
+}
+
+#contentPager{	
+	aside {	
+		@include font-size(50); 
+	}
+	span {		
+		@include font-size(80); 		
+	}	
+}
+
+// tables
+
+.reportTable {
+	@include font-size(10);
+	tr {
+		td, th {
+			&:first-child {
+				width:140px !important;
+			}
+		}
+		&.totals td,
+		&.totals th {
+			padding-bottom: 20px;
+		}
+	}
+}
+
+.themeDetail {
+	label, p, input, select, .displayInput,.select2-container .select2-choice span {
+		font-size:14px;
+	}
+	h2 {
+		font-size:15px;
+	}
+	h5 {
+		font-size:18px;
+	}
+	table {
+		.first,
+		th {
+			font-size:13px;
+		}
+	}
+}
+
+#gantt {
+	tbody {
+		tr {
+			td {
+				div {
+					i {
+						width:16px;
+						height:16px;
+						margin: -8px -9px 0 -8px;
+					}
+				}
+			}
+		}
+	}
+}
+
+#pageContent{
+	.welcomePage {
+		.lineBreak {
+			margin-bottom:30px;
+		}
+		.largeText {
+			font-family: 'LatoRegular';
+			font-size:30px;
+		}
+	}
+}

@@ -1,0 +1,232 @@
+<div id="guidePage1" class="guidePage active" data-index="1">
+	<div class="contentWrap">
+		<div class="gContent">
+			<p>{{page1Paragraph1}}</p>
+			<p>{{page1Paragraph2}}</p>
+			<ul class="guideSelector cleanList l-grid l-col-50">
+				<li>
+					<div class="selectGuide">
+						<h2>{{page1GuidedTitle}}</h2>
+						<p>{{page1GuidedDesc}}</p>
+						<button id="startGuidedTour" class="blue-btn">{{page1GuidedLink}}</button>
+					</div>
+				</li>
+				<li>
+					<div class="selectGuide">
+						<h2>{{page1ExpertTitle}}</h2>
+						<p>{{page1ExpertDesc}}</p>
+						<button id="goExpertProject" class="button orange">{{page1ExpertLink}}</button>
+					</div>
+				</li>
+			</ul>
+			<p><label><input type="checkbox" class="continueGuide" /> {{page1ContinueGuide}}</label></p>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage2" class="guidePage" data-index="2">
+	<div class="contentWrap">
+		<div class="gContent">
+			<p>{{page2Paragraph1}}</p>
+			<p><strong>{{page2Paragraph2}}</strong></p>
+			<div class="table-wrap">
+				<img class="project-guide-table" src="/images/project-guide-table-1.png" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage3" class="guidePage" data-index="3">
+	<div class="contentWrap">
+		<div class="gContent">
+			<p>{{page3Paragraph1}}</p>
+			<p><strong>{{page3Paragraph2}}</strong></p>
+			<div class="table-wrap">
+				<img class="project-guide-table" src="/images/project-guide-table-2.png" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage4" class="guidePage" data-index="4">
+	<div class="contentWrap">
+		<div class="gContent">
+			<p>{{page4Paragraph1}}</p>
+			<p><strong>{{page4Paragraph2}}</strong></p>
+			<div class="table-wrap">
+				<img class="project-guide-table" src="/images/project-guide-table-3.png" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage5" class="guidePage hasThemeData" data-index="5">
+	<div class="contentWrap">
+		<div class="gContent">
+			<p>{{page5Paragraph1}}</p>
+			<fieldset>
+				<label for="guide_name">{{page5ProjectNameLabel}}</label>
+				<input id="guide_name" type="text" name="guide_name" class="fullWidth guide_genericInput" tabindex="91" placeholder="eg. Get to Market"/>
+			</fieldset>
+			<fieldset>
+				<label for="guide_startDate">{{page5ProjectStartLabel}}</label>
+				<div class="datepickerWrapper">
+					<i class="icon-ui-calendar-2"></i>
+					<input id="guide_startDate" type="text" name="guide_startDate" class="datepicker fullWidth" tabindex="92"/>
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="guide_endDate">{{page5ProjectEndLabel}}</label>
+				<div class="datepickerWrapper">
+					<i class="icon-ui-calendar-2"></i>
+					<input id="guide_endDate" type="text" name="guide_endDate" class="datepicker fullWidth" tabindex="93"/>
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="guide_responsible">{{page5ProjectResponsibleLabel}}</label>
+				<input type='hidden' name="guide_responsible" id="guide_responsible" class="select2 fullWidth" tabindex="94" />
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage6" class="guidePage" data-index="6">
+	<div class="contentWrap">
+		<div class="gContent">
+			<p>{{page6Paragraph1}}</p>
+			<p>{{page6Paragraph2}}</p>
+			<p>{{page6Paragraph3}}</p>
+			<ul>
+				<li>{{page6ListItem1}}</li>
+				<li>{{page6ListItem2}}</li>
+				<li>{{page6ListItem3}}</li>
+				<li>{{page6ListItem4}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage7" class="guidePage hasThemeData" data-index="7">
+	<div class="contentWrap">
+		<div class="gContent">
+			<h2>{{page7Heading}}</h2>
+            <p class="warnNotes">{{page7_10NotesWarn}}</p>
+			<p>{{page7Paragraph1}}</p>
+			<p>{{page7Paragraph2}}</p>
+			<ul class="inputList cleanList l-grid l-col-33">
+				<li>
+					<h4>{{page7rdHeading}}</h4>
+					<p>{{page7rdExample}}</p>
+					<input id="guide_researchAndDevelopmentOneTime" class="fullWidth guide_themeFinChanges" type="number" name="guide_researchAndDevelopmentOneTime" tabindex="95" placeholder="eg. 10000"/>
+				</li>
+				<li>
+					<h4>{{page7smHeading}}</h4>
+					<p>{{page7smExample}}</p>
+					<input id="guide_salesAndMarketingOneTime" class="fullWidth guide_themeFinChanges" type="number" name="guide_salesAndMarketingOneTime" tabindex="96" placeholder="eg. 5000"/>
+				</li>
+				<li>
+					<h4>{{page7gaHeading}}</h4>
+					<p>{{page7gaExample}}</p>
+					<input id="guide_generalAndAdminOneTime" class="fullWidth guide_themeFinChanges" type="number" name="guide_generalAndAdminOneTime" tabindex="97" placeholder="eg. 1000"/>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage8" class="guidePage hasThemeData" data-index="8">
+	<div class="contentWrap">
+		<div class="gContent">
+			<h2>{{page8Heading}}</h2>
+            <p class="warnNotes">{{page7_10NotesWarn}}</p>
+			<p>{{{page8Paragraph1}}}</p>
+			<ul class="inputList cleanList l-grid l-col-33">
+				<li>
+					<h4>{{page8rdLabel}}</h4>
+					<input id="guide_researchAndDevelopmentMonthly" class="fullWidth guide_themeFinChanges" type="number" name="guide_researchAndDevelopmentMonthly" tabindex="98" placeholder="eg. 200"/>
+				</li>
+				<li>
+					<h4>{{page8smLabel}}</h4>
+					<input id="guide_salesAndMarketingMonthly" class="fullWidth guide_themeFinChanges" type="number" name="guide_salesAndMarketingMonthly" tabindex="99" placeholder="eg. 1000"/>
+				</li>
+				<li>
+					<h4>{{page8gaLabel}}</h4>
+					<input id="guide_generalAndAdminMonthly" class="fullWidth guide_themeFinChanges" type="number" name="guide_generalAndAdminMonthly" tabindex="910" placeholder="eg. 300"/>
+				</li>
+			</ul>
+			<p>{{page8Paragraph2}}</p>
+			<ul class="inputList cleanList l-grid l-col-33">
+				<li>
+					<input id="guide_researchAndDevelopmentMonthlyAdjustment" class="guide_themeFinAdjustment" type="number" name="guide_researchAndDevelopmentMonthlyAdjustment" tabindex="911" placeholder="eg. 5.0"/>
+				</li>
+				<li>
+					<input id="guide_salesAndMarketingMonthlyAdjustment" class="guide_themeFinAdjustment" type="number" name="guide_salesAndMarketingMonthlyAdjustment" tabindex="912" placeholder="eg 2.5"/>
+				</li>
+				<li>
+					<input id="guide_generalAndAdminMonthlyAdjustment" class="guide_themeFinAdjustment" type="number" name="guide_generalAndAdminMonthlyAdjustment" tabindex="913" placeholder="eg. 1.0"/>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage9" class="guidePage hasThemeData" data-index="9">
+	<div class="contentWrap">
+		<div class="gContent">
+			<h2>{{page9Heading}}</h2>
+            <p class="warnNotes">{{page7_10NotesWarn}}</p>
+			<p>{{page9Paragraph1}}</p>
+			<input id="guide_revenueOneTime" class="fixedInput guide_themeFinChanges" type="number" name="guide_revenueOneTime" tabindex="914" placeholder="eg. 10000"/>
+			<p>{{page9Paragraph2}}</p>
+			<input id="guide_cogsOneTime" class="fixedInput guide_themeFinChanges" type="number" name="guide_cogsOneTime" tabindex="915" placeholder="eg. 10000"/>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage10" class="guidePage hasThemeData" data-index="10">
+	<div class="contentWrap">
+		<div class="gContent">
+			<h2>{{page10Heading}}</h2>
+            <p class="warnNotes">{{page7_10NotesWarn}}</p>
+			<p>{{page10Paragraph1}}</p>
+			<ul class="inputList cleanList l-grid l-col-33">
+				<li>
+					<h4>{{page10FirstMonthRevenueLabel}}</h4>
+					<input id="guide_revenueMonthly" class="fullWidth guide_themeFinChanges" type="number" name="guide_revenueMonthly" tabindex="916" placeholder="eg. 100000"/>
+				</li>
+				<li class="group">
+					<h4>{{page10FirstMonthRevenueIncDecLabel}}</h4>
+					<input id="guide_revenueMonthlyAdjustment" class="inputRight guide_themeFinAdjustment" type="number" name="guide_revenueMonthlyAdjustment" tabindex="917" placeholder="eg. 5.0"/>
+				</li>
+				<li></li>
+			</ul>
+			<p>{{page10Paragraph2}}</p>
+			<ul class="inputList cleanList l-grid l-col-33">
+				<li>
+					<h4>{{page10FirstMonthCogsLabel}}</h4>
+					<input id="guide_cogsMonthly" class="fullWidth guide_themeFinChanges" type="number" name="guide_cogsMonthly" tabindex="918" placeholder="eg. 40000"/>
+				</li>
+				<li class="group">
+					<h4>{{page10FirstMonthCogsIncDecLabel}}</h4>
+					<input id="guide_cogsMonthlyAdjustment" class="inputRight guide_themeFinAdjustment" type="number" name="guide_cogsMonthlyAdjustment" tabindex="919" placeholder="eg. 8.0"/>
+				</li>
+				<li></li>
+			</ul>
+			<p>{{page10Paragraph3}}</p>
+		</div>
+	</div>
+</div>
+
+<div id="guidePage11" class="guidePage" data-index="11">
+	<div class="contentWrap">
+		<div class="gContent">
+			<h2>{{page11Heading}}</h2>
+			<p>{{page11Paragraph1}}</p>
+			<p>{{page11Paragraph2}}</p>
+			<div class="finishedGuide">
+				<a id="addAnotherProject" href="#">{{page11AddAnother}}</a>
+				<label><input type="checkbox" class="continueGuide" /> {{page11ContinueGuide}}</label>
+			</div>
+		</div>
+	</div>
+</div>

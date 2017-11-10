@@ -1,0 +1,107 @@
+@font-face {
+	font-family: 'Misc-Icons';
+	src:url('../fonts/Misc-Icons.eot');
+	src:url('../fonts/Misc-Icons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Misc-Icons.ttf') format('truetype'),
+		url('../fonts/Misc-Icons.woff') format('woff'),
+		url('../fonts/Misc-Icons.svg#Misc-Icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-misc"] {
+	font-family: 'Misc-Icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-misc-spinner:before{content:"\e02f"}
+.icon-misc-user-cancel:before{content:"\e02e"}
+.icon-misc-user-plus:before{content:"\e02c"}
+.icon-misc-user-minus:before{content:"\e02d"}
+.icon-misc-superscript:before{content:"\e02b"}
+.icon-misc-font-size:before{content:"\e02a"}
+.icon-misc-circle:before{content:"\e029"}
+.icon-misc-circle2:before{content:"\e028"}
+.icon-misc-checkbox:before{content:"\e027"}
+.icon-misc-checkbox-unchecked:before{content:"\e026"}
+.icon-misc-square:before{content:"\e025"}
+.icon-misc-key-left:before{content:"\e024"}
+.icon-misc-key-down:before{content:"\e023"}
+.icon-misc-key-right:before{content:"\e022"}
+.icon-misc-key-up:before{content:"\e021"}
+.icon-misc-key-A:before{content:"\e020"}
+.icon-misc-star:before{content:"\e01c"}
+.icon-misc-star2:before{content:"\e01b"}
+.icon-misc-starburst:before{content:"\e01a"}
+.icon-misc-bookmark:before{content:"\e019"}
+.icon-misc-switch:before{content:"\e018"}
+.icon-misc-puzzle:before{content:"\e017"}
+.icon-misc-cube4:before{content:"\e016"}
+.icon-misc-pyramid:before{content:"\e015"}
+.icon-misc-paper-plane:before{content:"\e014"}
+.icon-misc-balance:before{content:"\e013"}
+.icon-misc-dashboard:before{content:"\e012"}
+.icon-misc-chart:before{content:"\e011"}
+.icon-misc-stairs-down:before{content:"\e010"}
+.icon-misc-stats-down:before{content:"\e00f"}
+.icon-misc-stats-up:before{content:"\e00e"}
+.icon-misc-bars:before{content:"\e00d"}
+.icon-misc-stats:before{content:"\e009"}
+.icon-misc-stats2:before{content:"\e007"}
+.icon-misc-pie:before{content:"\e008"}
+.icon-misc-pie2:before{content:"\e006"}
+.icon-misc-pie3:before{content:"\e005"}
+.icon-misc-pie4:before{content:"\e004"}
+.icon-misc-align-bottom:before{content:"\e003"}
+.icon-misc-align-top:before{content:"\e002"}
+.icon-misc-align-right:before{content:"\e001"}
+.icon-misc-align-left:before{content:"\e000"}
+.icon-misc-undo:before{content:"\e030"}
+.icon-misc-redo:before{content:"\e031"}
+.icon-misc-forward:before{content:"\e032"}
+.icon-misc-reply:before{content:"\e033"}
+.icon-misc-reply2:before{content:"\e034"}
+.icon-misc-uniF000:before{content:"\f000"}
+.icon-misc-bars2:before{content:"\e00c"}
+.icon-misc-bars3:before{content:"\e00b"}
+.icon-misc-stats3:before{content:"\e00a"}
+.icon-misc-heart:before{content:"\e01d"}
+.icon-misc-thumbs-up:before{content:"\e01e"}
+.icon-misc-thumbs-up2:before{content:"\e01f"}
+.icon-misc-key:before{content:"\e1ca"}
+.icon-misc-signup:before{content:"\e296"}
+.icon-misc-cloud:before{content:"\e2b3"}
+.icon-misc-earth:before{content:"\e2c7"}
+.icon-misc-cloud-upload:before{content:"\e2b7"}
+.icon-misc-cloud-download:before{content:"\e2b6"}
+.icon-misc-close:before{content:"\e36d"}
+.icon-misc-close2:before{content:"\e36c"}
+.icon-misc-plus:before{content:"\e376"}
+.icon-misc-minus:before{content:"\e375"}
+.icon-misc-checkmark:before{content:"\e372"}
+.icon-misc-new-tab:before{content:"\e47d"}
+.icon-misc-unlocked:before{content:"\e1d4"}
+.icon-misc-keyhole:before{content:"\e1cf"}
+.icon-misc-credit:before{content:"\e600"}
+.icon-misc-lock:before{content:"\e1d3"}
+.icon-misc-expand:before{content:"\e1bf"}
+.icon-misc-contract:before{content:"\e1c0"}
+.icon-misc-print:before{content:"\e118"}
+.icon-misc-circle3:before{content:"\e43b"}
+.icon-misc-radio-unchecked:before{content:"\e439"}
+.icon-misc-hand-right:before{content:"\e601"}
+.icon-misc-ok-sign:before{content:"\e602"}
+.icon-misc-remove-sign:before{content:"\e603"}
+.icon-misc-minus-sign:before{content:"\e604"}
+.icon-misc-plus-sign:before{content:"\e605"}
+.icon-misc-question-sign:before{content:"\e606"}
+.icon-misc-info-sign:before{content:"\e607"}

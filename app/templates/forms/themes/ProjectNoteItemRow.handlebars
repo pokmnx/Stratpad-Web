@@ -1,0 +1,25 @@
+<ul class="notesGrid notesRow cleanList group">
+    <li class="notesCategory">
+        <select class="selectize" data-key="category" data-cat="{{category}}" {{#if readonly}}disabled="disabled"{{/if}}>
+            <option selected="selected" value="{{category}}">{{category}}</option>
+        </select>
+    </li>
+    <li class="notesQuantity">
+        <input class="notesNumberInput" type="number" name="notesQuantity" data-key="quantity" value="{{quantity}}" {{#if readonly}}readonly="readonly"{{/if}} />
+    </li>
+    <li class="notesPrice">
+        <input class="notesPrice" type="number" name="notesPrice" data-key="price" value="{{price}}" {{#if readonly}}readonly="readonly"{{/if}} />
+    </li>
+    <li class="notesRowTotal">
+        <span class="nrTotal">{{nrTotal}}</span>
+    </li>
+    <li class="notesStaff">
+        <input class="notesNumberInput" type="number" name="notesStaff" data-key="nbOfStaff" value="{{nbOfStaff}}" {{#if readonly}}readonly="readonly"{{/if}} />
+    </li>
+    <li class="notesComment">
+        <input class="notesNumberInput" type="text" name="notesComment" title="{{comment}}" data-key="comment" value="{{comment}}" {{#if readonly}}readonly="readonly"{{/if}} />
+        {{#if hasWrite}}
+            <i class="icon-new-times"></i>
+        {{/if}}
+    </li>
+</ul>

@@ -1,0 +1,60 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{report_subtitle}}</h2>
+	</hgroup>
+</header>
+<section>
+	<article id="connectReport">
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/community/my-connect-account/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+
+		{{#if hasCompletedConnect}}
+
+		<div id="monthlyTableWrapper">
+			<h3>Monthly - Last 12 months</h3>
+			<p>Look at how your listing has been performing over the past 12 months. Note that introductions are a three step process: first, the user will see your listing in search results, which is a view; second the user can click on your listing and see more details (a click); and finally, the user can request an introduction. The introduction is where a StratPad user (a prospective client) sends an email to you, the service provider, through StratPad, the broker.</p>
+			<table id="monthlyTable" class="reportTable">
+				<thead>
+					<tr><td>&nbsp;</td></tr>
+				</thead>
+				<tbody>
+					<tr class="views"><td>Views</td></tr>
+					<tr class="clicks"><td>Clicks</td></tr>
+					<tr class="invites"><td>Intros</td></tr>
+
+					<tr class="ctr"><td>View to Click Rate</td></tr>
+					<tr class="itrFromClicks"><td>Click to Intro Rate</td></tr>
+					<tr class="itrFromViews"><td>View to Intro Rate</td></tr>
+				</tbody>
+			</table>	
+		</div>
+
+		<div id="summaryTableWrapper">
+			<h3>{{summaryTableHeader}}</h3>
+			<p>This table summarizes your listing's activity for all time, in $US.</p> 
+			<table id="summaryTable">
+				<tbody>
+					<tr><th># Views</th><td id="totalViews"></td><th>Cost per View</th><td id="costPerView"></td></tr>
+					<tr><th># Clicks</th><td id="totalClicks"></td><th>Cost per Click</th><td id="costPerClick"></td></tr>
+					<tr><th># Intros</th><td id="totalInvites"></td><th>Cost per Intro</th><td id="costPerInvite"></td></tr>
+					<tr><td colspan="2">&nbsp;</td><th>Total Cost to Date*</th><td id="totalCost"></td></tr>
+				</tbody>
+				<tfoot>
+					<tr><td colspan="4">* Note that the total cost includes views/clicks/intros that may not have been charged at the current rate.</td></tr>
+				</tfoot>				
+			</table>
+		</div>
+
+		{{else}}
+
+			<p>Sorry, you need to <a href="#" id="connectSignup">sign up for Connect</a> before viewing Reports.</p>
+
+		{{/if}}
+
+	</article>
+</section>
+
+
+

@@ -1,0 +1,295 @@
+// fonts.scss - our font specific styles
+
+// CSS3 mixins
+@import "compass/css3";
+
+/* Core ---------------------- */
+@import "core/variables.scss";
+@import "core/mixins.scss";
+
+// Open-Sans
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular-webfont.eot');
+    src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Regular-webfont.svg#OpenSans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Italic-webfont.eot');
+    src: url('../fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Italic-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Italic-webfont.svg#OpenSans') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Semibold-webfont.eot');
+    src: url('../fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Semibold-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Semibold-webfont.svg#OpenSans') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-SemiboldItalic-webfont.eot');
+    src: url('../fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-SemiboldItalic-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-SemiboldItalic-webfont.svg#OpenSans') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Bold-webfont.eot');
+    src: url('../fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Bold-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Bold-webfont.svg#OpenSans') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-BoldItalic-webfont.eot');
+    src: url('../fonts/OpenSans-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-BoldItalic-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-BoldItalic-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-BoldItalic-webfont.svg#OpenSans') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face{
+	font-family:'icons'; 
+	src:url('../fonts/icomoon.eot'); 
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),url('../fonts/icomoon.svg#icomoon') format('svg'),url('../fonts/icomoon.woff') format('woff'),url('../fonts/icomoon.ttf') format('truetype'); 
+	font-weight:normal; 
+	font-style:normal
+}
+
+[data-icon]:before{
+	font-family:'icons'; 
+	content:attr(data-icon); 
+	speak:none; 
+	font-weight:normal; 
+	-webkit-font-smoothing:antialiased
+}
+
+[class^="icon-"]:before, 
+[class*="icon-"]:before{
+	font-family:'icomoon'; 
+	font-style:normal; 
+	speak:none; 
+	font-weight:normal; 
+	-webkit-font-smoothing:antialiased
+}
+
+.icon-home:before{content:"\24"}
+.icon-home-2:before{content:"\28"}
+.icon-home-3:before{content:"\29"}
+.icon-pencil:before{content:"\2f"}
+.icon-pen:before{content:"\31"}
+.icon-feather:before{content:"\33"}
+.icon-color-palette:before{content:"\35"}
+.icon-brush:before{content:"\34"}
+.icon-eyedropper:before{content:"\36"}
+.icon-droplet:before{content:"\37"}
+.icon-picture:before{content:"\38"}
+.icon-pictures:before{content:"\39"}
+.icon-picture-2:before{content:"\3a"}
+.icon-picture-3:before{content:"\3b"}
+.icon-camera:before{content:"\3c"}
+.icon-camera-2:before{content:"\3f"}
+.icon-headset:before{content:"\44"}
+.icon-play:before{content:"\47"}
+.icon-movie:before{content:"\4a"}
+.icon-film:before{content:"\4d"}
+.icon-camera-3:before{content:"\4e"}
+.icon-book:before{content:"\69"}
+.icon-broadcast:before{content:"\65"}
+.icon-broadcast-2:before{content:"\63"}
+.icon-announcement:before{content:"\5f"}
+.icon-file-download:before{content:"\73"}
+.icon-cart:before{content:"\e007"}
+.icon-basket:before{content:"\e00d"}
+.icon-search:before{content:"\e083"}
+.icon-box-add:before{content:"\e048"}
+.icon-bell:before{content:"\e02d"}
+.icon-phone:before{content:"\e015"}
+.icon-phone-2:before{content:"\e016"}
+.icon-mail:before{content:"\e01a"}
+.icon-mail-2:before{content:"\e01b"}
+.icon-location:before{content:"\e01e"}
+.icon-location-2:before{content:"\e020"}
+.icon-map:before{content:"\e024"}
+.icon-stopwatch:before{content:"\e029"}
+.icon-comments:before{content:"\e05b"}
+.icon-comments-2:before{content:"\e05d"}
+.icon-comments-3:before{content:"\e058"}
+.icon-quote:before{content:"\e071"}
+.icon-quote-2:before{content:"\e072"}
+.icon-busy:before{content:"\e075"}
+.icon-unlocked:before{content:"\e099"}
+.icon-locked:before{content:"\e098"}
+.icon-locked-2:before{content:"\e09a"}
+.icon-leaf:before{content:"\e0ce"}
+.icon-paw:before{content:"\e0d0"}
+.icon-flower:before{content:"\e0d1"}
+.icon-fire:before{content:"\e0dd"}
+.icon-cup:before{content:"\e0c7"}
+.icon-bottle:before{content:"\e0c8"}
+.icon-cloud:before{content:"\e124"}
+.icon-upload:before{content:"\e129"}
+.icon-cloud-2:before{content:"\e123"}
+.icon-link:before{content:"\e131"}
+.icon-network:before{content:"\e12f"}
+.icon-globe:before{content:"\e12e"}
+.icon-flag:before{content:"\e139"}
+.icon-flag-2:before{content:"\e138"}
+.icon-eye:before{content:"\e13d"}
+.icon-eye-2:before{content:"\e13c"}
+.icon-contrast:before{content:"\e14f"}
+.icon-contrast-2:before{content:"\e14e"}
+.icon-smiley:before{content:"\e172"}
+.icon-smiley-2:before{content:"\e173"}
+.icon-warning:before{content:"\e17f"}
+.icon-minus:before{content:"\e182"}
+.icon-help:before{content:"\e183"}
+.icon-info:before{content:"\e186"}
+.icon-blocked:before{content:"\e187"}
+.icon-cancel:before{content:"\e18a"}
+.icon-cancel-2:before{content:"\e18b"}
+.icon-cancel-3:before{content:"\e18c"}
+.icon-checkmark:before{content:"\e18e"}
+.icon-checkmark-2:before{content:"\e18f"}
+.icon-plus:before{content:"\e194"}
+.icon-enter:before{content:"\e196"}
+.icon-play-2:before{content:"\e199"}
+.icon-volume-high:before{content:"\e19c"}
+.icon-mute:before{content:"\e1a0"}
+.icon-arrow-up:before{content:"\e1b3"}
+.icon-arrow-right:before{content:"\e1b4"}
+.icon-arrow-down:before{content:"\e1b5"}
+.icon-arrow-left:before{content:"\e1b6"}
+.icon-arrow-up-left:before{content:"\e1cb"}
+.icon-arrow-up-2:before{content:"\e1cc"}
+.icon-arrow-up-right:before{content:"\e1cd"}
+.icon-arrow-right-2:before{content:"\e1ce"}
+.icon-arrow-down-right:before{content:"\e1cf"}
+.icon-arrow-down-2:before{content:"\e1d0"}
+.icon-arrow-down-left:before{content:"\e1d1"}
+.icon-arrow-left-2:before{content:"\e1d2"}
+.icon-arrow-up-3:before{content:"\e1db"}
+.icon-arrow-right-3:before{content:"\e1dc"}
+.icon-arrow-down-3:before{content:"\e1dd"}
+.icon-arrow-left-3:before{content:"\e1de"}
+.icon-checkbox-unchecked:before{content:"\e1f0"}
+.icon-checkbox:before{content:"\e1ef"}
+.icon-checkbox-partial:before{content:"\e1f1"}
+.icon-checkbox-2:before{content:"\e1f2"}
+.icon-radio-unchecked:before{content:"\e1f6"}
+.icon-arrow-up-4:before{content:"\e1df"}
+.icon-arrow-right-4:before{content:"\e1e0"}
+.icon-arrow-down-4:before{content:"\e1e1"}
+.icon-arrow-left-4:before{content:"\e1e2"}
+.icon-share:before{content:"\e218"}
+.icon-share-2:before{content:"\e219"}
+.icon-mail-3:before{content:"\e21a"}
+.icon-mail-4:before{content:"\e21b"}
+.icon-google-plus:before{content:"\e21c"}
+.icon-google-plus-2:before{content:"\e21d"}
+.icon-google-plus-3:before{content:"\e21e"}
+.icon-gplus:before{content:"\e21f"}
+.icon-facebook:before{content:"\e220"}
+.icon-facebook-2:before{content:"\e221"}
+.icon-facebook-3:before{content:"\e222"}
+.icon-facebook-4:before{content:"\e223"}
+.icon-twitter:before{content:"\e224"}
+.icon-twitter-2:before{content:"\e225"}
+.icon-twitter-3:before{content:"\e226"}
+.icon-feed:before{content:"\e227"}
+.icon-feed-2:before{content:"\e228"}
+.icon-feed-3:before{content:"\e229"}
+.icon-youtube:before{content:"\e22a"}
+.icon-youtube-2:before{content:"\e22b"}
+.icon-vimeo:before{content:"\e22c"}
+.icon-vimeo-2:before{content:"\e22d"}
+.icon-flickr:before{content:"\e22e"}
+.icon-flickr-2:before{content:"\e22f"}
+.icon-flickr-3:before{content:"\e230"}
+.icon-picassa:before{content:"\e231"}
+.icon-picassa-2:before{content:"\e232"}
+.icon-dribbble:before{content:"\e233"}
+.icon-dribbble-2:before{content:"\e234"}
+.icon-dribbble-3:before{content:"\e235"}
+.icon-forrst:before{content:"\e236"}
+.icon-forrst-2:before{content:"\e237"}
+.icon-deviantart:before{content:"\e238"}
+.icon-deviantart-2:before{content:"\e239"}
+.icon-github:before{content:"\e23a"}
+.icon-github-2:before{content:"\e23b"}
+.icon-github-3:before{content:"\e23c"}
+.icon-github-4:before{content:"\e23d"}
+.icon-github-5:before{content:"\e23e"}
+.icon-github-6:before{content:"\e23f"}
+.icon-git:before{content:"\e240"}
+.icon-github-7:before{content:"\e241"}
+.icon-wordpress:before{content:"\e242"}
+.icon-wordpress-2:before{content:"\e243"}
+.icon-blogger:before{content:"\e244"}
+.icon-blogger-2:before{content:"\e245"}
+.icon-tumblr:before{content:"\e246"}
+.icon-tumblr-2:before{content:"\e247"}
+.icon-yahoo:before{content:"\e248"}
+.icon-yahoo-2:before{content:"\e249"}
+.icon-amazon:before{content:"\e24a"}
+.icon-amazon-2:before{content:"\e24b"}
+.icon-apple:before{content:"\e24c"}
+.icon-finder:before{content:"\e24d"}
+.icon-android:before{content:"\e24e"}
+.icon-windows:before{content:"\e24f"}
+.icon-soundcloud:before{content:"\e250"}
+.icon-soundcloud-2:before{content:"\e251"}
+.icon-skype:before{content:"\e252"}
+.icon-reddit:before{content:"\e253"}
+.icon-linkedin:before{content:"\e254"}
+.icon-lastfm:before{content:"\e255"}
+.icon-lastfm-2:before{content:"\e256"}
+.icon-delicious:before{content:"\e257"}
+.icon-stumbleupon:before{content:"\e258"}
+.icon-stumbleupon-2:before{content:"\e259"}
+.icon-pinterest:before{content:"\e25a"}
+.icon-pinterest-2:before{content:"\e25b"}
+.icon-xing:before{content:"\e25c"}
+.icon-libreoffice:before{content:"\e25d"}
+.icon-file-pdf:before{content:"\e25e"}
+.icon-file-openoffice:before{content:"\e25f"}
+.icon-file-word:before{content:"\e260"}
+.icon-file-excel:before{content:"\e261"}
+.icon-file-powerpoint:before{content:"\e262"}
+.icon-file-zip:before{content:"\e263"}
+.icon-file-xml:before{content:"\e264"}
+.icon-file-css:before{content:"\e265"}
+.icon-html5:before{content:"\e266"}
+.icon-html5-2:before{content:"\e267"}
+.icon-css3:before{content:"\e268"}
+.icon-chrome:before{content:"\e269"}
+.icon-firefox:before{content:"\e26a"}
+.icon-IE:before{content:"\e26b"}
+.icon-opera:before{content:"\e26c"}
+.icon-safari:before{content:"\e26d"}

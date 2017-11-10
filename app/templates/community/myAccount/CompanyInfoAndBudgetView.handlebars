@@ -1,0 +1,83 @@
+<header>
+	<hgroup>
+		<h1>{{heading}}</h1>	
+		<h2>{{companyInfo_subtitle}}</h2>
+	</hgroup>
+</header>
+<section>
+	<article id="companyInfoAndBudget">
+		<div class="stratFileHelp">
+			<iframe src="" data-url="help/community/my-connect-account/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+
+		<div class="instructions">Tell us a little bit about your company, and how you would like to allocate your budget.</div>
+
+		<form class="formPanel">
+            <ul class="clean-list group">
+                <li>
+                    <label for="name">{{ci_label_name}}</label>
+                    <input id="name" tabindex="1" type="text" name="name" placeholder="{{ci_plhr_name}}" autofocus />
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li>
+                    <label for="priceForInvitation">{{ci_label_priceForInvitation}}</label>
+                    <input id="priceForInvitation" tabindex="2" type="text" name="priceForInvitation" placeholder="{{ci_plhr_priceForInvitation}}" />
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li>
+                    <label for="servicesDescription">{{ci_label_servicesDescription}}</label>
+                    <input id="servicesDescription" tabindex="3" type="text" name="servicesDescription" placeholder="{{ci_plhr_servicesDescription}}" maxlength="140"/>                    
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li>
+                    <label for="monthlyAdBudget">{{ci_label_monthlyAdBudget}}</label>
+                    <input id="monthlyAdBudget" tabindex="4" type="text" name="monthlyAdBudget" placeholder="{{ci_plhr_monthlyAdBudget}}" />
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li class="tall">
+                    <label for="companyLogo">{{ci_label_companyLogo}}</label>
+                    <input id="companyLogo" type="file" name="companyLogo" tabindex="5"/>
+                    <div class="companyLogo"><i class="icon-ui-pencil"></i></div>
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li class="tall">
+                    <label for="categories">{{ci_label_categories}} <a id="suggestCategoryLink" href="" class="small">{{ci_link_suggest_category}}</a></label>
+                    <select id="categories" tabindex="6" name="categories" placeholder="{{ci_plhr_categories}}">
+                        <option value="">{{ci_plhr_categories}}</option>
+                        <option value="{{ci_value_mentors}}">{{ci_option_mentors}}</option>
+                        <option value="{{ci_value_accountants}}">{{ci_option_accountants}}</option>
+                        <option value="{{ci_value_bookkeepers}}">{{ci_option_bookkeepers}}</option>
+                        <option value="{{ci_value_consultants}}">{{ci_option_consultants}}</option>
+                        <option value="{{ci_value_lawyers}}">{{ci_option_lawyers}}</option>
+                        <option value="{{ci_value_coaches}}">{{ci_option_coaches}}</option>
+                        <option value="{{ci_value_marketing_firms}}">{{ci_option_marketing_firms}}</option>
+                        <option value="{{ci_value_web_designers}}">{{ci_option_web_designers}}</option>
+                        <option value="{{ci_value_graphic_designers}}">{{ci_option_graphic_designers}}</option>
+                        <option value="{{ci_value_software}}">{{ci_option_software}}</option>
+                    </select>                    
+                    <span class="icon-ui-question important-info"></span>
+                </li>   
+                <li>
+                    <label for="welcomeMessage">{{ci_label_welcomeMessage}}</label>
+                    <textarea id="welcomeMessage" name="welcomeMessage" tabindex="7" placeholder="{{ci_plhr_welcomeMessage}}"></textarea>                 
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li class="tall">
+                    <label for="accreditationLogos">{{{ci_label_accreditationLogos}}}</label>
+                    <input id="accreditationLogos" type="file" name="accreditationLogos" tabindex="8" multiple/>
+                    <div class="accreditationLogos"><i class="icon-ui-pencil"></i></div>
+                    <span class="icon-ui-question important-info"></span>
+                </li>
+                <li class="continue">
+                    <button class="continue orange-btn">Continue<i class="icon-ui-arrow-right-3"></i></button>
+                    <div>Check your Connect Account Progress (top right) for signup feedback.</div>
+                </li>
+
+            </ul>
+
+        </form>        
+	</article>
+</section>
+
+
+

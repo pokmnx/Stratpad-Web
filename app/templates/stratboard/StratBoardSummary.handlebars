@@ -1,0 +1,57 @@
+<header>
+  <hgroup>
+    <h1>{{charts_title}}</h1>
+    <h2>&#160;</h2>
+  </hgroup>
+</header>
+<section>
+  <article id="charts" class="objectiveActivities">
+    <div class="stratFileHelp">
+      <iframe src="" data-url="help/track-progress/summary/?iframe=1" width="100%" height="90%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    </div>
+    <div class="permissions"></div>
+    <div class="stageContentInner">
+      <ul class="chartHeader chartRow group">
+        <li><span>Name</span></li>
+        <li><span>First Value</span></li>
+        <li class="monthYearHeader"></li>
+        <li><span>Last Value</span></li>
+        <li><span>On Target?</span></li>
+      </ul>
+      <ul class="sortable ui-sortable">
+        <!-- rows go here -->
+      </ul>
+      <a href="#" class="button orange addButton">
+      <span class="icon-ui-file-plus"></span>{{btnAddChart}}</a>
+    </div>
+  </article>
+  <script type="text/template" id="dialogEditAddChart">
+    <ul id="chartFields" class="group s1_formPanel dialogFields">
+      <li class="ocLabel">{{lblChartMetric}}</li>
+      <li>
+        <input name="chartMetric" id="chartMetric" type="hidden" placeholder="{{plhrChartMetric}}" class="select2" tabindex="1" />
+      </li>
+      <li class="ocLabel">{{lblChartTitle}}</li>
+      <li>
+        <input name="chartTitle" type="text" id="chartTitle" placeholder="{{plhrChartTitle}}" tabindex="2" />
+      </li>
+      <li class="ocLabel">{{lblChartType}}</li>
+      <li>
+        <select name="chartType" id="chartType" class="select2" tabindex="3">
+          <option value="1">{{LINE}}</option>
+          <option value="2">{{BAR}}</option>
+          <option value="3">{{AREA}}</option>
+        </select>
+      </li>
+      <li class="ocLabel">{{lblChartColor}}</li>
+      <li>
+        <input type="text" name="chartColor" id="chartColor" placeholder="{{plhrChartColor}}" tabindex="4" />
+      </li>
+      <li class="ocLabel linkToQBO">{{lblLinkToQBO}}</li>
+      <li class="linkToQBO">
+        <label><input type="checkbox" name="linkToQBO" id="linkToQBO" tabindex="5" /> <span>{{msgUseManualValues}}</span></label>
+      </li>
+
+    </ul>
+  </script>
+</section>

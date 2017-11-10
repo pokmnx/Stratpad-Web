@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+<title>StratPad</title>
+<style type="text/css">
+body {
+	font-family: helvetica, arial, sans-serif;
+	color: #696969; /* text color */
+}
+a {
+	color: #db8101; /* orange */
+}
+a:visited {
+	color: #666666; /* grey */
+}
+
+#header {
+	background-color: #DB8101;
+	height: 65px;
+	border-bottom: 5px solid #AC6501;
+}
+#pageLogo {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	height: 100%;
+	width: 300px;
+	background: transparent url(/images/logo.png) 0 50% no-repeat;
+	background-size: contain;
+}
+strong {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+    <div id="pageLogo"></div>
+</div>
+
+<p>StratPad is now connected to QuickBooks!</p>
+
+<p><a href="#" onclick="window.clearInterval(window.timer); window.close();">Dismiss now</a> <span id="countdown">(5)</span></p>
+
+<!-- call function in stratweb to say we're authorized -->
+<script type="text/javascript">
+window.opener.$(window.opener.document).trigger('ippAuthStatus', true);
+
+var secs = 5;
+window.timer = setInterval(function(){doTiming()},1000);
+function doTiming() {
+	secs = secs - 1;
+    document.getElementById("countdown").innerHTML = '(' + secs + ')';
+    if (secs == 0) {
+    	window.clearInterval(window.timer);
+    	window.close();
+    };
+}
+
+</script>
+
+</body>
+</html>

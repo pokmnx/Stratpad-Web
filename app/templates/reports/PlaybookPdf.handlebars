@@ -1,0 +1,74 @@
+<article>
+    <div class="section dynamicSubcontext titlepage">
+      <div class="company">{{company}}</div>
+      <div class="title">Business Playbook</div class="title">
+      <div class="date">{{startDate}}</div>
+    </div>
+
+    <div class="section">
+      <h2>Who We Are</h2>
+      <p>{{{companyBasics}}}</p>
+
+      <h4>What We Aspire To</h4>
+      <p>{{{ultimateAspiration}}}</p>
+
+      <h4>What We Are Focused On</h4>
+      <p>{{{mediumTermStrategicGoal}}}</p>
+    </div>
+
+    <div class="section">
+      <h2>What We Need to Do In The Next Six Months</h2>
+
+      {{{gantt.$el.[0].outerHTML}}}
+    </div>
+
+    <div class="section">
+      <h2>Things We Need To Watch THIS MONTH</h2>
+
+      {{{playbookAgendaThisMonth.$el.[0].outerHTML}}}
+    </div>
+
+    <div class="section">
+      <h2>Things We Need To Be Aware Of NEXT MONTH</h2>
+
+      {{{playbookAgendaNextMonth.$el.[0].outerHTML}}}
+    </div>
+
+    <div class="section compress">
+      <h2>Key Financial Numbers from Last Month and for the Next Six Months That We Need to Watch</h2>
+
+      <div>{{{income.$el.[0].outerHTML}}}</div>
+    </div>
+
+     <div class="section compress">
+      <h2>Our Revenue Assumptions and Projections from Last Month and for the Next Six Months</h2>
+
+      {{{worksheetRevenue}}}
+    </div>
+   
+     <div class="section compress">
+      <h2>Our Cost of Goods Assumptions and Projections from Last Month and for the Next Six Months</h2>
+
+      {{{worksheetCOGS}}}
+    </div>
+
+     <div class="section compress">
+      <h2>Our Expense Projections from Last Month and for the Next Six Months</h2>
+
+      {{{worksheetExpenses}}}
+    </div>
+
+    <div class="section compress">
+      <h2>Our Cash Projections from Last Month and for the Next Six Months</h2>
+
+      <div>{{{cashflow.$el.[0].outerHTML}}}</div>
+    </div>    
+
+    <div class="section compress">
+      <h2>Our Staffing Assumptions from Last Month and the Next Six Months</h2>
+
+      {{{worksheetStaffComplement}}}
+    </div>
+
+
+</article>

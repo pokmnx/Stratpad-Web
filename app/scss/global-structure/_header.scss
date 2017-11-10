@@ -1,0 +1,91 @@
+// header.scss 
+
+#pageHeader {
+	position:relative;
+	height:65px;
+	line-height:65px;
+	margin:-65px 0 0 -300px;
+	background:#d37d02;
+	//@include background-image(linear-gradient(bottom, #d47c00 0%, #ee8c00 100%));
+	z-index:11;
+	border-bottom:5px solid #ac6501;
+	div {
+		height:100%;			
+		&.l-grid {
+			position:relative;
+			> div:last-child {				
+				text-align:right;
+			}		
+		}
+	}
+	.icon-misc-cloud {
+		color:#fff;
+		font-size:30px;
+		position:absolute;
+		top: -15px;
+		left:175px;
+		z-index:4;
+		display:none;
+	}
+	#pageLogo {
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		display:inline-block;
+		height:44px;
+		width:300px;
+		background:transparent url(../images/logo@2x.png) top left no-repeat;
+		background-size:contain;
+		position:relative;
+		z-index:5;
+		margin: 5px;
+	}
+	#stratFileTitle {
+		position:absolute;
+		left:0;
+		bottom:0px;
+		line-height:70px !important;
+		width:100%;
+		color:#fff;
+		font-weight:400;
+		font-family:'LatoRegular';
+		z-index:4;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&:before {
+//			font-family: 'UI-Icons';
+//			speak: none;
+//			font-style: normal;
+//			font-weight: normal;
+//			line-height: 1;
+//			-webkit-font-smoothing: antialiased;
+//			content:"\e04d";
+//			position:absolute;
+//			color:#AC6501;
+//			font-size:16px;
+//			bottom:18px;
+//			z-index:3;
+		}
+	}
+}
+
+#fullLoader {
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+	display: none;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+
+#intuitPlatformAppMenu {
+	right: 115px !important;
+	top: 65px !important;
+	z-index:2 !important;
+}
+
+#blueDotMenu {
+	display:none;
+}

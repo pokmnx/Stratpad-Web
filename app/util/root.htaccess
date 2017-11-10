@@ -1,0 +1,41 @@
+# this was when we had a mixed wordpress and production server
+
+<IfModule mod_rewrite.c>
+
+# webmail
+RewriteCond %{HTTP_HOST} ^webmail.stratpad.com$ [OR] 
+RewriteCond %{HTTP_HOST} ^www.webmail.stratpad.com$ 
+RewriteRule ^(.*)$ "https://s2-dallas.accountservergroup.com:2096/" [R=301,L] 
+
+# for staging and cloud, let our virtual host take care of serving
+RewriteCond %{REQUEST_URI} !^/cloud.stratpad.com/
+RewriteCond %{HTTPS} =on
+RewriteCond %{HTTP_HOST} ^cloud.stratpad.com
+RewriteRule ^(.*)$ /cloud.stratpad.com/$1 [NC,L,NS]
+
+RewriteCond %{REQUEST_URI} !^/staging.stratpad.com/
+RewriteCond %{HTTPS} =on
+RewriteCond %{HTTP_HOST} ^staging.stratpad.com
+RewriteRule ^(.*)$ /staging.stratpad.com/$1 [NC,L,NS]
+
+RewriteCond %{REQUEST_URI} !^/qbo.stratpad.com/
+RewriteCond %{HTTPS} =on
+RewriteCond %{HTTP_HOST} ^qbo.stratpad.com
+RewriteRule ^(.*)$ /qbo.stratpad.com/$1 [NC,L,NS]
+
+</IfModule>
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^(.+.(?:jpe?g|gif|png)) /wp-content/plugins/wp-retina-2x/wr2x_image.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+

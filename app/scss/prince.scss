@@ -1,0 +1,310 @@
+/*
+	Once deployed to staging or cloud, this is the css used by our pdf4stratpad service.
+*/
+
+html, body {
+	padding:0;
+	margin:0;
+	overflow:auto;
+	height:auto;
+	font-size:12px;
+	font-family: Helvetica, Arial, "Lucida Grande", sans-serif !important;
+}
+
+
+.prince-meta {
+	display:block;
+	padding:4px 10px;
+}
+
+/* take the content we see at some ids and set it to vars, then hide the divs */
+
+#reportName {
+	string-set: reportName content();
+	display:none;
+}
+
+#date {
+	string-set: date content();
+	display:none;
+}
+
+#stratfile {
+	string-set: stratfile content();
+	display:none;
+}
+
+#company {
+	string-set: company content();
+	display:none;
+}
+
+/* subcontext comes from a script which counts the number of these .dynamicSubcontext in the document and incorporates into header */
+.dynamicSubcontext {
+	counter-increment: dynamicSubcontext
+}
+
+.subcontextEntry {
+	display:none;
+}
+
+.navsettings-active {
+	background:transparent;
+}
+
+
+/* Agenda Overrides */
+
+.meeting {
+	margin-bottom: 10px;
+	padding-bottom: 15px;
+	border-bottom:1px solid #ddd;
+	font-style:italic;
+	page-break-inside:avoid;
+	.meetingHeader {
+		margin-bottom:10px;
+		font-weight:500;
+		font-style:normal;
+		strong {
+			color:#D37D02;
+		}
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		margin-bottom:10px;
+		font-style:normal;
+	}
+	li {
+		padding-left: 40px;
+		text-indent: -1em;
+		position:relative;
+		margin-bottom: 3px;
+		background:url(../images/square.png) 8px 3px no-repeat;
+		font-weight:400 !important;
+	}
+	.responsible {
+		margin-left: 1em;
+	}
+}
+
+
+
+/* report table overrides */
+
+.reportTable {
+	width: 100%;
+	font-size:9px !important;
+	page-break-inside: avoid;
+	page-break-after: always;
+	th, td {
+		/* for a 15 col table = 900px */
+		width:60px !important; 
+	}
+}
+
+.reportTable tr.colHeader1 th span {
+	font-size:13px;
+}
+
+.reportTable tr td:first-child:not(.showMe), .reportTable tr th:first-child:not(.showMe) {
+	width:180px !important;
+}
+
+/* this fixes the header height problem on these reports */
+.location-section_report, .location-section_financials {
+	page: adjust_margin;
+}
+
+/* project detail report */
+
+.location-section_report.location-chapter_project_detail {
+	.reportTable {
+		th, td {
+			width:auto !important;
+		}
+	}
+}
+
+/* portrait orientation for summary bizplan; don't let section headers separate from their content */
+
+.location-section_plan.location-chapter_summary_biz_plan {
+	page: orient_portrait;
+	.reportTable {
+		page-break-before: avoid;
+		page-break-inside: auto;
+		page-break-after:auto;
+		#goals, #progress {
+			page-break-inside: avoid;
+		}
+	}
+}
+
+
+
+/* worksheet report */
+
+.location-section_financials.location-chapter_detail_ws {
+	.reportWrapper .headerWrapper .tableRowHeaders td, 
+	.fullReportTable td{
+		&.rowLevel1 {
+			text-transform:uppercase;
+		}
+		&.rowLevel3 {
+			font-weight:400;
+		}
+		&.rowLevel4 {
+			font-weight:400;
+			font-style:italic;
+		}
+	}
+	.reportWrapper .headerWrapper .tableRowHeaders td,
+	.reportWrapper .headerWrapper .tableRowHeaders th,
+	.fullReportTable th,
+	.fullReportTable td {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+}
+
+/* PlayBook - landscape */
+
+.location-section_plan.location-chapter_playbook {
+	page: adjust_margin;
+	.section { page-break-before: always; }
+	h2, h4 { page-break-after: avoid; }
+
+	/* more important to split the table, than to split the heading from the table */
+	.reportTable {
+		page-break-inside: auto;
+		.emphasis {
+			font-style: italic;
+		}
+	}
+
+	.compress .reportTable {
+		tr th, tr td {
+			padding-top: 1px;
+			padding-bottom: 1px;
+		}
+		tfoot tr td {
+			padding-top: 3px;
+		}
+	}
+
+	#agendaReport .meeting li {
+	    line-height: 20px;
+	    padding-left: 32px;
+	    background-position: 0 2px;
+	    background-size: 15px 15px;
+	}
+
+	.section.titlepage {
+		page: title_page;
+		.company {
+			margin-top: 25%;
+			font-weight: 600;
+			font-size: 18px;
+		}
+		.title {
+			font-size: 60px;
+			color: #D37D02;
+		}
+		.date {
+			font-size: 16px;
+		}
+	}
+
+}
+
+
+/* style page headers and footers */
+@page {
+
+	@top-left {
+		content: string(reportName);
+		background:#D37D02;
+		font-weight:600;
+		color:#fff;
+		font-size:16px;
+		position:relative;
+		font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+		width:50%;
+		text-align:left;
+		padding:0 20px;
+		margin:45px 0;
+		border-bottom:5px solid #b76c01;
+	}
+	@top-right {
+		/* ie subcontext(pageNum) - see princePDF.handlebars - allows us to have variable content, or pagenum, in top-right 
+			ie. you need to change the element content with the .dynamicSubcontext on each page
+		*/
+		content: prince-script(subcontext, counter(dynamicSubcontext));
+		background:#D37D02;
+		font-weight:600;
+		color:#fff;
+		font-size:16px;
+		position:relative;
+		font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+		width:50%;
+		text-align:right;
+		padding:0 20px;
+		margin:45px 0;
+		border-bottom:5px solid #b76c01;
+	}
+	@bottom-left {
+		content: string(stratfile);
+		color:#333;
+		font-size:12px;
+		font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight:400;
+	}
+	@bottom-center {
+		content: prince-script(footer, string(company), counter(page));
+		color:#555;
+		font-size:12px;
+		font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 400;
+	}
+	@bottom-right {
+		content: string(date);
+		color:#333;
+		font-size:12px;
+		font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight:400;
+	}
+	size:8.5in 11in landscape;
+	prince-shrink-to-fit: auto;
+	margin: 3cm 2cm 2.5cm 2cm;
+}
+
+/* includes the adjust_margin fix for headers */
+@page orient_portrait {
+	size: 8.5in 11in portrait;
+	@top-left {
+		margin:32px 0;
+	}
+	@top-right {
+		margin:32px 0;
+	}	
+}
+
+/* fixes the header height problem */
+@page adjust_margin {
+	@top-left {
+		margin:32px 0;
+	}
+	@top-right {
+		margin:32px 0;
+	}
+}
+
+/* todo: think we need named pages, to give a title page only to the playbook */
+@page title_page { 	
+    @top-left { content: normal }
+    @top-right { content: normal }
+    @bottom-left { content: normal }
+    @bottom-center { content: normal }
+    @bottom-right { content: normal }
+}

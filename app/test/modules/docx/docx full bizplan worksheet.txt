@@ -1,0 +1,16 @@
+
+curl -X POST -H 'Cookie: JSESSIONID=tbujpwIaCReSxBBujLqULQ;Path=/' -d @docxfull.fields https://jstratpad.appspot.com/detailedbizplan > test.docx
+
+
+test6: works
+
+"image_cs" : ["<!DOCTYPE html><html><head><link rel="stylesheet" href="http://staging.stratpad.com/css/style.css" type="text/css" /><link rel="stylesheet" href="http://staging.stratpad.com/css/prince.css" type="text/css" /></head><body class=""><table id="gantt" class="reportTable"><tbody><tr><td>Hello</td></tr></tbody></table></body></html>"]
+
+"image_cs" : ["%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Clink%20rel%3D%22stylesheet%22%20href%3D%22http%3A%2F%2Fstaging.stratpad.com%2Fcss%2Fstyle.css%22%20type%3D%22text%2Fcss%22%20%2F%3E%3Clink%20rel%3D%22stylesheet%22%20href%3D%22http%3A%2F%2Fstaging.stratpad.com%2Fcss%2Fprince.css%22%20type%3D%22text%2Fcss%22%20%2F%3E%3C%2Fhead%3E%3Cbody%20class%3D%22%22%3E%3Ctable%20id%3D%22gantt%22%20class%3D%22reportTable%22%3E%3Ctbody%3E%3Ctr%3E%3Ctd%3EHello%3C%2Ftd%3E%3C%2Ftr%3E%3C%2Ftbody%3E%3C%2Ftable%3E%3C%2Fbody%3E%3C%2Fhtml%3E"]
+
+content={"report" : "Summary Business Plan", "company" : "Acme SoftwareTechnologies Ltd.","title" : "Get to Market!","lang" : "en","currency" : "$","text_a" : "Acme Software Technologies Ltd. is based in Seattle, WA, USA.","text_b" : "There are many organizations who would like to use DocLock.","image_cs" : ["%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Clink%20rel%3D%22stylesheet%22%20href%3D%22http%3A%2F%2Fstaging.stratpad.com%2Fcss%2Fstyle.css%22%20type%3D%22text%2Fcss%22%20%2F%3E%3Clink%20rel%3D%22stylesheet%22%20href%3D%22http%3A%2F%2Fstaging.stratpad.com%2Fcss%2Fprince.css%22%20type%3D%22text%2Fcss%22%20%2F%3E%3C%2Fhead%3E%3Cbody%20class%3D%22%22%3E%3Ctable%20id%3D%22gantt%22%20class%3D%22reportTable%22%3E%3Ctbody%3E%3Ctr%3E%3Ctd%3EHello%3C%2Ftd%3E%3C%2Ftr%3E%3C%2Ftbody%3E%3C%2Ftable%3E%3C%2Fbody%3E%3C%2Fhtml%3E"],"image_ds" : [],"image_es" : []}
+
+&filename=test.docx&inline=false&dateModified=123&content=%7B%22report%22%20%3A%20%22Summary%20Business%20Plan%22%2C%20%22company%22%20%3A%20%22Acme%20SoftwareTechnologies%20Ltd.%22%2C%22title%22%20%3A%20%22Get%20to%20Market!%22%2C%22lang%22%20%3A%20%22en%22%2C%22currency%22%20%3A%20%22%24%22%2C%22text_a%22%20%3A%20%22Acme%20Software%20Technologies%20Ltd.%20is%20based%20in%20Seattle%2C%20WA%2C%20USA.%22%2C%22text_b%22%20%3A%20%22There%20are%20many%20organizations%20who%20would%20like%20to%20use%20DocLock.%22%2C%22image_cs%22%20%3A%20%5B%22%253C!DOCTYPE%2520html%253E%253Chtml%253E%253Chead%253E%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522http%253A%252F%252Fstaging.stratpad.com%252Fcss%252Fstyle.css%2522%2520type%253D%2522text%252Fcss%2522%2520%252F%253E%253Clink%2520rel%253D%2522stylesheet%2522%2520href%253D%2522http%253A%252F%252Fstaging.stratpad.com%252Fcss%252Fprince.css%2522%2520type%253D%2522text%252Fcss%2522%2520%252F%253E%253C%252Fhead%253E%253Cbody%2520class%253D%2522%2522%253E%253Ctable%2520id%253D%2522gantt%2522%2520class%253D%2522reportTable%2522%253E%253Ctbody%253E%253Ctr%253E%253Ctd%253EHello%253C%252Ftd%253E%253C%252Ftr%253E%253C%252Ftbody%253E%253C%252Ftable%253E%253C%252Fbody%253E%253C%252Fhtml%253E%22%5D%2C%22image_ds%22%20%3A%20%5B%5D%2C%22image_es%22%20%3A%20%5B%5D%7D
+
+
+

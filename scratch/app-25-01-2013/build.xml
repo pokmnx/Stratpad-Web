@@ -1,0 +1,160 @@
+<project name="StratWeb" default="dist" basedir=".">
+
+  <target name="init">    
+    <echo message="---------------------------------------------------------------"/>  
+    <echo message="-----------         BUILDING STRATWEB PACKAGE         ---------"/>
+    <echo message=""/>
+    <property name="dist.home" value="${basedir}/dist" />
+    <property name="deploy.home" value="${basedir}/deploy" />
+    <property name="js" value="${basedir}/js" />
+    <property name="css" value="${basedir}/css" />
+    <property name="fonts" value="${basedir}/fonts" />
+    <property name="images" value="${basedir}/images" />
+    <property name="static" value="${basedir}/static" />    
+    <property name="templates" value="${basedir}/templates" />
+
+    <condition property="compass.exe" value="compass.exe">
+      <os family="windows" />
+    </condition>
+
+    <condition property="compass.exe" value="/usr/bin/compass">
+      <os family="unix" />
+    </condition>
+
+    <condition property="node.exe" value="node.exe">
+      <os family="windows" />
+    </condition>
+
+    <condition property="node.exe" value="/usr/local/bin/node">
+      <os family="unix" />
+    </condition>
+
+    <property name="deploy.host" value="stratpad.com"/>
+    <property name="deploy.host.username" value="stratpad"/>
+    <property name="deploy.host.dir" value="/home/stratpad/public_html/staging.stratpad.com"/>
+  </target>
+
+
+  <target name="clean" depends="init">
+    <echo message="------ Cleaning ..."/>
+    <delete dir="${dist.home}"/> 
+    <mkdir dir="${dist.home}"/> 
+  </target>
+
+
+  <target name="build.scss" depends="init">
+    <echo message="------ Compiling scss"/>
+    <delete dir="${css}"/> 
+    <mkdir dir="${css}"/> 
+
+    <exec dir="${basedir}" executable="${compass.exe}">
+      <arg line="compile"/>
+      <arg line="."/>
+      <arg line="--boring"/>
+    </exec>
+  </target>
+
+
+  <target name="build.handlebars" depends="init">
+    <echo message="------ Compiling handlebars templates"/>
+    <echo message="todo: compile handlebars"/>
+  </target>
+
+
+  <target name="optimize" depends="build.all">
+    <!-- 
+      node r.js -o name=main out=main-built.js baseUrl=js mainConfigFile=js/main.js 
+      - the only other js files required once this is built are text.js and require.js, thus use minimized versions of those
+      - everything else is the same
+    -->
+    <delete dir="${dist.home}/js" />
+    <mkdir dir="${dist.home}/js" />
+
+    <copy file="${js}/lib/require/require-min.js" tofile="${dist.home}/js/lib/require/require.js"/>
+    <copy file="${js}/text-min.js" tofile="${dist.home}/js/text.js"/>
+
+    <exec dir="${basedir}" executable="${node.exe}">
+      <arg line="r.js"/>
+      <arg line="-o"/>
+      <arg line="name=main"/>
+      <arg line="out=${dist.home}/js/main.js"/>
+      <arg line="baseUrl=js"/>
+      <arg line="mainConfigFile=js/main.js"/>
+    </exec>    
+  </target>
+
+
+  <target name="build.all" depends="build.scss,build.handlebars">
+  </target>
+
+
+  <target name="dist" depends="build.all">
+    <mkdir dir="${dist.home}" />
+    <copy todir="${dist.home}">
+      <fileset dir="${basedir}" includes="js/**"/>
+      <fileset dir="${basedir}" includes="css/**"/>
+      <fileset dir="${basedir}" includes="fonts/**"/>
+      <fileset dir="${basedir}" includes="images/**"/>
+      <fileset dir="${basedir}" includes="static/**"/>
+      <fileset dir="${basedir}" includes="index.html"/>
+      <!-- <fileset dir="${basedir}" includes="templates/**"/> -->
+    </copy>
+  </target>
+
+
+  <target name="deploy" depends="clean,dist,optimize">
+    <!-- 
+
+      You'll need to download and install jsch-0.1.49.jar from http://www.jcraft.com/jsch/index.html to run this task.
+      It goes in the $ANT_HOME/lib - it should be picked up automatically (may need to install latest version of ant).
+      You also need to supply password on the commandline eg. ant deploy -Dpassword=*** 
+    
+    -->
+
+    <delete dir="${deploy.home}"/> 
+    <mkdir dir="${deploy.home}"/> 
+
+    <echo message="Zipping StratWeb"/>
+    <zip destfile="${deploy.home}/stratweb.zip" basedir="${dist.home}" />
+
+    <echo message="Sending zip to staging.stratpad.com (overwriting)"/>
+    <scp file="${deploy.home}/stratweb.zip" todir="${deploy.host.username}:${password}@${deploy.host}:${deploy.host.dir}"/>
+
+    <echo message="Expanding zip"/>
+    <sshexec 
+      trust="true" 
+      host="${deploy.host}" 
+      username="${deploy.host.username}" 
+      password="${password}" 
+      command="cd ${deploy.host.dir}; rm -rf js css fonts images static; unzip -o ${deploy.host.dir}/stratweb.zip" />
+  </target>
+
+
+  <target name="deploy-partial" depends="clean,dist,optimize">
+    <!-- 
+
+      You'll need to download and install jsch-0.1.49.jar from http://www.jcraft.com/jsch/index.html to run this task.
+      It goes in the $ANT_HOME/lib - it should be picked up automatically (may need to install latest version of ant).
+      You also need to supply password on the commandline eg. ant deploy -Dpassword=*** 
+    
+    -->
+
+    <delete dir="${deploy.home}"/> 
+    <mkdir dir="${deploy.home}"/> 
+
+    <echo message="Zipping StratWeb"/>
+    <zip destfile="${deploy.home}/stratweb.zip" basedir="${dist.home}" excludes="images/**, fonts/**"/>
+
+    <echo message="Sending zip to staging.stratpad.com (overwriting)"/>
+    <scp file="${deploy.home}/stratweb.zip" todir="${deploy.host.username}:${password}@${deploy.host}:${deploy.host.dir}"/>
+
+    <echo message="Expanding zip"/>
+    <sshexec 
+      trust="true" 
+      host="${deploy.host}" 
+      username="${deploy.host.username}" 
+      password="${password}" 
+      command="cd ${deploy.host.dir}; rm -rf js css static; unzip -o ${deploy.host.dir}/stratweb.zip" />
+  </target>  
+  
+</project>

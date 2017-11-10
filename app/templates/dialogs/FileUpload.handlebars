@@ -1,0 +1,24 @@
+<div id="fileUploadDialog">
+  <a href="#" class="icon-ui-file-plus button" id="upload">
+    <span>
+      <b>{{importDialog_btn_select_files}}</b>
+    </span>
+  </a>
+
+  {{!-- nb. can simply add multiple attr; 
+        make sure this fully covers the anchor (abs pos), which has no click handler 
+        this input has opacity:0 to hide it and let the above button show through
+        it still takes the click, however
+        --}}
+  <input id="fileupload" type="file" name="files[]" />
+
+  <div id="overwrite">
+  <label><input name="overwrite" type="radio" value="replace" />{{importDialog_lbl_overwrite_replace}}</label>
+  <label><input name="overwrite" type="radio" value="keepboth" />{{importDialog_lbl_overwrite_keepboth}}</label>
+  </div>
+
+  <!-- The global progress bar -->
+  <div class="progressBar">
+    <div></div>
+  </div>
+</div>
